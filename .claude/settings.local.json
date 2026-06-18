@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(watch)",
+      "Skill(watch:*)",
+      "PowerShell(git -C \"C:\\\\git-practice\\\\Claude_code\\\\Allerlei\" add video-summary-TP73qyFWDcY.md)",
+      "PowerShell(git -C \"C:\\\\git-practice\\\\Claude_code\\\\Allerlei\" commit -m \"Add video summary: Type This Into Claude, It'll Make You Build 10x Faster\")"
+    ]
+  }
+}

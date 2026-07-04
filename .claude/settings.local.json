@@ -4,7 +4,9 @@
       "Skill(watch)",
       "Skill(watch:*)",
       "PowerShell(git -C \"C:\\\\git-practice\\\\Claude_code\\\\Allerlei\" add video-summary-TP73qyFWDcY.md)",
-      "PowerShell(git -C \"C:\\\\git-practice\\\\Claude_code\\\\Allerlei\" commit -m \"Add video summary: Type This Into Claude, It'll Make You Build 10x Faster\")"
+      "PowerShell(git -C \"C:\\\\git-practice\\\\Claude_code\\\\Allerlei\" commit -m \"Add video summary: Type This Into Claude, It'll Make You Build 10x Faster\")",
+      "Bash(ls \"C:\\\\Users\\\\Andi\\\\AppData\\\\Local\\\\Temp\\\\watch-3qk84eh9\\\\frames\" | wc -l; ls \"C:\\\\Users\\\\Andi\\\\AppData\\\\Local\\\\Temp\\\\watch-3qk84eh9\\\\frames\" | head -5)",
+      "Read(//c/Users/Andi/AppData/Local/Temp/watch-3qk84eh9/frames/**)"
     ]
   }
 }

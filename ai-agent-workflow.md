@@ -1,8 +1,8 @@
-# KI-Agent-Workflow — destilliert aus Peter Steinbergers Build-Talk
+# KI-Agent-Workflow — destilliert aus Peter Steinbergers Build-Talk, Boris Chernys eigenem Workflow und dem Loops-Konzept
 
-Quelle: [video-summary-TP73qyFWDcY.md](video-summary-TP73qyFWDcY.md) ("1,3 Mio. $ in 30 Tagen: So sieht KI Coding ohne Limits aus")
+Quellen: [video-summary-TP73qyFWDcY.md](video-summary-TP73qyFWDcY.md) ("1,3 Mio. $ in 30 Tagen: So sieht KI Coding ohne Limits aus"), [video-summary-KWrsLqnB6vA.md](video-summary-KWrsLqnB6vA.md) ("How Claude Code's Creator Starts EVERY Project"), [video-summary-HASGvvp1M3E.md](video-summary-HASGvvp1M3E.md) ("LOOPS statt PROMPTS?")
 
-Zugeschnitten auf Solo-Entwicklung mit Claude Code — nur die Prozesse, die sich direkt umsetzen lassen.
+Zugeschnitten auf Solo-Entwicklung mit Claude Code — nur die Prozesse, die sich direkt umsetzen lassen. Die Punkte 1-5 stammen aus Steinbergers Talk, 6-8 ergänzen Boris Chernys (Claude-Code-Erfinder) eigenen Workflow und das "Loops statt Prompts"-Konzept — beide decken sich stark mit Punkt 1 (Closing the Loop) und 3 (vision.md), weshalb sie hier ergänzt statt als eigene Datei angelegt wurden. Siehe auch [karpathy-claude-md-guidelines.md](karpathy-claude-md-guidelines.md) für eine weitere, unabhängig entstandene Umsetzung derselben Grundidee als copy-paste-fähige CLAUDE.md.
 
 ## 1. Closing the Loop — Agent erst melden lassen, wenn er selbst verifiziert hat
 
@@ -46,7 +46,35 @@ Vieles an internen Tools/Skripten ist nicht geschäftskritisch → bewusst "vibe
 **Umsetzung:**
 - Bei persönlichen Tools/Automatisierungen (nicht bei production-facing Code) Review-Tiefe bewusst reduzieren — Zeit sparen für die Dinge, die wirklich Fehler kosten dürfen
 
+## 6. Plan Mode als Standardeinstieg (Boris Cherny)
+
+Boris startet ca. 80% seiner Sessions im Plan Mode, statt sofort bauen zu lassen — "move slow to move fast".
+
+**Umsetzung:**
+
+- Vor größeren Aufgaben Plan Mode nutzen (zweimal Shift+Tab) statt direkt drauflos zu prompten
+- Prompt-Vorlage: *"Before we start building, interview me about this. What are the core problems this solves? Who is this for? What does success look like? And what should this not do? Summarize it back to me before we write any code."*
+
+## 7. CLAUDE.md schlank halten statt endlos anreichern
+
+Boris' eigene CLAUDE.md ist laut ihm nur wenige tausend Tokens lang. Statt immer mehr Regeln anzuhäufen, bei Bloat eher zurückschneiden — Modelle werden von Version zu Version besser, viele alte Regeln werden überflüssig und zu viele Anweisungen verwirren eher als sie helfen.
+
+**Umsetzung:**
+
+- Gelegentlich prüfen/aufräumen lassen: *"Update my CLAUDE.md to remove anything that's no longer needed, contradictory, duplicate information, or unnecessary bloat impacting effectiveness."*
+
+## 8. Von Prompts zu Loops/Goals
+
+Statt eines Hin-und-Her (Prompt → warten → nachbessern) ein Goal formulieren, das der Agent autonom bis zur Erfüllung verfolgt (Claude Code: `Schedule`; ähnliches Konzept bei Codex: `Automations`).
+
+**Umsetzung:**
+
+- Goals kurz, konkret und messbar formulieren (Gegenbeispiel aus dem Video: "Baue mir meine Website neu" lief 20 Stunden autonom, Ergebnis passte am Ende trotzdem nicht — große Ziele in überprüfbare Teilziele zerlegen)
+- Gut geeignet für klar abgrenzbare Listenaufgaben (offene PRs/Bugs abarbeiten, Inbox aufräumen), nicht für vage Wünsche
+- Judgment/Taste bleiben menschlich: entweder klare Erfolgskriterien vorgeben oder die Bewertung explizit einem zweiten LLM als "Judge" übergeben
+
 ## Bewusst nicht übernommen
 
 - **ClawSweeper/Crabbox als Cloud-Infrastruktur** — macht nur bei Projekten mit hohem Issue-/Test-Volumen Sinn (35k+ Issues, große Testsuiten), nicht für Solo-Projekte in diesem Maßstab
 - **Token-Maxing-Mentalität** — laut Video wird Token-Sparsamkeit zunehmend wichtiger; Ankündigung eines Folgevideos zu Prompt Caching — bei Gelegenheit gegenchecken, ob das neue Erkenntnisse für den eigenen Workflow bringt
+- **Radikales Löschen der ganzen CLAUDE.md bei Bloat (Boris' eigene Praxis)** — der vorsichtigere Mittelweg (gezielt aufräumen lassen statt komplett neu anfangen) passt besser zu bestehenden, bereits funktionierenden Projekt-Setups

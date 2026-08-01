@@ -49,7 +49,10 @@
       "WebFetch(domain:artificialanalysis.ai)",
       "WebFetch(domain:benchlm.ai)",
       "Bash(git -C \"c:/Claude/Allerlei\" diff .claude/settings.json)",
-      "Bash(git -C c:/Claude/Allerlei add .claude/settings.json .claude/skills/ claude-oekosystem-ueberblick.md claude-skills-ueberblick.md mcp-ueberblick.md notes-audit-report.md whisper-replicate-rate-limit.md claude-skills/watch/scripts/watch.py claude-skills/watch/scripts/whisper.py video-summaries/)"
+      "Bash(git -C c:/Claude/Allerlei add .claude/settings.json .claude/skills/ claude-oekosystem-ueberblick.md claude-skills-ueberblick.md mcp-ueberblick.md notes-audit-report.md whisper-replicate-rate-limit.md claude-skills/watch/scripts/watch.py claude-skills/watch/scripts/whisper.py video-summaries/)",
+      "Bash(git -C c:/Claude/Allerlei commit -m ' *)",
+      "Bash(git -C \"c:/Claude/Allerlei\" add .claude/settings.json)",
+      "Bash(git -C \"c:/Claude/Allerlei\" push)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Admin\\AppData\\Local\\Temp\\watch-zrljft6y",

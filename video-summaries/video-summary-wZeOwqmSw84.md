@@ -38,7 +38,7 @@ Die meisten Nutzer schöpfen Claude nur als simple Suchmaschine aus, obwohl es e
 Claude, Produktivitäts-Hacks, Agentic Coding, Automatisierung, Connectors, Business-Tools
 
 ## Zu prüfen (falls zutreffend)
-- Genaue Modellnamen "Opus 4.7"/"Sonnet 4.6"/"Haiku 4.5" im Video — mit aktuellem Lineup abgleichen
+- Genaue Modellnamen "Opus 4.7"/"Sonnet 4.6"/"Haiku 4.5" im Video — mit aktuellem Lineup abgleichen. **Cross-Check (Notes-Audit 2026-08-01):** Drei unabhängige Quellen ([video-summary-B_OqkMRFonM.md](video-summary-B_OqkMRFonM.md), [video-summary-WVHfDaawIRk.md](video-summary-WVHfDaawIRk.md), [fable-5-modell-sperre.md](../fable-5-modell-sperre.md)) nennen übereinstimmend "Opus 4.8" statt "4.7" — spricht für einen veralteten/falschen Wert hier.
 - Existenz und Funktionsweise von "Cowork" und "Claude Dispatch" als separate Apps
 - Existenz von "Claude Design" unter claude.ai/design sowie Adobe-Partnerschaft
 - Funktionsweise/Existenz von "Claude Channels" für iMessage/Telegram/Discord

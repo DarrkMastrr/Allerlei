@@ -7,6 +7,8 @@
 
 ---
 
+*Siehe auch: [mcp-ueberblick.md](../mcp-ueberblick.md) für das allgemeine MCP-Konzept über dieses Video hinaus.*
+
 ## Was ist MCP und warum ist es relevant für Home Assistant?
 Home Assistant hat eine API, über die normalerweise Apps zugreifen. Das Model Context Protocol (MCP) setzt sich dazwischen und öffnet diese API strukturiert für KI-Modelle — nicht nur lesend, sondern auch schreibend/erstellend.
 

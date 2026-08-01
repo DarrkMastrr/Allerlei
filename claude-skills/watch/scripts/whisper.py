@@ -13,6 +13,7 @@ from __future__ import annotations
 import base64
 import io
 import json
+import math
 import mimetypes
 import os
 import shutil
@@ -34,6 +35,12 @@ OPENAI_MODEL = "whisper-1"
 
 REPLICATE_MODEL_URL = "https://api.replicate.com/v1/models/openai/whisper"
 REPLICATE_PREDICTIONS_URL = "https://api.replicate.com/v1/predictions"
+
+# _poll_replicate() gives up after 6 minutes regardless of whether the
+# prediction would eventually finish. Long videos (~15+ min) can exceed that
+# processing time, so Replicate audio is split into chunks safely under the
+# cap and transcribed one at a time instead of as a single call.
+REPLICATE_CHUNK_SECONDS = 330
 
 
 def load_api_key(preferred: str | None = None) -> tuple[str, str] | tuple[None, None]:
@@ -361,6 +368,79 @@ def _replicate_whisper(api_key: str, audio_path: Path) -> dict:
     return output if isinstance(output, dict) else {"text": str(output)}
 
 
+def _probe_duration(path: Path) -> float:
+    """Return media duration in seconds via ffprobe."""
+    if shutil.which("ffprobe") is None:
+        raise SystemExit("ffprobe is not installed. Install with: brew install ffmpeg")
+    cmd = [
+        "ffprobe", "-v", "error",
+        "-show_entries", "format=duration",
+        "-of", "default=noprint_wrappers=1:nokey=1",
+        str(path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0 or not result.stdout.strip():
+        raise SystemExit(f"ffprobe failed to read duration: {result.stderr.strip()}")
+    return float(result.stdout.strip())
+
+
+def _cut_audio_chunk(audio_path: Path, start: float, length: float, chunk_path: Path) -> None:
+    """Stream-copy a slice of `audio_path` into `chunk_path` — no re-encoding."""
+    cmd = [
+        "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+        "-ss", str(start), "-i", str(audio_path),
+        "-t", str(length), "-c", "copy", str(chunk_path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        raise SystemExit(f"ffmpeg audio chunking failed: {result.stderr.strip()}")
+
+
+def _replicate_whisper_chunked(api_key: str, audio_path: Path) -> list[dict]:
+    """Transcribe audio via Replicate, splitting long audio into chunks so no
+    single prediction risks _poll_replicate()'s fixed 6-minute cap.
+    """
+    duration = _probe_duration(audio_path)
+    if duration <= REPLICATE_CHUNK_SECONDS:
+        return _segments_from_response(_replicate_whisper(api_key, audio_path))
+
+    chunk_count = math.ceil(duration / REPLICATE_CHUNK_SECONDS)
+    print(
+        f"[watch] audio is {duration:.0f}s — splitting into {chunk_count} chunks of "
+        f"~{REPLICATE_CHUNK_SECONDS}s so Replicate doesn't hit its 6-minute cap…",
+        file=sys.stderr,
+    )
+
+    all_segments: list[dict] = []
+    start = 0.0
+    idx = 0
+    while start < duration:
+        chunk_len = min(REPLICATE_CHUNK_SECONDS, duration - start)
+        chunk_path = audio_path.with_name(f"{audio_path.stem}.chunk{idx:02d}{audio_path.suffix}")
+        _cut_audio_chunk(audio_path, start, chunk_len, chunk_path)
+
+        print(
+            f"[watch] replicate chunk {idx + 1}/{chunk_count} "
+            f"({start:.0f}s–{start + chunk_len:.0f}s)…",
+            file=sys.stderr,
+        )
+        try:
+            response = _replicate_whisper(api_key, chunk_path)
+            for seg in _segments_from_response(response):
+                all_segments.append({
+                    "start": round(seg["start"] + start, 2),
+                    "end": round(seg["end"] + start, 2),
+                    "text": seg["text"],
+                })
+        finally:
+            chunk_path.unlink(missing_ok=True)
+
+        start += chunk_len
+        idx += 1
+
+    return all_segments
+
+
 def transcribe_video(
     video_path: str,
     audio_out: Path,
@@ -391,14 +471,15 @@ def transcribe_video(
 
     if backend == "groq":
         response = _post_whisper(GROQ_ENDPOINT, api_key, GROQ_MODEL, audio_path)
+        segments = _segments_from_response(response)
     elif backend == "openai":
         response = _post_whisper(OPENAI_ENDPOINT, api_key, OPENAI_MODEL, audio_path)
+        segments = _segments_from_response(response)
     elif backend == "replicate":
-        response = _replicate_whisper(api_key, audio_path)
+        segments = _replicate_whisper_chunked(api_key, audio_path)
     else:
         raise SystemExit(f"Unknown whisper backend: {backend}")
 
-    segments = _segments_from_response(response)
     if not segments:
         raise SystemExit("Whisper returned no transcript segments")
 

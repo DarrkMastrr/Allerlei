@@ -29,3 +29,16 @@ Zusätzlich beobachtet: Bei einigen Videos scheiterte parallel auch der **native
 - Um das zu beheben: Guthaben auf dem Replicate-Account auf mindestens 5 $ aufladen (behebt die Sperre direkt), oder
 - einen `GROQ_API_KEY` hinterlegen (Groq hat laut `SKILL.md` ein großzügigeres kostenloses Kontingent und wird vom Skill ohnehin bevorzugt, wenn beide Keys vorhanden sind) — dann greift der Replicate-Fallback gar nicht erst.
 - Der Skill selbst degradiert bereits automatisch auf frames-only, wenn Whisper nach 2 Rate-Limit-Versuchen weiter fehlschlägt (`MAX_429_RETRIES = 2` in `whisper.py:152`) — kein Bug, sondern beabsichtigtes Verhalten.
+
+## Zweite, unabhängige Fehlerursache: festes 6-Minuten-Verarbeitungs-Timeout (2026-08-01)
+
+Nach Aufladen des Replicate-Guthabens auf über 5 $ trat bei [video-summary-889tcWGEnP0.md](video-summary-889tcWGEnP0.md) (34 Min. Länge) ein **anderer** Fehler auf derselben Stelle auf: `"Replicate prediction timed out after 6 minutes"`. Das ist kein Kontostand-Problem mehr, sondern ein hartes, im Code fixes Timeout — `_poll_replicate()` in `whisper.py:291` bricht nach 72 Poll-Versuchen à 5 s (= 6 Minuten) ab, unabhängig davon, ob Replicate die Transkription noch fertigstellen würde. Bei langen Videos (~30+ Min., ~16 MB Audio) kann die tatsächliche Verarbeitungszeit auf Replicate diese 6 Minuten überschreiten. Es gibt keinen CLI-Flag im Skill, um dieses Timeout zu verlängern.
+
+**Funktionierender Workaround — Video in Häppchen zerlegen statt am Stück transkribieren:**
+
+1. Video einmal komplett per `yt-dlp` herunterladen (gleicher Befehl wie in `download.py`)
+2. Mit `ffmpeg -ss <start> -t <dauer> -c copy` in ca. 6-Minuten-Segmente schneiden (verlustfreier Stream-Copy, kein Neu-Encoding)
+3. Für jedes Segment `whisper.transcribe_video()` einzeln aufrufen (Backend `replicate` erzwingen) — jedes Segment bleibt so deutlich unter dem 6-Minuten-Cap
+4. Die zurückgegebenen Segment-Timestamps um den jeweiligen Chunk-Start versetzen und alle Chunks zu einem durchgehenden Transkript zusammenführen
+
+Bei [889tcWGEnP0.md](video-summary-889tcWGEnP0.md) funktionierte das zuverlässig: 6 Chunks à ca. 5:43 Min., alle erfolgreich transkribiert, 469 Segmente insgesamt. Faustregel für zukünftige Videos: alles über ca. 15-20 Minuten Länge vorsorglich in ~6-Minuten-Häppchen zerlegen, statt erst den Direktversuch abzuwarten.

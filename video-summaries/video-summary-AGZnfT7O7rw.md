@@ -58,4 +58,4 @@ Vibe Coding, Security-Workflow, KI-Agenten, Agentic Coding, Codex, Claude Code, 
 - Aussage, dass KI-Agenten laut Nicolas Carlini bereits besser Sicherheitslücken finden können als er selbst
 - Konkrete Demo-Ergebnisse (Zeitangaben, Bug-Zahlen) — projektspezifisches Einzelbeispiel
 - Existenz und genaue Konditionen von OpenAIs "Trusted Access for Cyber"-Programm
-- Zuordnung "Peekaboo CLI" zu Peter Steinberger (Transkript evtl. fehlerhaft)
+- Zuordnung "Peekaboo CLI" zu Peter Steinberger (Transkript evtl. fehlerhaft). **Cross-Check (Notes-Audit 2026-08-01):** [ai-agent-workflow.md](../ai-agent-workflow.md), unabhängig aus Steinbergers eigenem Talk destilliert, listet seine Tools als ClawSweeper/Crabbox/GOG CLI und erwähnt Peekaboo CLI nicht — stützt den Verdacht auf einen Transkriptionsfehler, löst ihn aber nicht abschließend auf.

@@ -7,6 +7,8 @@
 
 ---
 
+*Siehe auch: [claude-skills-ueberblick.md](../claude-skills-ueberblick.md) für das allgemeine Skill-Konzept über dieses Video hinaus.*
+
 ## Einleitung: Was sind Claude Skills?
 
 Die Autorin erklärt zunächst das Grundprinzip: Claude Skills sind wiederverwendbare Arbeitsanweisungen, technisch im Kern Markdown-Dateien, die festlegen, was Claude tun soll, welche Schritte es befolgen muss und wie das Ergebnis aufgebaut sein soll. Statt in jedem Chat dieselben Anweisungen zu wiederholen, ruft man einmal den passenden Skill auf. Erstellt werden die Skills über den offiziellen `/skill-creator` von Anthropic, der per Rückfragen durch den Erstellungsprozess führt.

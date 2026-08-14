@@ -81,7 +81,7 @@ Optional flags:
 - `--resolution W` — change frame width in px (default 512; bump to 1024 only if the user needs to read on-screen text)
 - `--fps F` — override auto-fps (clamped to 2 fps max)
 - `--out-dir DIR` — keep working files somewhere specific (default: an auto-generated tmp dir)
-- `--whisper groq|openai` — force a specific Whisper backend (default: prefer Groq if both keys exist)
+- `--whisper groq|replicate|openai` — force a specific Whisper backend (default: prefer Groq, then Replicate, then OpenAI — whichever key is found first)
 - `--no-whisper` — disable the Whisper fallback entirely (frames-only if no captions)
 
 ### Focusing on a section (higher frame rate)
@@ -117,7 +117,7 @@ python3 "${CLAUDE_SKILL_DIR}/scripts/watch.py" "$URL" --start 1:12:00
 
 **Step 4 — answer the user.** You now have two streams of evidence:
 - **Frames** — what's on screen at each timestamp
-- **Transcript** — what's said at each timestamp. The report's header shows the source (`captions` = yt-dlp pulled native subs; `whisper (groq)` or `whisper (openai)` = transcribed by API).
+- **Transcript** — what's said at each timestamp. The report's header shows the source (`captions` = yt-dlp pulled native subs; `whisper (groq)`, `whisper (replicate)`, or `whisper (openai)` = transcribed by API).
 
 If the user asked a specific question, answer it directly citing timestamps. If they didn't ask anything, summarize what happens in the video — structure, key moments, notable visuals, spoken content.
 
@@ -128,11 +128,14 @@ If the user asked a specific question, answer it directly citing timestamps. If 
 The script gets a timestamped transcript in one of two ways:
 
 1. **Native captions (free, preferred).** yt-dlp pulls manual or auto-generated subtitles from the source platform if available.
-2. **Whisper API fallback.** If no captions came back (or the source is a local file), the script extracts audio (`ffmpeg -vn -ac 1 -ar 16000 -b:a 64k`, ~0.5 MB/min) and uploads it to whichever Whisper API has a key configured:
+2. **Whisper API fallback.** If no captions came back (or the source is a local file), the script extracts audio (`ffmpeg -vn -ac 1 -ar 16000 -b:a 64k`, ~0.5 MB/min) and uploads it to whichever Whisper backend has a key configured:
    - **Groq** — `whisper-large-v3`. Preferred default: cheaper, faster. Get a key at console.groq.com/keys.
-   - **OpenAI** — `whisper-1`. Fallback. Get a key at platform.openai.com/api-keys.
+   - **Replicate** — `openai/whisper` (large-v3). Second choice. Get a token at replicate.com/account/api-tokens.
+   - **OpenAI** — `whisper-1`. Last fallback. Get a key at platform.openai.com/api-keys.
 
-Both keys live in `~/.config/watch/.env`. The script prefers Groq when both are set; override with `--whisper openai` to force OpenAI. Use `--no-whisper` to skip the fallback entirely.
+All keys live in `~/.config/watch/.env`. The script tries Groq, then Replicate, then OpenAI — whichever key is found first; override with `--whisper replicate` or `--whisper openai` to force a specific one. Use `--no-whisper` to skip the fallback entirely.
+
+**Replicate-specific: automatic chunking.** Replicate's prediction polling gives up after a fixed 6 minutes regardless of whether the job would eventually finish — long audio can exceed that processing time even though the video itself downloads and extracts fine. To avoid this, any audio over 330s is automatically split into ~330s chunks (stream-copied with `ffmpeg -ss/-t -c copy`, no re-encoding), transcribed one chunk at a time, then merged with timestamps offset back into the original timeline. This happens transparently — you'll see `[watch] audio is ...s — splitting into N chunks...` on stderr, but no flags or intervention are needed even for 60-75 minute videos. There is no equivalent cap on Groq or OpenAI.
 
 ## Failure modes and handling
 
@@ -140,7 +143,9 @@ Both keys live in `~/.config/watch/.env`. The script prefers Groq when both are 
 - **No transcript available** → captions missing AND (no Whisper key OR Whisper API failed). Script prints a hint pointing to setup. Proceed frames-only and tell the user.
 - **Long video warning printed** → acknowledge it in your answer. Offer to re-run focused on a specific section via `--start`/`--end` rather than a sparse full-video scan.
 - **Download fails** → yt-dlp's error goes to stderr. If it's a login-required or region-locked video, tell the user plainly; do not keep retrying.
-- **Whisper request fails** → the error is printed to stderr (likely: invalid key, rate limit, or 25 MB upload limit on a very long video). The report will say "none available" for transcript. You can retry with `--whisper openai` if Groq failed (or vice versa).
+- **YouTube bot-check ("Sign in to confirm you're not a bot")** → seen intermittently on some networks/IPs even for public videos. Fix: add `--force-ipv4` to yt-dlp's global config (`~/.config/yt-dlp/config` on macOS/Linux, `%APPDATA%\yt-dlp\config.txt` on Windows) and make sure yt-dlp itself is up to date (`yt-dlp -U` / `pip install -U yt-dlp`) — this is a machine-level fix, not something to redo per video.
+- **Whisper request fails** → the error is printed to stderr (likely: invalid key, rate limit, or 25 MB upload limit on a very long video for Groq/OpenAI — Replicate has no such size cap since it chunks). The report will say "none available" for transcript. You can retry with a different `--whisper` backend if the preferred one failed.
+- **Replicate times out after 6 minutes despite chunking** → means a single chunk itself is stuck (network issue, Replicate outage), not a duration problem — the chunking already keeps every individual prediction well under the cap. Retry, or fall back to `--whisper groq`/`--whisper openai` if a key is available.
 
 ## Token efficiency
 
@@ -157,14 +162,15 @@ If you already watched a video this session and the user asks a follow-up, do **
 - Runs `yt-dlp` locally to download the video and pull native captions when the source supports them (public data; the request goes directly to whatever host the URL points at)
 - Runs `ffmpeg` / `ffprobe` locally to extract frames as JPEGs and, when Whisper is needed, a mono 16 kHz audio clip
 - Sends the extracted audio clip to Groq's Whisper API (`api.groq.com/openai/v1/audio/transcriptions`) when `GROQ_API_KEY` is set (preferred — cheaper, faster)
-- Sends the extracted audio clip to OpenAI's audio transcription API (`api.openai.com/v1/audio/transcriptions`) when `OPENAI_API_KEY` is set and Groq is not, or when `--whisper openai` is forced
+- Sends the extracted audio clip (chunked into ~330s pieces first if longer) to Replicate's `openai/whisper` model (`api.replicate.com`) when `REPLICATE_API_TOKEN` is set and Groq is not, or when `--whisper replicate` is forced
+- Sends the extracted audio clip to OpenAI's audio transcription API (`api.openai.com/v1/audio/transcriptions`) when `OPENAI_API_KEY` is set and neither Groq nor Replicate is, or when `--whisper openai` is forced
 - Writes the downloaded video, frames, audio, and an intermediate transcript to a working directory under the system temp dir (or `--out-dir` if specified) so Claude can `Read` them
 - Reads / creates `~/.config/watch/.env` (mode `0600`) to store the Whisper API key(s) and a `SETUP_COMPLETE` marker. As a fallback, also reads `.env` in the current working directory
 
 **What this skill does NOT do:**
 - Does not upload the video itself to any API — only the extracted audio goes out, and only when native captions are missing AND Whisper is not disabled with `--no-whisper`
 - Does not access any platform account (no login, no session cookies, no posting)
-- Does not share API keys between providers (Groq key only goes to `api.groq.com`, OpenAI key only goes to `api.openai.com`)
+- Does not share API keys between providers (Groq key only goes to `api.groq.com`, Replicate key only to `api.replicate.com`, OpenAI key only to `api.openai.com`)
 - Does not log, cache, or write API keys to stdout, stderr, or output files
 - Does not persist anything outside the working directory and `~/.config/watch/.env` — clean up the working directory when you're done (Step 5)
 

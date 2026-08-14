@@ -1,0 +1,47 @@
+# "Claude Code Just Changed Forever (6 NEW Rules by Anthropic Engineers)"
+
+**Kanal:** Jay E | RoboNuggets
+**URL:** https://www.youtube.com/watch?v=gQeRjkb_Hlc
+**Länge:** 24:01
+**Zusammenfassung erstellt:** 2026-08-08
+
+---
+
+*Siehe auch: [ai-agent-workflow.md](../ai-agent-workflow.md) (Punkt 7: "CLAUDE.md schlank halten" von Boris Cherny) und [claude-skills-ueberblick.md](../claude-skills-ueberblick.md) (Progressive-Disclosure-Konzept bereits für Skill-Auswahl dokumentiert) — beide überschneiden sich mit Teilen dieses Videos, siehe "Zu prüfen".*
+
+## Ausgangspunkt: ein X-Artikel von Thariq Shihipar (Anthropic)
+
+Host Jay (RoboNuggets) bezieht sich im gesamten Video auf einen X/Twitter-Artikel mit dem Titel **"The New Rules of Context Engineering for Claude 5 models"**, laut eingeblendetem Frame zum Zeitpunkt der Aufnahme mit 4,3 Mio. Aufrufen. Autor ist laut sichtbarem X-Profil **Thariq Shihipar** (Handle @tsp212, blauer Haken), dessen Bio im Frame "Claude Code at Anthropic, prev YC W20, @southparkcommons, @medialabmit" zeigt. Im Untertitel-Transkript wird der Name durchgehend falsch verschriftet ("Tarek"/"Tariq"/"Tarikin"/"Thrivec") — die Frames zeigen den korrekten Namen und Handle eindeutig.
+
+Kernzahl aus dem zitierten Artikel: Anthropic hat für Claude Opus 5 und Claude Fable 5 **über 80 % des Claude-Code-Systemprompts entfernt**, ohne messbaren Leistungsverlust bei Coding-Evaluationen — als Beleg dafür, dass die neuen Modelle deutlich weniger explizite Führung brauchen als frühere Generationen.
+
+## Die sechs Regeln (Then → Now, wörtlich aus den Artikel-Screenshots im Video)
+
+1. **Von Regeln zu Urteilsvermögen** ("Give Claude rules" → "Let Claude use judgement"): Frühere Systemprompts enthielten sehr enge Vorgaben (z. B. "keine Kommentare schreiben", "keine mehrzeiligen Docstrings"), weil die Modelle Aufsicht gegen Worst-Case-Szenarien (z. B. Dateien löschen) brauchten. Der neue Systemprompt sagt stattdessen nur noch sinngemäß: "Schreibe Code, der zum umgebenden Code passt — Kommentardichte, Namensgebung und Idiome spiegeln." Praxisbeispiel des Hosts: ein eigener "Surprise me"-Skill, der Claude bewusst kreative Freiheit für Frontend-Designs lässt.
+2. **Von Beispielen zu Design-Interfaces** ("Give Claude examples" → "Design interfaces"): Beispiele für Tool-Nutzung schränken laut Artikel den "Exploration Space" der neuen Modelle eher ein. Screenshot zeigt eine Vorher/Nachher-Gegenüberstellung des `TodoWrite`-Tools: vorher ~9.100 Zeichen mit vielen ausformulierten Beispielen, nachher ein knappes, strukturiertes Interface ("Create and update a task list for the current session", "only one task in_progress at a time"). Praxisbeispiel des Hosts: ein eigenes `/robo`-Skill mit `brandbook.html` als Design-System statt Einzelbeispielen.
+3. **Von "alles vorab" zu Progressive Disclosure** ("Put it all upfront" → "Use progressive disclosure"): Detailwissen (z. B. Code-Review-Verifikation) wurde früher komplett in den Systemprompt gepackt; heute wird es in eigene, selektiv aufrufbare Skills ausgelagert. Praxisbeispiel des Hosts: sein CLAUDE.md fungiert nur noch als "Router" zu Unterbereichen (Content, Community, Produktentwicklung, Business) statt als zentrales Repository für alle ~57.000 Dateien seines Workspace — mit direkter Auswirkung auf Tokenverbrauch/Kosten pro Session.
+4. **Von Wiederholung zu einfachen Tool-Beschreibungen** ("Repeat yourself" → "Simple tool descriptions"): Frühere, weniger fähige Modelle brauchten Wiederholung (Tool-Hinweise sowohl im Systemprompt als auch in der Tool-Beschreibung), u. a. wegen des "Lost in the middle"-Effekts. Das ließ sich laut Artikel inzwischen streichen, da die neuen Modelle instruktionsstabiler über das ganze Kontextfenster sind — weniger Duplikation, weniger Tokenkosten.
+5. **Von manueller zu automatischer Memory** ("Memory in CLAUDE.md files" → "Auto-memory"): Früher wurden Nutzer aktiv ermutigt, per Hotkey (#) Dinge manuell in CLAUDE.md zu schreiben. Claude Code speichert relevante Informationen inzwischen selbstständig. Praxisbeispiel des Hosts: sein `/calibrate`-Skill, der am Sitzungsende automatisch Skills, CLAUDE.md, Memory-Dateien und Workflows aktualisiert.
+6. **Von einfachen Specs zu reichhaltigeren Referenzen** ("Simple specs" → "Rich references"): Statt sich nur auf Markdown-Pläne/Specs zu verlassen, können die neuen Modelle komplexere Referenzformate verarbeiten — im Artikel u. a. HTML-Artefakte. Praxisbeispiel des Hosts: das erwähnte `brandbook.html` sowie die routinemäßige Bitte an Claude, Konzepte als visuelle HTML-Infografik statt als Markdown-Wall-of-Text darzustellen.
+
+## Praxis-Demo: `/doctor` und der selbstgebaute `/doctor+`-Skill
+
+Claude Code bringt inzwischen ein eingebautes `/doctor`-Kommando mit, das laut Video fünf Dinge prüft: fehlerhafte/doppelte Installationen, ungenutzte Skills/MCP-Server/Plugins ("dead weight"), Duplikate/Aufblähung in CLAUDE.md, verlangsamende Hooks, und meldet Findings vor jeder Änderung ("reports before fixing — nothing changes until you say yes"). Der Host bemängelt, dass `/doctor` die sechs oben genannten Regeln nicht selbst prüft, und stellt dafür einen selbstgebauten, kostenlos verlinkten `/doctor+`-Skill vor, der zusätzlich gezielt nach Verstößen gegen diese sechs Punkte sucht (Demo: ein 2.090-zeiliger, zu dick geratener Recherche-Skill wird als Kandidat für eine Umwandlung in einen schlanken Router markiert).
+
+---
+
+## Kernbotschaft
+Mit den deutlich fähigeren Claude-5-Modellen (Opus 5, Fable 5) hat Anthropic laut einem X-Artikel des Claude-Code-Engineers Thariq Shihipar über 80 % des ursprünglichen Claude-Code-Systemprompts gestrichen und dabei sechs Praxis-Regeln umgekehrt: weniger starre Regeln, dafür mehr Urteilsvermögen; weniger Beispiele, dafür klarer designte Tool-Interfaces; Kontext nicht mehr komplett vorab, sondern progressiv nachladen (CLAUDE.md als Router statt Repository); weniger Wiederholung in Tool-Beschreibungen; automatische statt manueller Memory; und reichhaltigere Referenzformate (z. B. HTML) statt reiner Markdown-Specs. Der Host übersetzt diese sechs Punkte in konkrete Beispiele aus seinem eigenen "Second Brain"-Setup und bewirbt dafür einen selbstgebauten `/doctor+`-Skill, der über das eingebaute `/doctor`-Kommando hinaus gezielt gegen diese sechs Regeln prüft.
+
+## Themen-Tags
+Context Engineering, Claude Code, CLAUDE.md, Progressive Disclosure, Anthropic, Thariq Shihipar, Claude Opus 5, Claude Fable 5, /doctor, Skills, Automatische Memory, Second Brain, Prompt-Design
+
+## Zu prüfen
+- **Quelle des Artikels unabhängig bestätigt:** Eine parallele Recherche (WebSearch) fand den offiziellen Anthropic-Blogbeitrag "The new rules of context engineering for Claude 5 generation models" (claude.com/blog, ca. 24.07.2026) von **Thariq Shihipar, Member of Technical Staff bei Anthropic** — mit genau sechs "Then vs. Now"-Verschiebungen, die inhaltlich mit den im Video gezeigten Screenshots übereinstimmen. Die Recherche fand den Artikel unabhängig von den hier gesichteten Frames und kam zum selben Ergebnis. Einschränkung: Es handelt sich um einen **einzelnen namentlich genannten Autor**, nicht um "Anthropic Engineers" im Plural, wie es der Video-/Playlist-Titel suggeriert — leichte Übertreibung in der Zuschreibung, aber keine erfundene Quelle. Der Artikel selbst nennt sich im Titel bereits "rules", nicht nur "shifts".
+- **Name-Verwechslung im Transkript:** Die automatischen Untertitel schreiben durchgehend "Tarek"/"Tariq"/"Thrivec" statt Thariq Shihipar — in dieser Zusammenfassung anhand der Frames (X-Profil mit Handle @tsp212 sichtbar) korrigiert.
+- **4,3-Mio.-Aufrufe-Zahl und "80 % Systemprompt entfernt"** stammen aus dem im Video gezeigten Screenshot des Artikels selbst — nicht zusätzlich unabhängig gegengecheckt (z. B. keine eigene Prüfung der genauen View-Zahl zum jetzigen Zeitpunkt).
+- **Inhaltliche Überschneidung mit bestehenden Notizen:** Das Progressive-Disclosure-Konzept ist in [claude-skills-ueberblick.md](../claude-skills-ueberblick.md) bereits dokumentiert (dort: semantische Suche lädt nur die passende Skill-Datei ins aktive Gedächtnis, Quelle: Video sQBinJA_zxU) — dort geht es um Skill-Auswahl, hier um CLAUDE.md-als-Router; ergänzend, kein Widerspruch. Ebenso deckt sich Regel 3 ("CLAUDE.md schlank halten, als Router statt Repository") stark mit Punkt 7 in [ai-agent-workflow.md](../ai-agent-workflow.md) (Boris Cherny: CLAUDE.md bewusst schlank halten statt endlos anreichern) — dieses Video liefert dafür eine zusätzliche, unabhängige Anthropic-Quelle sowie konkretere technische Begründung (Progressive Disclosure, Tokenkosten pro Session).
+- **`/doctor+`-Skill (Eigenentwicklung des Hosts):** Nicht offizielles Anthropic-Feature, sondern ein vom Host selbst gebauter und beworbener Community-Skill (Download-Link laut Video in der Videobeschreibung) — Funktionsumfang/Qualität nicht eigenständig getestet.
+- **RoboNuggets-Eigenwerbung:** Ein erheblicher Teil der Videomitte (ca. 5:05–5:37) ist Werbung für die eigene Community/Masterclass des Hosts — inhaltlich nicht Teil der "sechs Regeln", hier bewusst ausgeklammert.
+
+**Hinweis zum Ablauf:** Native englische Untertitel wurden erfolgreich per yt-dlp gezogen (755 Segmente, keine Whisper-Fallback nötig). Die Zusammenfassung basiert auf dem vollständigen Transkript plus gezielt gesichteten Frames (insb. die X-Artikel-Screenshots mit den sechs Then/Now-Blöcken sowie die `/doctor+`-Feature-Liste), um Namen und Zitate korrekt zu verifizieren, die im Untertitel-Transkript verzerrt waren.

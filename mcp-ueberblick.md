@@ -1,12 +1,28 @@
 # MCP (Model Context Protocol) — das Grundkonzept im Überblick
 
-Quellen: [video-summary-sQBinJA_zxU.md](video-summaries/video-summary-sQBinJA_zxU.md), [claude-oekosystem-ueberblick.md](claude-oekosystem-ueberblick.md), [video-summary-B_OqkMRFonM.md](video-summaries/video-summary-B_OqkMRFonM.md), [video-summary-AL391nkWGIc.md](video-summaries/video-summary-AL391nkWGIc.md)
+Quellen: [video-summary-sQBinJA_zxU.md](video-summaries/video-summary-sQBinJA_zxU.md), [claude-oekosystem-ueberblick.md](claude-oekosystem-ueberblick.md), [video-summary-B_OqkMRFonM.md](video-summaries/video-summary-B_OqkMRFonM.md), [video-summary-AL391nkWGIc.md](video-summaries/video-summary-AL391nkWGIc.md), [video-summary-1guudCDr0H4.md](video-summaries/video-summary-1guudCDr0H4.md)
 
-MCP wird in mehreren Videos am Rand erwähnt, aber nur in einem einzigen konkret vorgeführt (Home Assistant). Dieser Artikel bündelt das allgemeine Konzept mit dem praktischen Beispiel (siehe [notes-audit-report.md](notes-audit-report.md)).
+MCP wird in mehreren Videos am Rand erwähnt, aber nur in zweien konkret vorgeführt bzw. aus erster Hand erklärt (Home Assistant als Praxisbeispiel; ein Anthropic-Mitentwickler-Interview zu Entstehung und Governance). Dieser Artikel bündelt das allgemeine Konzept mit beidem (siehe [notes-audit-report.md](notes-audit-report.md)).
 
 ## Was MCP ist
 
 Model Context Protocol ist die offene Schnittstelle, die KI-Absichten in konkrete API-Aufrufe übersetzt — Analogie: MCP ist der Autoschlüssel, ein [Skill](claude-skills-ueberblick.md) ist die Fahrstunde (sQBinJA_zxU). B_OqkMRFonM beschreibt es als die offene Schnittstelle hinter den Connectors (Gmail, Google Calendar, Notion, Slack) — vergleichbar mit einem einheitlichen USB-Anschluss für KI-Tools: verschiedene Anbieter/Dienste stellen ihre Funktionen über dasselbe Protokoll bereit, statt dass jedes Tool eine eigene Integration bräuchte.
+
+## Entstehung bei Anthropic und Abgrenzung zu API/CLI (1guudCDr0H4, Interview mit Mitentwickler David Soria Parra)
+
+Interner Ausgangspunkt war die Beobachtung, dass ein zentrales Developer-Tooling-Team immer langsamer wächst als der Rest der Firma — die einzige Skalierungsoption sei, Mitarbeitenden Werkzeuge zu geben, mit denen sie sich selbst Integrationen bauen können. Ursprünglicher interner Arbeitstitel: **"Claude Connect"**. Weil es gleichzeitig mehrere Clients gab (Claude Desktop, IDEs wie Zed, VS Code), entstand das klassische N-Clients-×-M-Integrationen-Problem, woraus die Idee eines gemeinsamen Protokolls wurde.
+
+Einordnung gegenüber den zwei naheliegenden Alternativen:
+- **Gegenüber klassischen APIs:** API-Endpunkte sind für programmatischen Zugriff gedacht und oft zu granular für Modelle. MCP sei "nicht viel mehr als eine API mit einem semantischen Layer" für Authentifizierung, automatisches Nachfragen und Human-in-the-Loop-Bestätigungen.
+- **Gegenüber CLI-Zugriff:** Für einzelne Entwickler/kleine Firmen reicht CLI. Größere Organisationen, die keine Binärdatei auf jeden Laptop verteilen, sondern einen zentralen Server mit Policy-Enforcement/Governance-Layer wollen, sind mit einem Protokoll wie MCP besser bedient.
+
+## Governance: wie MCP zum offenen Industriestandard wurde
+
+Zwei bewusste Entscheidungen von Anfang an, damit MCP "wirklich" offen bleibt:
+1. **MIT-Lizenz, bewusst ohne Contributor License Agreement (CLA)** — laut David Soria Parra, damit Anthropic die Lizenz später nicht ändern kann, ohne alle jemals beteiligten Mitwirkenden fragen zu müssen (CLA-Detail nur aus dieser Primärquelle, nicht unabhängig gegengeprüft).
+2. **Übertragung an eine neutrale Stiftung:** Anthropic übergab MCP im Dezember 2025 an die neu gegründete **Agentic AI Foundation (AAIF)** unter dem Dach der **Linux Foundation** — acht Platin-Mitglieder (AWS, Anthropic, Block, Bloomberg, Cloudflare, Google, Microsoft, OpenAI) plus Technical Steering Committee. Zweck: Firmen sollen auf MCP aufbauen können, ohne dass eine einzelne Firma es zurückziehen könnte.
+
+Übertragbare Lektion für eigene interne Standards/Tools, die firmenübergreifend Vertrauen brauchen: frühe Lizenzwahl ohne Rücknahmemöglichkeit plus Übergabe an eine neutrale Instanz.
 
 ## Praxisbeispiel: MCP für Home Assistant (AL391nkWGIc)
 

@@ -138,7 +138,9 @@
       "Bash(python 'C:\\\\Users\\\\Admin\\\\.claude\\\\skills\\\\watch\\\\scripts\\\\watch.py' 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Claude-Allerlei\\\\b7633a2b-3bc9-4d29-aff0-6b2f84ecadb8\\\\scratchpad/watch-1guudCDr0H4/download/video.mp4' --out-dir 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Claude-Allerlei\\\\b7633a2b-3bc9-4d29-aff0-6b2f84ecadb8\\\\scratchpad/watch-1guudCDr0H4' --no-whisper --max-frames 100)",
       "Bash(echo \"exit: $?\")",
       "Bash(rm -rf \"/c/Users/Admin/AppData/Local/Temp/watch-afvispsv\")",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Admin\\AppData\\Local\\Temp\\watch-zrljft6y",

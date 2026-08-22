@@ -72,3 +72,9 @@ python .claude/skills/notes-audit/scripts/md_to_pdf.py <geänderte-datei.md>
 ```
 
 Ohne Argumente regeneriert das Skript alle Root-`*.md`-Dateien auf einmal.
+
+**Vor dem ersten Commit neu erzeugter PDFs prüfen:** `git status` bei einer PDF meldet "LF will be replaced by CRLF" → `.gitattributes` im Repo-Root fehlt oder enthält keine `*.pdf binary`-Zeile. Das ist kein kosmetisches Problem: Git wandelt sonst bei `core.autocrlf=true` (bei diesem Nutzer aktiv, Multi-Rechner-Setup) Zeilenenden auch innerhalb der Binärdatei um und beschädigt sie beim nächsten Checkout auf der anderen Maschine. Falls die Zeile fehlt, vor dem Commit ergänzen:
+
+```
+*.pdf binary
+```

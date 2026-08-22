@@ -32,6 +32,16 @@ IDs aus den Dateinamen extrahieren, gegen die Playlist-IDs abgleichen. Videos, f
 
 Kürzere Videos zuerst (schnelle Fehlererkennung, falls beim Vorgehen etwas nicht passt), sehr lange Videos (>40 Min) zuletzt und mit weniger Parallelität. `TodoWrite` mit einem Eintrag pro unbekanntem Video anlegen.
 
+Manche Playlist-Einträge sind nicht abrufbar (`title`/`duration` = `null` im flat-playlist-JSON, meist "Private video" oder "Please sign in" bei einzelnem `yt-dlp -J <url>`-Aufruf zur Bestätigung). Diese aus der Liste streichen, dem Nutzer kurz melden, nicht versuchen zu erzwingen.
+
+### Kontingent-Hinweis (Pro-Abo)
+
+Der Nutzer hat ein Claude-Pro-Abo mit begrenztem Nutzungsfenster — **nicht** automatisch versuchen, eine große Zahl neuer Videos (mehr als ~5-6) in einer einzigen Session komplett abzuarbeiten. Bei einem größeren Rückstand:
+
+- Kurz die Gesamtzahl neuer (abrufbarer) Videos nennen und den Nutzer fragen, wie groß die Batch-Größe für diese Session sein soll (z.B. per `AskUserQuestion`), statt stillschweigend alles zu starten.
+- Nach der vereinbarten Batch-Größe anhalten, Abschlussbericht liefern (Schritt 7) und explizit erwähnen, wie viele Videos noch offen sind — der Skill lässt sich beim nächsten Mal einfach erneut aufrufen (Schritt 2 filtert automatisch nur die noch fehlenden heraus, siehe „Hinweis zur Wiederholung" unten).
+- Kein Grund zur Sorge bei kleinen Nachträgen (1-4 neue Videos) — die können normal in einer Welle durchlaufen.
+
 ## Schritt 4 — Subagents in Wellen zu je ~3 dispatchen
 
 Nicht alle Videos auf einmal starten — 3 parallele Hintergrund-Agents (`Agent`-Tool, `subagent_type: general-purpose`, `run_in_background: true`) sind ein guter Kompromiss zwischen Tempo und Belastung des lokalen Whisper/Replicate-Kontingents. Jeder Agent bekommt ein Video und folgenden Prompt (Platzhalter `{VIDEO_ID}`, `{VIDEO_URL}`, `{PLAYLIST_TITLE}`, `{DURATION}` ersetzen):
@@ -42,11 +52,15 @@ Repo: c:\Claude\Allerlei (git repo of German-language AI/tech notes built from Y
 VIDEO: {VIDEO_URL} — playlist title "{PLAYLIST_TITLE}", ~{DURATION} min.
 
 ## Step 1 — Watch it
-Run (Windows, use `python` not `python3`):
-python "C:\Users\Admin\.claude\skills\watch\scripts\watch.py" "{VIDEO_URL}"
+Run (Windows, use `python` not `python3`). Don't hardcode a username — this repo is synced across multiple machines with different logged-in users, so resolve the home directory dynamically: in PowerShell use `$env:USERPROFILE`, in Git Bash use `~` or `$USERPROFILE`. E.g. PowerShell:
+python "$env:USERPROFILE\.claude\skills\watch\scripts\watch.py" "{VIDEO_URL}"
+or Git Bash:
+python "$USERPROFILE/.claude/skills/watch/scripts/watch.py" "{VIDEO_URL}"
 This downloads the video, extracts frames, and gets a transcript (native captions or Whisper fallback — the Whisper/Replicate backend already auto-chunks long audio into <330s pieces, so long videos won't time out; no need to intervene). Then Read every listed frame path (parallel Read calls) and read the transcript output. If native captions are missing and Whisper also fails, proceed frames-only and note that in the summary.
 
 **IMPORTANT — do not end your turn while a background process is still running.** If you background the download/transcribe step, you must actively wait for it (poll it or use a blocking call) and continue in the SAME turn to read frames and write the file. You are a single agent process, not the orchestrator — nothing "notifies" you automatically the way it notifies the orchestrator. Ending your turn assuming a later turn will pick this back up leaves the task permanently incomplete. This matters especially for videos needing chunked Whisper transcription (roughly one chunk per 5-6 minutes of audio), which can take several minutes — just keep waiting.
+
+**This is not a hypothetical warning — it happens routinely (observed in most agents of a 2026-08-22 batch), not just occasionally.** Any of these thoughts means you are about to fail the task: "I'll hold here and resume once the monitor reports," "standing by for X to complete," "I'll wait for the notification that Y finished." There is no monitor, no notification, and no later turn for you specifically — if you stop calling tools now, this task is permanently abandoned mid-way with no summary file ever written. The only correct move when transcription is still processing: immediately issue another blocking/polling tool call (e.g. re-check the process status, or sleep a short interval then check again) and keep doing that, in this same turn, until the watch script's `Work dir:` line actually appears in your own tool output — however many tool calls that takes.
 
 ## Step 2 — Write the summary file
 Create c:\Claude\Allerlei\video-summaries\video-summary-{VIDEO_ID}.md. First read 2-3 existing files in that folder to match the exact structure/tone/German-language convention: `# "Title"` header, bullet metadata block (**Kanal:**, **URL:**, **Länge:**, **Zusammenfassung erstellt:** <today's date>), `---`, content sections in German with `##` headings covering what's actually said/shown, a `## Kernbotschaft` (1 paragraph), a `## Themen-Tags` line, and a `## Zu prüfen` section for anything uncertain/unverified. Write content in German regardless of the video's spoken language. Use the actual title/uploader from the script's metadata output.

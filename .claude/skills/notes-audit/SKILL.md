@@ -1,7 +1,7 @@
 ---
 name: notes-audit
 description: Health-Check für die Markdown-Notizen und Video-Zusammenfassungen dieses Repos. Prüft auf Widersprüche zwischen Artikeln, unbelegte Behauptungen und wiederkehrende Themen ohne eigenen Übersichtsartikel. Nutzen bei "Health Check", "Wiki-Audit", "Notizen prüfen" oder wenn regelmäßig gepflegt werden soll.
-allowed-tools: Glob, Grep, Read, Write
+allowed-tools: Glob, Grep, Read, Write, Bash
 user-invocable: true
 ---
 
@@ -60,3 +60,15 @@ Wenn ein klarer Top-Kandidat für einen neuen Übersichtsartikel existiert, biet
 ## Hinweis zur Wiederholung
 
 Dieser Skill ist für regelmäßige, manuell oder per Cron ausgelöste Durchläufe gedacht (z.B. wöchentlich über den `schedule`-Skill). Er selbst richtet keinen Cron-Job ein — falls gewünscht, das explizit über `/schedule` einrichten.
+
+## Hinweis zum PDF-Export der Themen-Artikel
+
+Die Root-Themen-Artikel dieses Repos (z.B. `ai-agent-workflow.md`, NICHT `video-summaries/*.md`) haben unter `PDFs/` jeweils eine lesbar formatierte PDF-Version, erzeugt über `.claude/skills/notes-audit/scripts/md_to_pdf.py` (benötigt einmalig `pip install --user markdown xhtml2pdf`, reportlab kommt als Abhängigkeit mit).
+
+Wenn im Zuge dieses Skill-Durchlaufs eine Root-Themen-Artikel-Datei inhaltlich verändert wird (z.B. eine vom Nutzer genehmigte Korrektur eines gefundenen Widerspruchs) oder neu angelegt wird (z.B. ein neu entworfener Übersichtsartikel für ein wiederkehrendes Thema), am Ende **immer fragen**, ob die zugehörige PDF-Datei neu bzw. erstmals erzeugt werden soll — nicht automatisch regenerieren. Bei Zustimmung:
+
+```bash
+python .claude/skills/notes-audit/scripts/md_to_pdf.py <geänderte-datei.md>
+```
+
+Ohne Argumente regeneriert das Skript alle Root-`*.md`-Dateien auf einmal.

@@ -48,7 +48,7 @@ Zwei Mechanismen werden benannt:
 
 ## CoreWeave und die GPU-Schuldenmühle
 
-Das Video bezeichnet **CoreWeave** als Beispiel für die strukturelle Falle auf Infrastrukturseite: ein Auftragsvolumen von nahezu 100 Milliarden Dollar, finanziert über rund 25 Milliarden Dollar Schulden. Der Haken liegt im Timing: Schuldendienst und Zinsen (im Video mit ~11 % angegeben) wurden Anfang 2026 fällig – in demselben Moment, in dem die Mietpreise für genau die besichernden Chips um 50–70 % gefallen waren. Der Wert der Sicherheiten sinkt; die Rechnungen werden fällig.
+Das Video bezeichnet **CoreWeave** als Beispiel für die strukturelle Falle auf Infrastrukturseite: ein Auftragsvolumen von nahezu 100 Milliarden Dollar, finanziert über rund 25 Milliarden Dollar Schulden. Der Haken liegt im Timing: Schuldendienst und Zinsen (im Video mit ~11 % angegeben) wurden Anfang 2026 fällig – in demselben Moment, in dem die Mietpreise für genau die besichernden Chips um 50–70 % gefallen waren. Der Wert der Sicherheiten sinkt; die Rechnungen werden fällig. *[Nachtrag: GPU-Mietpreise sind seit Mitte 2026 wieder deutlich gestiegen — siehe „Zu prüfen".]*
 
 ## BigTech-Acqui-Hires: Gründer landen weich, Mitarbeiter bleiben auf Scherben
 
@@ -96,7 +96,7 @@ KI-Finanzierung, OpenAI-Verluste, KI-Blase, Kreislauffinanzierung, Nvidia, Think
 
 - **CoreWeave-Zinssatz ~11 %:** Aktuelle Quellen (Aug 2026) nennen einen gewichteten Durchschnittszinssatz von ~9 %. Leichte Abweichung, Größenordnung stimmt.
 
-- **GPU-Mietpreisrückgang „50–70 %":** Diese Größenordnung ist branchenweit plausibel dokumentiert, aber die genaue Herkunft der im Video genannten Spanne konnte nicht auf eine einzelne Primärquelle zurückgeführt werden.
+- **GPU-Mietpreisrückgang „50–70 %" (nachrecherchiert 2026-09-01, bestätigt):** Die Größenordnung ist korrekt. H100-On-Demand-Preise fielen von ~7–8 $/h (Ende 2024) auf ~2,85–3,50 $/h (Mitte 2025) — ein Rückgang von 50–64 %; im Spot-Markt zeitweise bis unter 2 $/h (>70 %). Hauptursachen: (1) Angebotsüberhang durch Masseninvestitionen 2023/24 — allein 2025 drängten über 300 neue Cloud-Anbieter auf den Markt; (2) AWS-Preissenkung um ~44 % im Juni 2025 löste Kettenreaktion aus; (3) DeepSeek-R1 (Jan 2025) bewies, dass konkurrenzfähige Modelle mit ~6 Mio. $ trainierbar sind — das erschütterte die Annahme eines stetig steigenden GPU-Bedarfs. **Wichtiger Nachtrag (Stand Aug/Sep 2026):** Der Preisverfall hat sich inzwischen umgekehrt. HBM-Speicher (High Bandwidth Memory) wurde zum neuen Engpass; Nvidia verlagerte Produktion von H100 auf Blackwell. H100-Vertragspreise sind 2026 um ~40 %, Blackwell um ~48 % gestiegen. Die im Video implizierte Schlussfolgerung, CoreWeave sitze dauerhaft auf fallenden Sicherheitenwerten, ist zum Hochladezeitpunkt (Aug 2026) bereits differenzierter zu sehen. Quellen: [Introl](https://introl.com/blog/gpu-cloud-price-collapse-h100-market-december-2025), [ValueAddVC](https://valueaddvc.com/blog/is-the-ai-chip-shortage-over-in-2026-gpu-pricing-and-what-comes-next), [ComputeStacker](https://computestacker.com/insights/gpu-capacity-crunch-rental-prices/).
 
 - **Morgan Stanley $1,5-Billionen-Lücke (per WebSearch bestätigt):** Korrekt. Morgan Stanley schätzt globale Rechenzentrumsausgaben bis 2028 auf ~2,9 Billionen Dollar, davon ~1,5 Billionen als Finanzierungslücke, die über Private Credit, Unternehmensanleihen und andere externe Quellen geschlossen werden müsste.
 

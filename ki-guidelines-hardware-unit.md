@@ -89,6 +89,8 @@ Bevor überhaupt etwas in ein KI-Tool eingegeben wird:
 - Vertrauliche Lieferantendaten, Kundenspezifikationen, exportkontrollierte Informationen (ggf. ITAR/EAR-relevant) grundsätzlich **nicht** in öffentliche KI-Tools ohne vorherige Freigabe.
 - Im Zweifel: Datenblätter/Normen-Auszüge sind meist unkritisch, firmen- oder kundenspezifische Konstruktionsdaten meist nicht — im Zweifelsfall nachfragen statt annehmen.
 
+**Freigegebene Einstufung (Zusatz):** In allen bei uns freigegebenen KI-Tools — **Microsoft Copilot, Claude Code, GitHub Copilot und SGPT** — dürfen Dokumente und Angaben bis einschließlich Klassifizierungsstufe **C2** verwendet werden. Alles oberhalb von C2 bleibt grundsätzlich außen vor, unabhängig vom Tool.
+
 ---
 
 ## 7. Konkrete Einsatzfelder für unsere Unit

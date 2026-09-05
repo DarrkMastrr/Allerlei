@@ -105,6 +105,22 @@ Damit "wofür können wir KI eigentlich nutzen" nicht länger unklar ist:
 
 ---
 
+## 8. Claude Code: Effort und Modell je nach Aufgabe umschalten
+
+*(Zusatz)*
+
+Wer Claude Code nutzt, kann für bestimmte Aufgaben gezielt den **Reasoning-Aufwand** oder das **Modell** anpassen — analog zur bewussten Prüftiefe aus Punkt 5.
+
+- **Effort-Umschaltung:** Claude Code unterstützt unterschiedliche Denktiefe ("extended thinking"). Für einfache Formulierungsaufgaben oder schnelle Recherchen reicht die Standardeinstellung. Für komplexe Analysen (z. B. Plausibilitätscheck einer mehrstufigen Berechnung, Widersprüche in einer langen Spezifikation finden) lohnt es sich, den Reasoning-Aufwand hochzusetzen — die Antwort dauert länger, ist aber deutlich gründlicher.
+
+- **Modell-Umschaltung:** Über `/model` lässt sich in Claude Code das zugrundeliegende Modell wechseln. Leichtere Modelle sind schneller und günstiger, schwerere liefern bei schwierigen Aufgaben bessere Ergebnisse. Faustregel: Je sicherheitsrelevanter oder komplexer das Thema, desto eher lohnt sich das stärkere Modell — auch wenn es länger dauert.
+
+- **Fast Mode** (`/fast`): Schaltet auf eine schnellere Ausgabe um, sinnvoll für iterative Entwurfsschritte, bei denen man rasch einen ersten Eindruck will, bevor man tiefer einsteigt.
+
+Die Umschaltung kostet nichts Besonderes außer Zeit und — je nach Unternehmens-Setup — ggf. etwas mehr an Verbrauch. Für kritische Aufgaben (Punkt 2, verbindliche Nutzung nach Punkt 5) sollte man bewusst das stärkere Modell und den höheren Effort wählen, statt das Default-Setting beizubehalten.
+
+---
+
 ## Kurzfassung zum Aushängen
 
 1. **Scope vorher klären**, nicht raten lassen.

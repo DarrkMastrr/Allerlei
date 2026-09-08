@@ -1,0 +1,63 @@
+# "Claude Codes New INTENT.MD, What is It?"
+
+**Kanal:** Rob Shocks
+**URL:** https://www.youtube.com/watch?v=LoMOPj-lO8U
+**Länge:** 16:21
+**Zusammenfassung erstellt:** 2026-09-08
+
+---
+
+## Ausgangspunkt: Anthropics "AI-Native SDLC Playbook"
+
+Rob Shocks fasst einen neuen Anthropic-Blogpost zusammen — "The AI-Native SDLC playbook" (claude.com/blog/the-ai-native-sdlc-playbook), an dem laut Video auch Boris Cherny (Ersteller von Claude Code, im Transkript fehlerhaft als "Boris Journey" verschriftet) beteiligt war. Kernthese: Code ist nicht mehr der Flaschenhals im Softwareentwicklungsprozess — der Prozess drumherum ist es. Traditionell lief der SDLC in sechs Phasen (Plan, Design, Build, Test, Deploy, Maintain), wobei Build traditionell am längsten und teuersten war. Mit Agenten schrumpft Build massiv zusammen — der Engpass wandert dadurch in die übrigen Phasen ("The Bottleneck Moved").
+
+## intent.md: der neue erste Schritt
+
+Statt klassischer Anforderungserhebung (Workshops, PRDs, Stakeholder-Gespräche) interviewt ein Agent den sogenannten "Originator" so lange, bis ein vollständiges Verständnis von Feature, Bug oder Produktidee erreicht ist (Beispiele im Video für passende Interview-Skills: Rob Shocks' eigener "Switch Dimension Discovery"-Skill, Matt Pococks "Realm Me", Cursors "Requirements Discovery"). Das Ergebnis wird als **intent.md** in einem `intent/`-Ordner gespeichert — laut Anthropic "human readable and machine actionable". Der Originator muss kein Fachspezialist sein: Kunde mit Bug-Report, Product Manager mit Feature-Idee oder Entwickler mit Prozessverbesserungsidee sind gleichermaßen möglich. Wichtig: Der Originator geht das von Claude geschriebene intent.md danach noch einmal durch und korrigiert, was missverstanden wurde. Bei wiederkehrenden Intent-Arten kann ein Präfix vor den Dateinamen sinnvoll sein (Rob nennt sein eigenes Beispiel "discovery" statt "intent"). Gesammelte Intents werden von einem Product Owner als Backlog gesichtet/priorisiert (auch in Notion/Linear denkbar), teils durch Agenten selbst per Tags vor-triagiert (Front-end/Backend, Aufwand, Priorität).
+
+## Die Artefakt-Kette: intent → spec → plan → Build → Test → Deploy → Maintain
+
+Jede SDLC-Stufe erzeugt ein versioniertes, committetes Artefakt: intent.md → spec.md → plan.md → Diff/PR → Review-Findings → Incident-Record. Für den Übergang intent→spec zeigt das Video einen Beispielprompt aus dem Anthropic-Dokument: *"Read the attached intent.md and produce a requirements and design spec... Apply the skills available to you so the plan conforms to our brand guidelines, security policies and UX standards... Document the spec fully as spec.md..."* Governance-Regeln (Styleguides, Security-Policies, Skills) fließen dabei direkt in die Spec-Erstellung ein. Für den Übergang spec→plan gilt als Qualitätskriterium: Der Plan sollte so vollständig sein, dass ein Ingenieur ihn ohne Kenntnis von intent oder spec allein umsetzen könnte — wichtig, weil in der Praxis einzelne Sub-Agenten jeweils bei null anfangen und kein gemeinsames Gesprächsgedächtnis haben. plan.md enthält laut gezeigtem Beispiel: zu ändernde Dateien, Reihenfolge der Arbeitsschritte, Risiken und Erfolgskriterien/Proof. Plan-Revisionen werden mit Freigeber protokolliert (Versionierung von plan.md als Teil der Governance/Audit-Trail).
+
+## Build-Phase: Auto Mode, Worktrees, Hooks
+
+Claude Code kann laut gezeigtem Anthropic-Textausschnitt im **Auto Mode** laufen: Nach initialer Freigabe von Plan und erstem editierten Beispiel wendet Claude weitere Änderungen ohne Einzelfreigabe pro Edit an — abgesichert durch ein eingespieltes CLAUDE.md, Skills, Hooks (die unsichere Aktionen blockieren) und eine bereits vorhandene Testsuite. Git Worktrees ermöglichen mehreren (Sub-)Agenten, parallel an unabhängigen Teilaufgaben zu arbeiten. Als Hook-Beispiele werden genannt: Plan nach Umsetzung automatisch aktualisieren, bestimmte Ordner für den Agenten sperren, ungeprüfte NPM-Pakete blockieren.
+
+## Test-Phase: Der Agent testet vor dem Menschen
+
+Traditionell wartete man nach "fertigem" Code oft tagelang auf QA/Tester. Im AI-nativen Modell schreibt/lässt der Agent selbst Tests laufen, lintet und baut das Projekt, und nutzt bei Bedarf Playwright oder Cursor Browser für End-to-End-Tests inklusive Screenshots. Laut Video können Cursor-Cloud-Agents sogar selbstständig einen Server hochfahren, die Software testen und dazu eine Bildschirmaufnahme liefern. Zusätzlich empfiehlt Anthropic **Evals bei jedem Skill- oder Modellwechsel**: 20-50 reale, bereits gelöste Aufgaben aus der Codebasis sammeln, das erwartete Ergebnis festhalten und bei jedem neuen Modell oder jeder Konfigurationsänderung nicht-interaktiv in der CI als Regressionstest laufen lassen.
+
+## Deploy-Phase: PR-Review durch einen zweiten Claude-Kontext
+
+Der Agent erstellt eine Pull Request statt direkt zu mergen. Ein zweiter, unabhängiger Claude-Code-Kontext reviewt diese PR gegen die hinterlegten Policies und Sicherheitsprotokolle des Unternehmens. Als Governance-Beispiel wird ein Hook genannt, der das Deployment blockiert, bis eine bestimmte Person zugestimmt hat oder ein Release-Gate erfüllt ist. Nach der PR folgt eine separate Security-CI-Preview-Stufe — deterministisches Linting/Gate-Checking kombiniert mit einem Sicherheits-Agent (genannt werden Cursor Bugbot und Claude Security Review).
+
+## Maintenance-Phase: der eigentliche Kern des Videotitels
+
+Traditionell ist Maintenance reaktiv (nächtlicher Alert, liegengebliebenes Ticket im Backlog). Im AI-nativen Modell löst ein Breach, ein neues Ticket, eine Slack-Nachricht oder ein Zeitplan Claude **ohne Personenbeteiligung** aus — und Claude generiert dabei **selbst sein eigenes intent.md** aus Logs, Ticket oder Nachricht. Das ist der titelgebende Kernpunkt des Videos: Nicht nur ein Mensch erzeugt das erste Artefakt der Kette, auch der Agent kann es autonom tun. Konkretes Beispielmuster: Eine überwachte Metrik mit stabiler Baseline (z. B. CI-Testfehlerrate, Post-Deploy-5xx-Rate) wird per Detection-Script (versioniert, deterministisch, ohne Modellbeteiligung) auf Drift/Spikes geprüft; je nach konfigurierter Eskalationsstufe (im Screenshot als `bands.yaml` benannt) diagnostiziert Claude nur lesend, oder handelt bis hin zum Öffnen einer PR über einen vorab genehmigten Runbook. Der Mensch bleibt für die wichtigen Review-Schritte im Loop, der Trigger-zu-Diagnose-Teil läuft aber autonom — Anthropics eigenes Fazit im Video/Blogpost: "The loop keeps running. Human judgement stays above it."
+
+## Einordnung des Presenters: kein One-Size-Fits-All
+
+Rob Shocks betont mehrfach, dass Teams, die bereits mit Superpowers, BMAD oder einem eigenen Workflow arbeiten, das nicht komplett verwerfen sollten — Anthropics Playbook sei eine von mehreren validen Herangehensweisen. Er zeigt zum Vergleich sein eigenes, sehr ähnliches Workflow-Schema aus seinem "Build With AI"-Kurs (Switch Dimension) mit skalierbarer Human-Agent- bis Agent-only-Beteiligung je nach Kritikalität der Aufgabe.
+
+## Sponsor-Segment (Neon)
+
+Ein Werbeblock für die Postgres-Datenbank Neon (agent-first positioniert, Instant Branching für Worktrees, MCP/CLI/Skills-Integration in Cursor/Claude Code/Codex) ist reiner Sponsoreninhalt und kein Bestandteil von Anthropics Playbook.
+
+---
+
+## Kernbotschaft
+Anthropic formalisiert in einem neuen Blogpost ("The AI-Native SDLC Playbook") den gesamten Softwareentwicklungszyklus als Kette versionierter, aufeinander aufbauender Artefakte — beginnend mit einem intent.md, das entweder ein Mensch (Originator) durch ein Agenten-Interview erzeugt oder das der Agent selbst autonom aus Logs/Tickets in der Maintenance-Phase generiert. Über spec.md und plan.md bis zu PR-Review, Security-Gate und einem metrikgetriebenen, größtenteils autonomen Maintenance-Loop soll jede Phase des klassischen SDLC (Plan, Design, Build, Test, Deploy, Maintain) durch Agenten beschleunigt werden, ohne dass Menschen aus den wichtigen Review-Entscheidungen herausfallen. Der Video-Host ordnet dies explizit als eine von mehreren validen Herangehensweisen ein, nicht als zwingenden Ersatz für bestehende Workflows wie Superpowers oder BMAD.
+
+## Themen-Tags
+Claude Code, Anthropic, AI-Native SDLC, intent.md, spec.md, plan.md, Artifact Chain, Boris Cherny, Auto Mode, Git Worktrees, Hooks, Evals, Governance, CI/CD, Maintenance-Phase, Closing the Loop, Neon
+
+## Zu prüfen
+- **Existenz des Anthropic-Blogposts per WebSearch bestätigt:** "The AI-Native SDLC playbook" ist real unter claude.com/blog/the-ai-native-sdlc-playbook veröffentlicht, unabhängig bestätigt durch mehrere Drittquellen (port.io, waydev.co, ein X-Post von Simon Martinelli, metalbear.com, pathmode.io, agenticaiarch.com, menuagentic.com). Die im Video gezeigten Screenshots (Artefakt-Kette intent.md → spec.md → plan.md, Governance-Textblöcke, Evals-Anleitung, Closing-Thoughts-Zitat "The loop keeps running. Human judgement stays above it.") stimmen mit den per Suche gefundenen Zitaten aus dem Originalartikel überein.
+- **Wichtige Einordnung des Videotitels:** intent.md ist **kein neues, in die Claude-Code-Software eingebautes Feature** (anders als z. B. CLAUDE.md, das vom Harness automatisch geladen wird) — es ist eine von Anthropics Applied-AI-Team empfohlene **Workflow-Konvention/Namensgebung** für ein Artefakt, das Teams selbst per Prompt/Skill erzeugen und in einem selbst angelegten `intent/`-Ordner ablegen. Der Videotitel "Claude Codes New INTENT.MD" ist insofern zugespitzt formuliert — nicht falsch, aber missverständlich, wenn man daraus eine tatsächliche neue CLI-Funktion erwartet, die man "einschalten" könnte.
+- **Cross-Check gegen [video-summary-KWrsLqnB6vA.md](video-summary-KWrsLqnB6vA.md)** (Boris Chernys persönlicher Workflow, bereits in [ai-agent-workflow.md](../ai-agent-workflow.md) Punkte 6-8 destilliert): Kein Widerspruch, eher Ergänzung auf unterschiedlicher Flughöhe. Boris' persönliche Gewohnheit "vor dem Bauen interviewen lassen" (Plan-Mode-Prompt) und sein separates `vision.md` sind die informelle Einzelperson-Variante desselben Grundprinzips, das dieses Video als formalisierten, org-weiten Anthropic-Standard (intent.md → spec.md → plan.md, mit Governance/Audit-Trail) beschreibt. Nicht in einer der bestehenden Dateien ergänzt (keine andere Datei wurde editiert), aber als möglicher Verknüpfungspunkt für eine spätere Überarbeitung von ai-agent-workflow.md vermerkt.
+- **Cross-Check gegen [claude-skills-ueberblick.md](../claude-skills-ueberblick.md):** Kein Widerspruch. Das Video nutzt bereits dokumentierte Skill-Konzepte (Skill-basierte Discovery/Interview-Skills, skill-gestützte Governance beim Spec-Schritt) nur am Rande, ohne die Skill-Mechanik selbst neu zu erklären.
+- **"Boris Journey"** im automatisch generierten Transkript ist mit hoher Wahrscheinlichkeit eine Fehltranskription von "Boris Cherny" (Ersteller von Claude Code, an anderer Stelle im Repo bereits belegt). Die im Video gezeigte Split-Screen-Aufnahme mit einer zweiten, glatzköpfigen Person in Kapuzenpulli konnte anhand der Frames nicht zweifelsfrei als Boris Cherny identifiziert werden — möglicherweise ein Ausschnitt aus einem separaten Interview/Podcast, den Rob Shocks im Video zeigt oder referenziert, nicht zwangsläufig ein Live-Auftritt in diesem Video selbst.
+- **Konkrete Zahlenangaben** (z. B. "20-50 Aufgaben für Evals", exakte Wortlaute der Beispielprompts) wurden nur anhand der im Video gezeigten Screenshot-Frames abgeglichen, nicht durch einen vollständigen eigenen Abruf des Originalartikels selbst — für Wortlaut-genaue Zitate im eigenen Team-Setup empfiehlt sich ein Blick in den Originalartikel.
+- **Relevanz für Team-/Gruppenleiter-Rolle:** Direkt nutzbar sind (1) die Idee, Anforderungserhebung als strukturiertes Agenten-Interview mit anschließender Originator-Korrektur zu standardisieren, statt informeller Workshops — auch ohne volle Artefakt-Kette umsetzbar; (2) das Konzept eines versionierten, auditierbaren Artefakt-Pfads (intent → spec → plan → PR) als Vorlage für Nachvollziehbarkeit/Governance in einem Hardware-nahen Team mit Freigabeprozessen; (3) Evals bei jedem Modell-/Skill-Wechsel als konkrete, direkt übertragbare Praxis, um Regressionen im eigenen KI-gestützten Workflow früh zu erkennen; (4) der Maintenance-Abschnitt (metrikgetriggerte, autonome Diagnose mit Eskalationsstufen) als Diskussionsanstoß für Monitoring/On-Call-Prozesse, auch außerhalb reiner Softwareentwicklung.
+
+**Hinweis zum Ablauf:** Native YouTube-Untertitel waren verfügbar (kein Whisper-Fallback nötig). Video-Download lief ohne Probleme über das reguläre adaptive Format. Die Zusammenfassung basiert auf allen 80 extrahierten Frames plus vollständigem Transkript.

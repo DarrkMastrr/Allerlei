@@ -7,6 +7,7 @@ transcribe.py can parse them without needing Whisper.
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -59,6 +60,16 @@ def _pick_video(out_dir: Path) -> Path | None:
     return None
 
 
+def _has_firefox_profile() -> bool:
+    home = Path.home()
+    candidates = [
+        home / "AppData" / "Roaming" / "Mozilla" / "Firefox" / "Profiles",  # Windows
+        home / "Library" / "Application Support" / "Firefox" / "Profiles",  # macOS
+        home / ".mozilla" / "firefox",  # Linux
+    ]
+    return any(p.is_dir() and any(p.iterdir()) for p in candidates if p.is_dir())
+
+
 def download_url(url: str, out_dir: Path) -> dict:
     if shutil.which("yt-dlp") is None:
         raise SystemExit("yt-dlp is not installed. Install with: brew install yt-dlp")
@@ -80,9 +91,21 @@ def download_url(url: str, out_dir: Path) -> dict:
         "--no-playlist",
         "--ignore-errors",
         "-o", output_template,
-        "--",
-        url,
     ]
+
+    cookies_file = os.environ.get("WATCH_YTDLP_COOKIES")
+    if cookies_file and Path(cookies_file).expanduser().exists():
+        cmd += ["--cookies", str(Path(cookies_file).expanduser())]
+    elif _has_firefox_profile():
+        # Firefox stores cookies unencrypted (unlike Chrome/Edge's DPAPI/
+        # App-Bound Encryption, which fails to decrypt in this environment).
+        # Live-read from a logged-in Firefox profile if one exists, so
+        # YouTube's bot-check/LOGIN_REQUIRED videos work without any manual
+        # cookie export step. Skipped entirely if Firefox isn't installed
+        # on this machine yet, so plain downloads still work without it.
+        cmd += ["--cookies-from-browser", "firefox"]
+
+    cmd += ["--", url]
 
     # yt-dlp may exit non-zero if a subtitle variant fails (e.g. 429) even when
     # the video itself downloaded fine. Treat "video file present" as success.

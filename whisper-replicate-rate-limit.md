@@ -42,3 +42,9 @@ Nach Aufladen des Replicate-Guthabens auf über 5 $ trat bei [video-summary-889t
 4. Die zurückgegebenen Segment-Timestamps um den jeweiligen Chunk-Start versetzen und alle Chunks zu einem durchgehenden Transkript zusammenführen
 
 Bei [889tcWGEnP0.md](video-summary-889tcWGEnP0.md) funktionierte das zuverlässig: 6 Chunks à ca. 5:43 Min., alle erfolgreich transkribiert, 469 Segmente insgesamt. Faustregel für zukünftige Videos: alles über ca. 15-20 Minuten Länge vorsorglich in ~6-Minuten-Häppchen zerlegen, statt erst den Direktversuch abzuwarten.
+
+Der manuelle Chunking-Workaround skaliert nachweislich auch auf deutlich längere Videos: Bei [Lu95f1ZBIos.md](video-summaries/video-summary-Lu95f1ZBIos.md) (134 Min.) und [WHUBWM0JoDM.md](video-summaries/video-summary-WHUBWM0JoDM.md) (139 Min.) lief er jeweils mit 27-28 Chunks à 5 Min. fehlerfrei durch (2084 bzw. 2159 Segmente, 0 Ausfälle).
+
+## Dritte, unabhängige Fehlerursache: HTTP 413 „Payload Too Large" (2026-09-07)
+
+Bei beiden oben genannten Videos schlug der Direktversuch nicht mit dem 6-Minuten-Timeout fehl, sondern sofort mit `HTTP 413 (Payload Too Large)` beim Hochladen der vollen Audiodatei an Replicate — ein dritter, unabhängiger Fehlermodus zusätzlich zum kontostandbasierten 429 und zum 6-Minuten-Poll-Timeout. Betroffen war offenbar das rohe Upload-Volumen selbst (bei 134-155 Min. Videolänge entsprechend große Audiodateien), nicht die Verarbeitungsdauer. Der gleiche Workaround (Abschnitt oben: Audio vorab in ~5-Minuten-Segmente zerlegen, einzeln transkribieren, Zeitstempel versetzt zusammenführen) behebt auch diesen Fehlermodus zuverlässig — es lohnt sich also nicht, bei langen Videos zwischen 429/6-Minuten-Timeout/413 zu unterscheiden: ab ca. 15-20 Minuten Länge direkt chunken.

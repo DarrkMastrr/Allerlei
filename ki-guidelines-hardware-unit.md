@@ -43,6 +43,8 @@ Das ist für uns der **wichtigste Punkt**, weil falsche Werte hier nicht nur ein
 - Bei sicherheits- oder kundenrelevanten Inhalten (Spezifikationen, Prüfberichte, alles was rausgeht): KI-Entwurf = erster Entwurf, nie finale Freigabe. Reviewschritt durch eine Person bleibt Pflicht.
 - Für interne, unkritische Zusammenfassungen (siehe Punkt 5) kann die Prüftiefe geringer sein.
 
+**Reales Beispiel aus der Hardware-Fertigung** (Quelle: [video-summary-Tk9klcnaVRg.md](video-summaries/video-summary-Tk9klcnaVRg.md), per WebSearch bestätigt): Ford stellte 300 erfahrene Qualitätsprüfer wieder ein, nachdem die KI, die sie ersetzt hatte, die Erwartungen nicht erfüllte. Zitat des zuständigen VP Vehicle Hardware Engineering: man habe der Erfahrung der erfahrensten Ingenieure zuvor "nicht so viel Aufmerksamkeit geschenkt, wie man sollte". Konkretes Argument dafür, Erfahrungswissen in kritischen Qualitätsrollen nicht vorschnell abzubauen, bevor ein KI-Tool seine Zuverlässigkeit in der Praxis nachgewiesen hat.
+
 ---
 
 ## 3. Gezielt statt großflächig ändern lassen

@@ -56,7 +56,16 @@ Run (Windows, use `python` not `python3`). Don't hardcode a username — this re
 python "$env:USERPROFILE\.claude\skills\watch\scripts\watch.py" "{VIDEO_URL}"
 or Git Bash:
 python "$USERPROFILE/.claude/skills/watch/scripts/watch.py" "{VIDEO_URL}"
-This downloads the video, extracts frames, and gets a transcript (native captions or Whisper fallback — the Whisper/Replicate backend already auto-chunks long audio into <330s pieces, so long videos won't time out; no need to intervene). Then Read every listed frame path (parallel Read calls) and read the transcript output. If native captions are missing and Whisper also fails, proceed frames-only and note that in the summary.
+This downloads the video, extracts frames, and gets a transcript (native captions first, Whisper/Replicate fallback if captions are missing/blocked).
+
+**Known bug — the Whisper/Replicate backend does NOT auto-chunk long audio.** Confirmed repeatedly in practice (see `whisper-replicate-rate-limit.md` in the repo root, and agent reports from 2026-09-07 on two 130+ minute videos). It fails on longer videos in one of two ways: a hard-coded ~6-minute Replicate poll timeout, or an outright HTTP 413 "payload too large" on the raw audio upload. For any video roughly **>15 minutes**, don't wait for the script to fail first — proactively chunk yourself:
+
+1. Let `watch.py` download the video normally.
+2. Split the resulting audio into ~5-minute segments with `ffmpeg -ss <start> -t 300 -c copy <chunk>.m4a` (stream-copy, no re-encode — fast).
+3. Transcribe each chunk separately (reuse the transcription entry point in `scripts/whisper.py`/`transcribe.py`), forcing the `replicate` backend per chunk.
+4. Offset each chunk's returned segment timestamps by that chunk's start time, then concatenate all chunks into one continuous transcript before writing the summary.
+
+Then Read every listed frame path (parallel Read calls) and read the merged transcript. If native captions are missing and the chunked Whisper path also fails, proceed frames-only and note that in the summary.
 
 **IMPORTANT — do not end your turn while a background process is still running.** If you background the download/transcribe step, you must actively wait for it (poll it or use a blocking call) and continue in the SAME turn to read frames and write the file. You are a single agent process, not the orchestrator — nothing "notifies" you automatically the way it notifies the orchestrator. Ending your turn assuming a later turn will pick this back up leaves the task permanently incomplete. This matters especially for videos needing chunked Whisper transcription (roughly one chunk per 5-6 minutes of audio), which can take several minutes — just keep waiting.
 

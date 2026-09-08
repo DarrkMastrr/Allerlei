@@ -1,6 +1,6 @@
 # MCP (Model Context Protocol) — das Grundkonzept im Überblick
 
-Quellen: [video-summary-sQBinJA_zxU.md](video-summaries/video-summary-sQBinJA_zxU.md), [claude-oekosystem-ueberblick.md](claude-oekosystem-ueberblick.md), [video-summary-B_OqkMRFonM.md](video-summaries/video-summary-B_OqkMRFonM.md), [video-summary-AL391nkWGIc.md](video-summaries/video-summary-AL391nkWGIc.md), [video-summary-1guudCDr0H4.md](video-summaries/video-summary-1guudCDr0H4.md)
+Quellen: [video-summary-sQBinJA_zxU.md](video-summaries/video-summary-sQBinJA_zxU.md), [claude-oekosystem-ueberblick.md](claude-oekosystem-ueberblick.md), [video-summary-B_OqkMRFonM.md](video-summaries/video-summary-B_OqkMRFonM.md), [video-summary-AL391nkWGIc.md](video-summaries/video-summary-AL391nkWGIc.md), [video-summary-1guudCDr0H4.md](video-summaries/video-summary-1guudCDr0H4.md), [video-summary-jAobzuCNIR8.md](video-summaries/video-summary-jAobzuCNIR8.md)
 
 MCP wird in mehreren Videos am Rand erwähnt, aber nur in zweien konkret vorgeführt bzw. aus erster Hand erklärt (Home Assistant als Praxisbeispiel; ein Anthropic-Mitentwickler-Interview zu Entstehung und Governance). Dieser Artikel bündelt das allgemeine Konzept mit beidem (siehe [notes-audit-report.md](notes-audit-report.md)).
 
@@ -43,6 +43,16 @@ Home Assistant hat eine eigene API, über die normalerweise nur Apps zugreifen. 
 **Einrichtung:** Installation über HA App-Store/HACS, inklusive Tool Security Policies, Allow-/Deny-Listen und automatischem Backup vor Änderungen. Für Fernzugriff ohne Portfreigabe: ein Webhook-Proxy (Nabu Casa), über den auch lokale KI-Clients (z. B. LM Studio) zugreifen können.
 
 **Was das in der Praxis ermöglicht** (Beispiele aus dem Video): Claude erkennt, dass ein vorhandener Regensensor ein kumulativer Zähler ist, und legt selbstständig einen passenden Utility-Meter-Helper an; eine Kinderzimmer-Lichtautomation wird über die Automations-Trace analysiert und der Bug per Fix-Vorschlag behoben — beides wäre über den eingebauten Server (kein Trace-Zugriff, kein Helper-Erstellen) nicht möglich gewesen.
+
+## Praxisbeispiel 2: MCP als B2B-Monetarisierungsmechanismus (Statista/Perplexity, jAobzuCNIR8)
+
+Anderer Anwendungsfall als Home Assistant: MCP nicht als Smart-Home-Fernbedienung, sondern als bezahltes Daten-Interface zwischen zwei Unternehmen. Statista (Statistik-Datenanbieter) verlor durch ChatGPT & Co. massiv organischen Google-Traffic, weil LLMs dieselben Daten direkt in ihre Antworten integrierten, ohne Linkout — Statistas Antwort war eine radikale Paywall (nur noch 4–5 % der Daten frei crawlbar). Genau dieser Schritt brachte **Perplexity** dazu, aktiv einen Kooperationsweg zu suchen: Ein MCP-Server ("Statista Connect"), über den Perplexity strukturiert und **nutzungsbasiert per Credits** auf Statista-Daten zugreift.
+
+Zwei Argumente aus dem Video für MCP als B2B-Datenprodukt, nicht nur als technisches Tool-Interface:
+- **Vertrauens-/Provenienz-Argument:** Ein MCP-Server mit klar identifizierbarer, lizenzierter Quelle ist für einen KI-Anbieter attraktiver als ungeprüftes Web-Scraping — die Herkunft der Daten ist nachvollziehbar.
+- **Dreischichtiges Markt-Layer-Modell** (Data Layer / Intelligence Layer / Access Layer), das der interviewte Statista-CEO als Rahmen für die eigene Positionierung nutzt.
+
+Ergänzt den bisherigen Fokus dieses Artikels (technisches Konzept, Governance, ein Consumer-/Smart-Home-Beispiel) um ein konkretes Beispiel, wie ein Datenanbieter MCP geschäftlich statt nur technisch einsetzt — relevant, falls im eigenen Umfeld Daten/Dokumentation für externe KI-Systeme freigegeben werden sollen, statt sie unkontrolliert crawlen zu lassen oder ganz zu sperren.
 
 ## Praktische Einordnung
 

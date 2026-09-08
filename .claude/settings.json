@@ -140,7 +140,8 @@
       "Bash(rm -rf \"/c/Users/Admin/AppData/Local/Temp/watch-afvispsv\")",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git fetch *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Admin\\AppData\\Local\\Temp\\watch-zrljft6y",

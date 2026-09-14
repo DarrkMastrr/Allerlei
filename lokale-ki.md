@@ -1,6 +1,6 @@
 # Lokale KI — warum sie 2026 relevant wird und wie man einsteigt
 
-Quellen: [video-summary-5Tj88qDPrFw.md](video-summary-5Tj88qDPrFw.md) ("Lokale KI ist endlich brauchbar, so geht's (Odysseus)"), [video-summary-Mg6NOwHqflw.md](video-summaries/video-summary-Mg6NOwHqflw.md) ("Gewinnt China den KI Krieg?"), [video-summary-DJhiTpQshX4.md](video-summaries/video-summary-DJhiTpQshX4.md) ("Lokale KI: Kauf nicht die falsche Hardware")
+Quellen: [video-summary-5Tj88qDPrFw.md](video-summary-5Tj88qDPrFw.md) ("Lokale KI ist endlich brauchbar, so geht's (Odysseus)"), [video-summary-Mg6NOwHqflw.md](video-summaries/video-summary-Mg6NOwHqflw.md) ("Gewinnt China den KI Krieg?"), [video-summary-DJhiTpQshX4.md](video-summaries/video-summary-DJhiTpQshX4.md) ("Lokale KI: Kauf nicht die falsche Hardware"), [video-summary-qZRftXozT3M.md](video-summaries/video-summary-qZRftXozT3M.md) ("Lokale KI wird MASSIV unterschätzt")
 
 ## Warum jetzt
 
@@ -57,6 +57,14 @@ Aus [video-summary-DJhiTpQshX4.md](video-summaries/video-summary-DJhiTpQshX4.md)
 | US-Abo (ChatGPT/Claude) | niedrig | Top-Modelle | begrenzt | 20–200+ $/Monat |
 
 Empfehlung aus dem Video: Odysseus auf einem eigenen Server (z. B. Hostinger) betreiben, kombiniert mit Ollama Cloud als datenschutzfreundlicherer, aber bezahlbarer Modell-Quelle, statt komplett auf ein US-Abo zu setzen.
+
+## Zusätzliche Einsatzszenarien (aus video-summary-qZRftXozT3M.md)
+
+Ergänzt die obige Kaufberatung um konkrete Alltags-Anwendungsfälle, in denen lokale Modelle heute schon praktisch einsetzbar sind — oft im **Hybrid-Setup** zusammen mit Cloud-Modellen statt als Entweder-Oder:
+
+- **PII-Anonymisierung vor Cloud-Weitergabe** — sensible Daten lokal maskieren, bevor sie an ein Cloud-Modell gehen
+- **Dokumentenanalyse und Vertragsprüfung** — Aufgaben, bei denen Datenschutz wichtiger ist als Spitzenleistung
+- Bestätigt denselben Effizienz-Trend wie oben (Quantisierung, MoE) sowie zusätzlich Apple Unified Memory als Hardware-Faktor
 
 ## Offene Fragen (nicht gegengecheckt)
 - Konkrete Preisangaben (GLM 5.2, DeepSeek V4 pro Mio. Token) — Momentaufnahme, ändert sich häufig

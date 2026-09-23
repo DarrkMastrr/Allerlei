@@ -1,6 +1,6 @@
 # GPT-6 Astra: Launch, Fähigkeiten und offene Fragen
 
-Quellen: [video-summary-AOgUqb62WUQ.md](video-summaries/video-summary-AOgUqb62WUQ.md) (Digitale Profis, ohne Video-Zugriff erstellt), [video-summary-zQcatAdqjko.md](video-summaries/video-summary-zQcatAdqjko.md) (Christoph Magnussen), [video-summary-WXqB5U2I_4g.md](video-summaries/video-summary-WXqB5U2I_4g.md) (Eike Diestelkamp), [video-summary-XCn05-EVZdI.md](video-summaries/video-summary-XCn05-EVZdI.md) (iKnowReview), [video-summary-aWvtHsx0u1Y.md](video-summaries/video-summary-aWvtHsx0u1Y.md) (Julian Ivanov, eigene One-Shot-Tests), Vorgeschichte: [video-summary-9lyg9m8D3q0.md](video-summaries/video-summary-9lyg9m8D3q0.md) und [video-summary-t3Tb9HOiwSw.md](video-summaries/video-summary-t3Tb9HOiwSw.md)
+Quellen: [video-summary-AOgUqb62WUQ.md](video-summaries/video-summary-AOgUqb62WUQ.md) (Digitale Profis, ohne Video-Zugriff erstellt), [video-summary-zQcatAdqjko.md](video-summaries/video-summary-zQcatAdqjko.md) (Christoph Magnussen), [video-summary-WXqB5U2I_4g.md](video-summaries/video-summary-WXqB5U2I_4g.md) (Eike Diestelkamp), [video-summary-XCn05-EVZdI.md](video-summaries/video-summary-XCn05-EVZdI.md) (iKnowReview), [video-summary-aWvtHsx0u1Y.md](video-summaries/video-summary-aWvtHsx0u1Y.md) (Julian Ivanov, eigene One-Shot-Tests), [video-summary-fpYG6OBKEZw.md](video-summaries/video-summary-fpYG6OBKEZw.md) (Dr. Sebastian Raschka, Gegenstimme zur Reasoning-Trace-Einordnung), Vorgeschichte: [video-summary-9lyg9m8D3q0.md](video-summaries/video-summary-9lyg9m8D3q0.md) und [video-summary-t3Tb9HOiwSw.md](video-summaries/video-summary-t3Tb9HOiwSw.md)
 
 Fünf unabhängige Videos befassen sich im Repo inzwischen mit demselben Launch (3./4. September 2026) — Anlass genug für einen eigenen Übersichtsartikel statt fünf isolierter Einzelnotizen. Zwischen den Kanälen bestätigen sich zentrale Fakten mehrfach unabhängig (Preise, Preparedness-Framework-Einstufung), an einer Stelle löst ein späteres Video sogar einen Zahlen-Widerspruch zwischen zwei früheren auf (siehe Benchmark-Tabelle unten).
 
@@ -30,6 +30,10 @@ Astra ist das erste Modell, das im OpenAI-Preparedness-Framework die "Critical"-
 ## Blackbox-Reasoning und Governance
 
 Mehrere Sprecher (Magnussen, iKnowReview) berichten übereinstimmend, dass Astras Denkschritte (Reasoning-Trace) deutlich schlechter nachvollziehbar seien als bei Vorgängermodellen — laut iKnowReview auf eine neue "recurrent depth"/"looped transformers"-Architektur zurückzuführen (per WebSearch bestätigt). Magnussen leitet daraus eine konkrete Konsequenz ab: Unternehmen bräuchten neue Logging-/Governance-Prozesse, um ein solches Modell verantwortungsvoll einzusetzen — ausdrücklich keine Empfehlung, das Modell deshalb nicht zu nutzen.
+
+## Gegenstimme: Sebastian Raschka relativiert die Reasoning-Trace-Dramatik
+
+Der LLM-Forscher Dr. Sebastian Raschka widerspricht in [video-summary-fpYG6OBKEZw.md](video-summaries/video-summary-fpYG6OBKEZw.md) explizit der oben dokumentierten Einordnung: Die "looped transformer"/recurrent-depth-Architektur sei "nichts Magisches" und nicht sonderlich innovativ, die schwerer nachvollziehbare Reasoning-Trace-Berichterstattung "nicht so dramatisch" wie dargestellt. Seine alternative Erklärung: leistungsfähigere Modelle benötigen grundsätzlich weniger sichtbare Token pro Aufgabe — kein Beleg für bewusste Verschleierung. Das relativiert, widerlegt aber nicht die oben dokumentierte Governance-Empfehlung (Magnussen/iKnowReview): Raschka bestreitet die technische Dramatisierung, nicht die praktische Konsequenz, dass ein schwerer nachvollziehbarer Denkweg neue Logging-Prozesse rechtfertigt.
 
 ## Praxis-Tests (Julian Ivanov, One-Shot, kein Nachbessern)
 

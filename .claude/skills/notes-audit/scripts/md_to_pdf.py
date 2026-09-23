@@ -15,6 +15,7 @@ Usage:
 Requires (install once per machine): pip install --user markdown xhtml2pdf
 """
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import markdown
@@ -22,6 +23,7 @@ from xhtml2pdf import pisa
 
 ROOT = Path.cwd()
 OUT = ROOT / "PDFs"
+CHANGELOG = OUT / "_zuletzt-aktualisiert.txt"
 
 CSS = """
 <style>
@@ -137,27 +139,53 @@ def default_files():
     return sorted(p.name for p in ROOT.glob("*.md"))
 
 
+def write_changelog(created, updated, failed):
+    """Overwrite PDFs/_zuletzt-aktualisiert.txt with this run's result, so the
+    user can see at a glance which PDFs are new/changed without opening each
+    one or checking git dates."""
+    lines = [f"PDF-Generierung: {datetime.now().strftime('%Y-%m-%d %H:%M')}", ""]
+    lines.append(f"Neu erzeugt ({len(created)}):")
+    lines += [f"  - {name}" for name in created] if created else ["  (keine)"]
+    lines.append("")
+    lines.append(f"Aktualisiert ({len(updated)}):")
+    lines += [f"  - {name}" for name in updated] if updated else ["  (keine)"]
+    if failed:
+        lines.append("")
+        lines.append(f"Fehlgeschlagen ({len(failed)}):")
+        lines += [f"  - {name}: {reason}" for name, reason in failed]
+    CHANGELOG.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     targets = sys.argv[1:] if len(sys.argv) > 1 else default_files()
-    ok, failed = [], []
+    created, updated, failed = [], [], []
     for fname in targets:
         src = ROOT / fname
         if not src.exists():
             failed.append((fname, "Quelldatei fehlt"))
             continue
         out = OUT / (src.stem + ".pdf")
+        was_existing = out.exists()
         try:
             err = convert(src, out)
             if err:
                 failed.append((fname, "pisa meldete Fehler"))
+            elif was_existing:
+                updated.append(fname)
             else:
-                ok.append(fname)
+                created.append(fname)
         except Exception as e:
             failed.append((fname, str(e)))
 
+    write_changelog(created, updated, failed)
+
+    ok = created + updated
     print(f"\n{len(ok)} OK, {len(failed)} fehlgeschlagen")
-    for fname in ok:
+    for fname in created:
+        print(f"  NEU  {fname}")
+    for fname in updated:
         print(f"  OK   {fname}")
     for fname, reason in failed:
         print(f"  FAIL {fname}: {reason}")
+    print(f"\nDetails: {CHANGELOG.relative_to(ROOT)}")

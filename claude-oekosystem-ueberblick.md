@@ -49,6 +49,11 @@ Neun zusätzliche Videos liefern konkrete, im Kern verifizierbare Praxistipps zu
 - **INTENT.md / AI-Native SDLC** ([video-summary-LoMOPj-lO8U.md](video-summaries/video-summary-LoMOPj-lO8U.md)): Anthropics Blogpost formalisiert den Entwicklungszyklus als Kette versionierter Artefakte (intent.md → spec.md → plan.md → PR-Review → Maintenance-Loop) — ausdrücklich eine von mehreren validen Herangehensweisen, kein zwingender Ersatz für bestehende Workflows
 - **MCP-Tool-Integration** ([video-summary-JDebq_fxLlw.md](video-summaries/video-summary-JDebq_fxLlw.md)): Higgsfield bündelt 30+ KI-Bild-/Videomodelle per MCP-Server direkt in Claude Code — Nutzen hängt am Credit-Verbrauch, "Unlimited"-Pläne greifen im Terminal-Workflow nicht
 
+## Prompting Claude 5: 7 Regeln (hEWqRbQe6z4)
+Zusammenfassung des Opus-5-Prompting-Guides (Guide und Umgebungsvariablen per WebSearch bestätigt): ganze Aufgabe vorab nennen; Interview zuerst (Community-Technik, keine Anthropic-Regel); das "Warum" nennen; Definition of Done angeben; begründete statt starrer Regeln; alte Tricks (u. a. Selbstverifikation im Prompt) weglassen; Antwortstil zentral in der CLAUDE.md. Überschneidet sich mit [ai-agent-workflow.md](ai-agent-workflow.md) (Interview-Prompt) und [context-rot-ueberblick.md](context-rot-ueberblick.md) (Systemprompt-Kürzung). Mögliche Spannung: Regel 6 gegen "immer gegenprüfen" — aufgelöst als "Selbstverifikation im Prompt ist redundant, menschliche Prüfung bleibt". Im Video genanntes "Haiku 5.1" ließ sich nicht bestätigen.
+
+*Nachtrag Faktencheck (2026-09-29):* Die "7 Regeln" sind die Zählung des Hosts; im Guide belegt sind Verifikations-Anweisungen entfernen, Scope, Verbosity-Beispiel und Subagent-Limits (`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` Default 3, `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS` Default 20). "Haiku 5.1" existiert vermutlich nicht (Fable 5.1 und Mythos 5.1 erschienen am 01.09.). Siehe [video-summary-hEWqRbQe6z4.md](video-summaries/video-summary-hEWqRbQe6z4.md).
+
 ## Offene Fragen (nicht gegengecheckt)
 - Genaue aktuelle Modellnamen/-versionen, wie in den Videos gezeigt (Screenshots sind Momentaufnahmen)
 - Existenz/Funktionsweise von "Claude Dispatch", "Claude Channels" und "Claude Design" als eigenständige, benannte Produktfeatures — Videos könnten informelle Namen für tatsächliche Anthropic-Features verwenden

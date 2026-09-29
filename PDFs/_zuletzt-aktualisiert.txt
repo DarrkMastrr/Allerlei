@@ -1,0 +1,13 @@
+PDF-Generierung: 2026-09-29 23:20
+
+Neu erzeugt (0):
+  (keine)
+
+Aktualisiert (7):
+  - claude-oekosystem-ueberblick.md
+  - humanoide-roboter-2026.md
+  - ki-forschungsdurchbrueche-2026.md
+  - ki-modellvergleich-kosten.md
+  - ki-produktivitaets-hacks.md
+  - ki-zukunftsprognosen.md
+  - lokale-ki.md

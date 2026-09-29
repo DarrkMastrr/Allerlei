@@ -35,6 +35,11 @@ Ein unabhängig eingeordneter Robotik-Wissenschaftler mit über 30 Jahren Praxis
 
 Alle drei Linien laufen laut 8cMP_A6Tkus zuerst über Fabriken/Lagerhallen, dann Servicebereiche — der Weg nach Hause bleibt am längsten, weil dort Sicherheit und Datenvertrauen entscheiden, nicht nur technische Fähigkeit.
 
+## Die Gegenposition: Beine als universelle Lösung (0zj46VLkRXw)
+Prof. Gunter Dueck (Everlast AI, 78 Min, überwiegend Meinung/Essay) hält Humanoide mit Beinen für universell und langfristig billigste Lösung — **Widerspruch** zur Industrie-Gegenrede oben (AktS_a6Ru7E: Beine reine Optik, Räder mit Armen sinnvoller). Dueck nennt keine Autonomie- oder Zuverlässigkeitszahlen. Seine 50-€-pro-Aktuator-Rechnung ist Sprecherschätzung und deutlich optimistischer als die Inspire-Hand (ca. 15.000 €) im Handabschnitt. Für Hardware-Teams: Fertigungstiefe/Zulieferer-Koordination, Plattform plus Skills als Produktarchitektur. Seine Go-Studie ("nach AlphaGo schlechter") ließ sich nicht bestätigen; Gegenbefunde zeigen bessere Entscheidungen. Weiteres: [china-ki-macht.md](china-ki-macht.md).
+
+*Nachtrag Faktencheck (2026-09-29):* Duecks Go-Studie ist nicht auffindbar, belegt ist das Gegenteil (PNAS 2023: bessere Entscheidungen nach AlphaGo). Aktuatorkosten belegt bei ca. 167-202 $ pro Gelenk/Achse, nicht 50 EUR. Spargelstech-Roboter, NEURA-Skill-Store, VW-Zahlen und Geburtenrate nicht geprüft. Siehe [video-summary-0zj46VLkRXw.md](video-summaries/video-summary-0zj46VLkRXw.md).
+
 ## Der Ausreißer: Companion-Roboter statt Industrie-Humanoide
 
 CU-JH9kzd8Y beschreibt mit Robonovas Eva.i ein real per Kickstarter finanziertes Produkt — silikonhäutig, körperwarm, berührungssensitiv, aber stationär (nicht gehfähig, technisch bescheidener als Optimus/Unitree). Die "Grenze überschritten"-Rahmung des Titels bezieht sich weniger auf Fähigkeiten als auf die bewusst romantisch/emotional aufgeladene Positionierung als KI-Partner — ein Bereich, den China seit Juli 2026 per Gesetz einzuhegen versucht.

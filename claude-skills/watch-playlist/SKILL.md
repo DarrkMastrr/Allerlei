@@ -111,6 +111,8 @@ Glob: video-summaries/video-summary-<VIDEO_ID>.md
 
 Fehlt die Datei trotz `completed`-Meldung: **nicht** einen neuen Agent starten (verliert Kontext/Fortschritt), sondern per `SendMessage` an dieselbe Agent-ID eine Korrektur schicken (kurz erklären, dass die Datei fehlt, dass Hintergrundprozesse aktiv abgewartet werden müssen, und dass die Aufgabe jetzt in einem durchgehenden Turn zu Ende gebracht werden soll). Danach erneut auf die Fertigmeldung warten und wieder verifizieren.
 
+**Hinweis zur Meldung "no API key":** Die Meldung "No transcript available … no API key set" in `watch.py` ist generisch und erscheint bei jedem Whisper-Ausfall, nicht nur bei fehlendem Key. Vor dem Aufgeben den Key selbst prüfen (`~/.config/watch/.env`) und den Lauf einmal selbst wiederholen, bei Videos über 15 Min. mit eigenem 5-Minuten-Chunking. Erst wenn auch der zweite Versuch scheitert, dem Nutzer melden.
+
 ## Schritt 6 — Wellen fortsetzen
 
 Sobald ein Slot frei wird (Video verifiziert fertig), das nächste Video aus der Warteschlange starten — Konkurrenz bei ~3 halten, bis die Liste abgearbeitet ist.

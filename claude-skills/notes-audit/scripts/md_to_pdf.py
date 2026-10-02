@@ -12,8 +12,19 @@ Usage:
     python md_to_pdf.py                  # regenerate PDFs for all root-level *.md files
     python md_to_pdf.py foo.md bar.md    # regenerate PDFs for specific files only
 
+Änderungsmarkierung (gilt für jede Neuerzeugung einer PDF):
+    - neuer/geänderter Text seit der vorigen Fassung: blau
+    - entfernter Text: in dieser Fassung durchgestrichen, erst in der nächsten Fassung weg
+    - Text, der in der vorigen Fassung blau war: wieder schwarz
+Als Vergleichsbasis dienen Schnappschüsse der Markdown-Quellen in PDFs/.stand/ (<name>.cur.md =
+Stand der letzten Fassung, <name>.prev.md = Stand davor). Beim allerersten Lauf für eine Datei
+wird nur der Ausgangsstand gemerkt und nichts markiert. Ein erneuter Lauf ohne inhaltliche
+Änderung erzeugt dieselbe Markierung wie zuvor.
+
 Requires (install once per machine): pip install --user markdown xhtml2pdf
 """
+import difflib
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -120,8 +131,65 @@ th {
 """
 
 
+STAND = OUT / ".stand"
+BLUE = '<span style="color:#1d4ed8">'
+
+
+def _wrap(line, start, end):
+    """Zeileninhalt in start/end einfassen, ohne die Markdown-Struktur (Liste, Überschrift, Tabelle) zu zerstören."""
+    if not line.strip():
+        return line
+    if line.lstrip().startswith("|"):  # Tabellenzeile: jede Zelle einzeln
+        cells = line.strip().strip("|").split("|")
+        if all(re.fullmatch(r"\s*:?-+:?\s*", c) for c in cells):
+            return line
+        return "|" + "|".join(f"{start}{c.strip()}{end}" if c.strip() else c for c in cells) + "|"
+    m = re.match(r"^(\s*(?:#{1,6} |[-*+] |\d+\. |> ))(.*)$", line)
+    if m:
+        return f"{m.group(1)}{start}{m.group(2)}{end}"
+    return f"{start}{line}{end}"
+
+
+def _blue(line):
+    return _wrap(line, BLUE, "</span>")
+
+
+def _mark(prev, cur):
+    out = []
+    old, new = prev.splitlines(), cur.splitlines()
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, old, new, autojunk=False).get_opcodes():
+        if tag == "equal":
+            out.extend(new[j1:j2])
+            continue
+        if tag in ("insert", "replace"):
+            out.extend(_blue(line) for line in new[j1:j2])
+        if tag in ("delete", "replace"):
+            out.extend(_wrap(line, "<del>", "</del>") for line in old[i1:i2] if line.strip())
+    return "\n".join(out) + "\n"
+
+
+def with_markup(md_path: Path, text: str):
+    """Markdown-Text mit Änderungsmarkierung gegenüber der vorigen Fassung zurückgeben."""
+    STAND.mkdir(parents=True, exist_ok=True)
+    cur_f = STAND / f"{md_path.stem}.cur.md"
+    prev_f = STAND / f"{md_path.stem}.prev.md"
+    if not cur_f.exists():
+        cur_f.write_text(text, encoding="utf-8", newline="")
+        return text
+    cur = cur_f.read_text(encoding="utf-8")
+    if cur != text:
+        prev_f.write_text(cur, encoding="utf-8", newline="")
+        cur_f.write_text(text, encoding="utf-8", newline="")
+        prev = cur
+    elif prev_f.exists():
+        prev = prev_f.read_text(encoding="utf-8")
+    else:
+        return text
+    return _mark(prev, text)
+
+
 def convert(md_path: Path, out_path: Path):
-    text = md_path.read_text(encoding="utf-8")
+    text = with_markup(md_path, md_path.read_text(encoding="utf-8"))
     html_body = markdown.markdown(
         text,
         extensions=["extra", "sane_lists", "nl2br"],

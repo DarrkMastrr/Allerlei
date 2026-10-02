@@ -49,7 +49,7 @@ Manche Playlist-Einträge sind nicht abrufbar (`title`/`duration` = `null` im fl
 
 ### Kontingent-Hinweis (Pro-Abo)
 
-Pro Video laufen ein Schreib-Agent und ein Prüf-Agent (Schritt 5b); der Kontingentbedarf ist damit etwa doppelt so hoch wie die Videozahl vermuten lässt — bei der Batch-Größe berücksichtigen.
+Pro Video laufen ein Schreib-Agent und 1 bis 3 Prüf-Agents samt Korrekturrunden (Schritt 5b); der Kontingentbedarf ist damit etwa zwei- bis vierfach so hoch wie die Videozahl vermuten lässt — bei der Batch-Größe berücksichtigen.
 
 Der Nutzer hat ein Claude-Pro-Abo mit begrenztem Nutzungsfenster — **nicht** automatisch versuchen, eine große Zahl neuer Videos (mehr als ~5-6) in einer einzigen Session komplett abzuarbeiten. Bei einem größeren Rückstand:
 
@@ -128,11 +128,23 @@ Für jedes Video, dessen Datei verifiziert vorliegt (Schritt 5), startet der Orc
 
 Auftrag an den Prüf-Agent: aktiv nach Fehlern suchen, nichts erfinden, nichts raten; Unprüfbares als UNABLE TO VERIFY benennen. Pro Aussage (bzw. Aussagengruppe) ein Verdikt: CONFIRMED / PARTIALLY CONFIRMED (mit genauer Angabe, was falsch war) / NOT SUPPORTED (steht so nicht im Video bzw. in der Quelle) / UNABLE TO VERIFY. Bericht kompakt (unter 400 Wörter), Fehler zuerst. Der Prüf-Agent prüft nur und ändert keine Dateien.
 
+### Prüf-Schleife (max. 3 Durchläufe)
+
+Als **Fehler** zählen die Verdikte PARTIALLY CONFIRMED und NOT SUPPORTED. UNABLE TO VERIFY ist kein Fehler; solche Punkte und strittige Quellenkonflikte landen im Abschnitt „Zu prüfen" der Datei.
+
+Ablauf pro Video, mit Durchlaufzähler n = 1, 2, 3:
+1. Prüf-Agent n prüft die Datei **komplett** (nicht nur zuletzt korrigierte Stellen). Ab n = 2 ist es ein **neuer** Prüf-Agent (unvoreingenommen), der zusätzlich die Liste der bisherigen Funde und Korrekturen bekommt, um gezielt zu prüfen, ob diese sauber eingearbeitet wurden und ob die Korrektur neue Fehler erzeugt hat.
+2. Findet der Prüf-Agent **keine Fehler**: Schleife endet, Video gilt als geprüft.
+3. Findet er Fehler: Der Orchestrator schickt sie per `SendMessage` an den Schreib-Agent (gleiche Agent-ID, kein Neustart). Der Schreib-Agent korrigiert nur die genannten Punkte in der eigenen Datei, erfindet nichts und meldet kurz, was er geändert hat. Der Prüf-Agent selbst korrigiert nie.
+4. Nach der Korrektur beginnt Durchlauf n + 1 bei Punkt 1 — **außer** n war 3: Dann endet die Schleife, sobald die Korrektur des dritten Durchlaufs eingearbeitet ist. Es gibt keine vierte Prüfung.
+
+**Markierung bei Abbruch nach Durchlauf 3:** Hat der dritte Prüf-Agent noch Fehler gefunden, ist die letzte Korrektur ungeprüft und die Datei kann weiterhin grob falsch sein. Der Orchestrator lässt dann im Schreib-Agent direkt unter dem Metadatenblock (vor dem `---`) die Zeile ergänzen:
+`**Prüfstatus:** ⚠ Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.`
+Die Zeile steht im Markdown-Quelltext und erscheint dadurch automatisch in jeder daraus erzeugten PDF (Einzelvideo-PDFs ebenso wie Themen-PDFs, die diese Datei einbinden). Wird für so ein Video eine PDF erzeugt, vorher prüfen, dass die Zeile dort sichtbar ist.
+
 Danach:
-- Bei Fehlern schickt der Orchestrator sie per `SendMessage` an den Schreib-Agent zur Korrektur (gleiche Agent-ID, kein Neustart) und lässt die korrigierten Stellen kurz nachprüfen.
-- Verdikte UNABLE TO VERIFY und strittige Punkte landen im Abschnitt „Zu prüfen" der Datei.
-- Erst nach abgeschlossener Prüfung wird das Arbeitsverzeichnis gelöscht und der Todo als erledigt abgehakt.
-- Im Abschlussbericht (Schritt 7) kommt pro Video eine Zeile zum Prüfergebnis, Fehler und Korrekturen zuerst.
+- Erst nach dem Ende der Schleife wird das Arbeitsverzeichnis gelöscht und der Todo als erledigt abgehakt.
+- Im Abschlussbericht (Schritt 7) kommt pro Video eine Zeile mit Zahl der Durchläufe und Ergebnis, Fehler und Korrekturen zuerst. Videos mit Abbruch nach Durchlauf 3 stehen **ganz oben im Bericht, deutlich als ⚠ markiert**, weil sie noch grob falsch sein können.
 
 ## Schritt 6 — Wellen fortsetzen
 

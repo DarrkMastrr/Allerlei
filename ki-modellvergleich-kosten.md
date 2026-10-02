@@ -41,6 +41,14 @@ Zwei Videos zur Modellwelle vom September 2026. Opus 5.5 (Release 22.09.2026, pe
 
 *Nachtrag Faktencheck (2026-09-29):* Anthropic-Claim (40 % billiger bei Standardeinstellungen) und AA-Befund (pro Aufgabe gleichauf bei Max-Effort, ca. 119k vs. 73k Output-Tokens) sind bestätigt; konkrete Dollarwerte unbestätigt. Terminal-Bench: Anthropic 66,4 % (xhigh laut zwei Prüfern, max laut einem) vs. Astra 57,9 % (high); Vals AI (29.09.2026) Opus 5.5 65,15 %, Astra 59,60 %. Sol/Luna (2 $/10 $ bzw. 0,10 $/0,50 $) nur über Sekundärquellen. "EQ 151" meint den Mensa-Norway-IQ-Test, der als saturiert gilt. Effort-Wechsel ohne Cache-Verlust: nur X-Post einer Anthropic-Mitarbeiterin. Details in [video-summary-9EOqBiMR3z4.md](video-summaries/video-summary-9EOqBiMR3z4.md) und [video-summary-3xksVVtssjY.md](video-summaries/video-summary-3xksVVtssjY.md).
 
+## Nachtrag DevDay 2026: Dots, Ultrafast und neue Preisstufen (Stand 2026-10-03)
+
+Quelle: [video-summary-a_jihWpd8cc.md](video-summaries/video-summary-a_jihWpd8cc.md) (Satire-Video, Zusammenfassung mit Warnvermerk "nicht abschließend geprüft"); Zahlen stammen aus dort geprüften Webquellen (dev.to, Latent Space als WebFetch-Zusammenfassungen; Futurism, Startup Fortune, pymnts als Volltext). Details und Vorbehalte: [gpt-6-astra-ueberblick.md](gpt-6-astra-ueberblick.md).
+
+- **Ultrafast = Preisstaffelung nach Tempo:** "bis zu 8x" schneller (Codex) bzw. 6x (API) bei 6-fachem Preis — Astra dann 60 $/300 $ statt 10 $/50 $ je 1 Mio. Token. Für die Kostenrechnung gilt dasselbe wie bei Effort-Stufen: Tempo nur dort bezahlen, wo es Wartezeit spart (interaktives Arbeiten), nicht bei Nachtläufen.
+- **Dots (OpenAI-Agenten):** laut Quellen in Pro/Business Premium/Enterprise enthalten, Tarifpreise in den Quellen widersprüchlich (u. a. 100 $/200 $/500 $-Stufen) — vor jeder Budgetplanung bei OpenAI direkt prüfen.
+- **Sol:** Das Video nennt "GPT-6.1 Sol"; die oben genannten Sol-Preise (2 $/10 $) stammen von "GPT-6 Sol/Luna" — Zuordnung ungeklärt.
+
 ## Kernbotschaft
 
 Modellvergleiche und Preisangaben sind in diesem Themenfeld die am schnellsten veraltenden Inhalte im ganzen Repo — mehrere Quellen selbst weisen darauf hin, dass Einzelzahlen zum Lesezeitpunkt bereits überholt sein können. Die strukturellen Entscheidungsregeln (nach Nutzungsprofil wählen, Doppellizenzen vermeiden, ein Harness-Tool wirklich lernen) sind dagegen stabil und der eigentliche Mehrwert dieser Artikel-Zusammenfassung.

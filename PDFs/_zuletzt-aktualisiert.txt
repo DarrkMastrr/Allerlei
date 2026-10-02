@@ -1,13 +1,8 @@
-PDF-Generierung: 2026-10-02 23:39
+PDF-Generierung: 2026-10-03 01:16
 
 Neu erzeugt (0):
   (keine)
 
-Aktualisiert (7):
-  - claude-oekosystem-ueberblick.md
-  - humanoide-roboter-2026.md
-  - ki-forschungsdurchbrueche-2026.md
+Aktualisiert (2):
+  - gpt-6-astra-ueberblick.md
   - ki-modellvergleich-kosten.md
-  - ki-produktivitaets-hacks.md
-  - ki-zukunftsprognosen.md
-  - lokale-ki.md

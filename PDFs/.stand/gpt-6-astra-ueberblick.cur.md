@@ -46,6 +46,15 @@ Als bislang einziges Video mit tatsächlich selbst durchgeführten Tests (nicht 
 
 Keine Einigkeit zwischen den Sprechern: Magnussen und iKnowReview kommen unabhängig voneinander zum selben vorsichtigen Schluss — teilweise AGI-artige Fähigkeiten, aber keine vollständige AGI (iKnowReview: Modell bräuchte weiterhin einen menschlichen Auftrag und einen "Harness", wird nicht selbst zur Entwicklung des nächsten Modells eingesetzt). Der Host von WXqB5U2I_4g bricht OpenAIs eigene "AGI-Zeitalter"-Rhetorik am deutlichsten herunter (Vergleich mit "erster Mensch auf dem Mond").
 
+## Nachtrag DevDay 2026 (29.09.2026): Dots, Sol, Ultrafast (Stand 2026-10-03)
+
+Quelle: [video-summary-a_jihWpd8cc.md](video-summaries/video-summary-a_jihWpd8cc.md) — ein **Satire-Video (SAMTIME, Parodiekanal)** über die DevDay-Präsentation; die Zusammenfassung trägt den Warnvermerk "nach 3 Prüfdurchläufen weiterhin Fehler gefunden, letzte Korrektur nicht nachgeprüft". Die Fakten unten stammen daher aus den Webquellen, die dort geprüft wurden (Futurism, Startup Fortune, pymnts.com als Volltext; dev.to und Latent Space nur als WebFetch-Zusammenfassungen), nicht aus dem Video selbst.
+
+- **Dots:** OpenAIs neue "immer eingeschaltete" Cloud-Agenten (auf Astra-Basis, per Chat oder Anruf erreichbar). Laut dev.to/Latent Space in Pro, Business Premium und Enterprise enthalten; die Preisangaben der Quellen widersprechen sich (Futurism "$100-Tier", Startup Fortune $200 Pro/$125 Business Premium, pymnts "Pro $100–$500", dazu ein neues "Pro 500"-Tier) — **Preislage offen**.
+- **Live-Demo-Panne:** Bei der Telefon-Demo blieb ein Dot laut Futurism ca. 10 Sekunden still; eine "Voice chat couldn't start"-Meldung und der Hinweis, man habe "alle Updates gleichzeitig ausgerollt", stehen laut pymnts im Zusammenhang mit Romain Huets Voice-Demo. Ausmaß: begrenzte Pannen, kein Totalausfall.
+- **Sol und Ultrafast:** Ein Schnellmodus "Ultrafast" soll laut dev.to/Latent Space "bis zu 8x" (Codex) bzw. 6x (API) schneller sein bei 6-fachem Preis (Astra dann 60 $/300 $ je 1 Mio. Token statt 10 $/50 $). Das Video sagt pauschal "8x Tempo für 6x Preis". **Namensfrage offen:** Das Video nennt das Modell "GPT-6.1 Sol", dieser Artikel und [ki-modellvergleich-kosten.md](ki-modellvergleich-kosten.md) führen "GPT-5.6 Sol" bzw. "GPT-6 Sol/Luna" — ob es sich um dasselbe Modell oder eine neue Version handelt, ist nicht geklärt.
+- **Nicht belegt:** openai.com-Primärseiten wurden nicht abgerufen; der Hinweis im Video auf einen "Hack" des australischen Gesundheitssystems ist ungeprüft und Teil der Satire.
+
 ## Für den technischen Team-/Gruppenleiter
 
 1. **Lizenz-/Rollout-Stolperstein:** Bei gemischten Tarifstufen im Team sieht nicht jeder dieselbe Astra-Version (Plus vs. Pro/Business/Enterprise) — relevant für Erwartungssteuerung.

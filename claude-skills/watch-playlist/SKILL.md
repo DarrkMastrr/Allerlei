@@ -49,6 +49,8 @@ Manche Playlist-Einträge sind nicht abrufbar (`title`/`duration` = `null` im fl
 
 ### Kontingent-Hinweis (Pro-Abo)
 
+Pro Video laufen ein Schreib-Agent und ein Prüf-Agent (Schritt 5b); der Kontingentbedarf ist damit etwa doppelt so hoch wie die Videozahl vermuten lässt — bei der Batch-Größe berücksichtigen.
+
 Der Nutzer hat ein Claude-Pro-Abo mit begrenztem Nutzungsfenster — **nicht** automatisch versuchen, eine große Zahl neuer Videos (mehr als ~5-6) in einer einzigen Session komplett abzuarbeiten. Bei einem größeren Rückstand:
 
 - Kurz die Gesamtzahl neuer (abrufbarer) Videos nennen und den Nutzer fragen, wie groß die Batch-Größe für diese Session sein soll (z.B. per `AskUserQuestion`), statt stillschweigend alles zu starten.
@@ -96,8 +98,8 @@ Grep this project's root *.md files and video-summaries/ for terms relevant to t
 ## Step 5 — Value for the target reader
 The intended reader/use case for this project is: {ZIELGRUPPE}. If this video contains anything specifically useful for that reader, make sure it's clearly represented in the summary.
 
-## Step 6 — Clean up
-Delete the script's working/temp directory when done.
+## Step 6 — Keep the working directory
+Do NOT delete the script's working/temp directory: an independent verification agent needs the transcript and frames. Report the full path of the `Work dir:` in your final report. The orchestrator deletes it after verification.
 
 ## Report back
 Short (under 250 words): confirm the file was written, state the actual title/length found, list plausibility concerns and contradictions/overlaps found with existing notes, and list open questions for the user (don't guess).
@@ -117,9 +119,24 @@ Fehlt die Datei trotz `completed`-Meldung: **nicht** einen neuen Agent starten (
 
 **Hinweis zur Meldung "no API key":** Die Meldung "No transcript available … no API key set" in `watch.py` ist generisch und erscheint bei jedem Whisper-Ausfall, nicht nur bei fehlendem Key. Vor dem Aufgeben den Key selbst prüfen (`~/.config/watch/.env`) und den Lauf einmal selbst wiederholen, bei Videos über 15 Min. mit eigenem 5-Minuten-Chunking. Erst wenn auch der zweite Versuch scheitert, dem Nutzer melden.
 
+## Schritt 5b — Unabhängige Gesamtprüfung (immer)
+
+Für jedes Video, dessen Datei verifiziert vorliegt (Schritt 5), startet der Orchestrator genau einen **eigenständigen Prüf-Agent** (`Agent`, `subagent_type: general-purpose`, `run_in_background: true`). Er darf nicht derselbe Agent sein, der die Zusammenfassung geschrieben hat. Der Prüf-Agent bekommt: Pfad der Zusammenfassung, Pfad des Arbeitsverzeichnisses (Transkript + Frames) des Schreib-Agents, Video-URL, Themenkontext. Er prüft **beides**:
+
+1. **Zusammenfassung gegen das Video:** Jede inhaltliche Aussage, Zahl, Name und jedes Zitat der Zusammenfassung gegen Transkript und Frames abgleichen. Gesucht werden: falsch wiedergegebene Zahlen, Aussagen, die das Video nicht macht, Verwechslungen von Sprechern/Produkten, Hype-Rahmung statt tatsächlichem Inhalt, fehlerhafte Erklärungen in Einleitung und Glossar.
+2. **Hinzugefügte Web-Informationen:** Alles, was der Schreib-Agent aus dem Web ergänzt oder als „geprüft" markiert hat (Plausibilitätsprüfung, Querverweise, Glossar-Erklärungen), selbst per WebSearch/WebFetch an den **Primärquellen** erneut prüfen — nicht den Angaben des Schreib-Agents glauben. Zitierte Quellen müssen existieren und das Behauptete tatsächlich belegen.
+
+Auftrag an den Prüf-Agent: aktiv nach Fehlern suchen, nichts erfinden, nichts raten; Unprüfbares als UNABLE TO VERIFY benennen. Pro Aussage (bzw. Aussagengruppe) ein Verdikt: CONFIRMED / PARTIALLY CONFIRMED (mit genauer Angabe, was falsch war) / NOT SUPPORTED (steht so nicht im Video bzw. in der Quelle) / UNABLE TO VERIFY. Bericht kompakt (unter 400 Wörter), Fehler zuerst. Der Prüf-Agent prüft nur und ändert keine Dateien.
+
+Danach:
+- Bei Fehlern schickt der Orchestrator sie per `SendMessage` an den Schreib-Agent zur Korrektur (gleiche Agent-ID, kein Neustart) und lässt die korrigierten Stellen kurz nachprüfen.
+- Verdikte UNABLE TO VERIFY und strittige Punkte landen im Abschnitt „Zu prüfen" der Datei.
+- Erst nach abgeschlossener Prüfung wird das Arbeitsverzeichnis gelöscht und der Todo als erledigt abgehakt.
+- Im Abschlussbericht (Schritt 7) kommt pro Video eine Zeile zum Prüfergebnis, Fehler und Korrekturen zuerst.
+
 ## Schritt 6 — Wellen fortsetzen
 
-Sobald ein Slot frei wird (Video verifiziert fertig), das nächste Video aus der Warteschlange starten — Konkurrenz bei ~3 halten, bis die Liste abgearbeitet ist.
+Sobald ein Slot frei wird (Video verifiziert und geprüft fertig), das nächste Video aus der Warteschlange starten — Konkurrenz bei ~3 halten, bis die Liste abgearbeitet ist.
 
 ## Schritt 7 — Abschlussbericht im Chat
 

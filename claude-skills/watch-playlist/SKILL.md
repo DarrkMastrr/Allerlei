@@ -19,6 +19,8 @@ Dieser Skill hat **keine** Standard-Playlist und **keine** feste Zielgruppe mehr
 1. **Playlist-URL** — Pflicht, kein Default.
 2. **Themenkontext in 1-2 Sätzen** — worum geht es (z. B. "Psychologie von Kleinkindern, Fokus auf Bindungsverhalten und Trotzphasen"), und für wen/mit welchem Blickwinkel die Zusammenfassungen gedacht sind (z. B. "Elternperspektive", "Fachpublikum", "Hardware-Entwickler und Team-Lead"). Dieser Kontext ersetzt eine hartcodierte Zielgruppen-Annahme und fließt in Schritt 4 (Step 5 des Subagent-Prompts) sowie in die Plausibilitätsprüfung ein.
 
+Frage bei der Zielgruppe immer auch, ob die Leser Experten oder interessierte Laien sind; bei Laien gelten die Verständlichkeits-Vorgaben aus Step 2 des Subagent-Prompts.
+
 Wenn im aktuellen Projekt bereits `video-summaries/*.md`-Dateien existieren, kurz eine Datei lesen, um Sprache/Struktur/Zielgruppe der bisherigen Zusammenfassungen zu übernehmen, statt erneut zu fragen.
 
 ## Schritt 1 — Playlist lesen
@@ -82,6 +84,8 @@ Then Read every listed frame path (parallel Read calls) and read the merged tran
 
 ## Step 2 — Write the summary file
 Create {REPO_ROOT}\video-summaries\video-summary-{VIDEO_ID}.md. First read 2-3 existing files in that folder (if any exist) to match the exact structure/tone/language convention already established in this project. If this is the first video in this project, use this default structure: `# "Title"` header, bullet metadata block (**Kanal:**, **URL:**, **Länge:**, **Zusammenfassung erstellt:** <today's date>), `---`, content sections with `##` headings covering what's actually said/shown, a `## Kernbotschaft` (1 paragraph), a `## Themen-Tags` line, and a `## Zu prüfen` section for anything uncertain/unverified. Write content in {SPRACHE} regardless of the video's spoken language. Use the actual title/uploader from the script's metadata output.
+
+Reader profile: the reader is interested in what's new but is NOT an expert. The summary must make the video understandable without prior knowledge — avoid compressing it to bare facts. Concretely: (a) Start with a `## Worum geht es?` section (1-2 paragraphs): what is new, what was the situation before, why does it matter. (b) Explain technical terms, product/model names and metrics briefly where they first appear (e.g. what a benchmark measures, what an "effort level" is). (c) Don't just list claims — explain the reasoning and connections (why, compared to what, what follows from it). (d) End the content with a `## Begriffe` glossary (4-10 entries, only terms that occur in the text), placed before `## Kernbotschaft`. (e) Length: about 50-80 % longer than the earlier summaries of this project (measured medians so far, body incl. "Zu prüfen": up to 10 min ≈ 1,350 words, 10-20 min ≈ 1,450, 20-30 min ≈ 1,800, 30-50 min ≈ 1,550, over 50 min ≈ 2,200 — so target roughly 2,000-2,400 / 2,200-2,600 / 2,700-3,200 / 2,500-3,000 / 3,300-4,000 words). Understandability beats completeness; don't pad.
 
 ## Step 3 — Plausibility check (be honest, don't fabricate)
 Critically read the claims made. For strong/checkable factual claims, spot-check via WebSearch if something seems dubious or you're unsure, and note the outcome. Do NOT invent sources or verification you didn't actually do — if you didn't check something, say so plainly. If genuinely unsure and can't resolve something, say so explicitly in your final report rather than guessing. Treat sensational/clickbait titles with extra scrutiny — describe what's actually shown/claimed, not the hype framing.

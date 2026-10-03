@@ -23,9 +23,7 @@ Entstanden beim Test der neuen Prüf-Schleife (Schritt 5b im Skill `watch-playli
 2. **Prüfer können sich irren.** Zwei Fälle: PyPI-"15 Systeme" wurde von Prüfer 1 als unbelegt bemängelt, von Prüfer 2 mit Quelle bestätigt. Sahara "4 %" meinte Prüfer 2 sei eine Ergänzung, Prüfer 3 fand es im Transkript. Der Wechsel des Prüfers fängt das auf, aber nur, wenn noch ein Durchlauf folgt. Nach Durchlauf 3 bleibt ein Prüfer-Irrtum stehen.
 3. **ERLEDIGT (03.10.):** Das ⚠ in der Prüfstatus-Zeile ist im Skill und in den 4 Dateien durch "ACHTUNG:" ersetzt (PDF-Schrift hat das Zeichen nicht).
 3b. **ERLEDIGT (03.10.):** Für die 4 neuen Videos wurden Einzelvideo-PDFs erzeugt (`PDFs/video-summary-<ID>.pdf`), obwohl sie in keinen Themen-Artikel eingearbeitet sind. Weg: `convert()` aus `md_to_pdf.py` direkt aufgerufen, weil das Skript `video-summaries/` ausschließt. Noch offen: Soll das künftig für jede neue Zusammenfassung automatisch passieren?
-4. **Videos in Themen-Artikel einarbeiten?** Vorschläge, noch nicht gemacht:
-   - `nX5RFiNAj_s` und `gmZlkrHvkkk` → `openai-krise-ki-blase.md` bzw. `ki-risiko-warnungen.md` / `ki-sicherheitsvorfaelle-sandbox-escapes.md`
-   - `b8SU4cqAWTk` → `ki-zukunftsprognosen.md` (keine UBI-Übersicht im Repo; verwandt: `video-summary-RWDsx8KxtX8.md`, `video-summary-XhvLvqSd8VE.md`)
+4. **ERLEDIGT (03.10.):** Die drei Videos sind als Nachtrag mit Warnvermerk eingearbeitet: `b8SU4cqAWTk` → `ki-zukunftsprognosen.md`; `gmZlkrHvkkk` und `nX5RFiNAj_s` → `openai-krise-ki-blase.md` und `ki-sicherheitsvorfaelle-sandbox-escapes.md`. PDFs dieser drei Artikel neu erzeugt. Offen: Eine eigene Übersicht zu UBI/Arbeitsmarkt gibt es weiter nicht.
 5. **Skill-Schwächen, die ich beobachtet habe (Wortlaut jeweils zur Bestätigung):**
    - Der Schreib-Agent las nach einer Korrektur oft nicht die ganze Datei nach, dadurch blieben veraltete Reste stehen. Vorschlag: im Korrekturauftrag immer "komplett nachlesen" verlangen (hatte ich ab Durchlauf 2 mündlich so gemacht).
    - Seitenabrufe liefern Tool-Zusammenfassungen, keinen Rohtext. Viele Belege sind daher nur "mittel". Mehrere Quellen (OpenAI-Original, CNBC, Axios, The Decoder, CNN) waren per 403/451 nicht lesbar.
@@ -43,7 +41,7 @@ Entstanden beim Test der neuen Prüf-Schleife (Schritt 5b im Skill `watch-playli
 ## Aufräumen / Technik
 
 - **Playlist:** 2 Einträge nicht abrufbar (`1m4ArmuRv_w`, `UoasgyH3ZYU`, vermutlich privat oder gelöscht). Noch nicht angesehen.
-- **`~/.config/watch/.env`:** Rechte 644 statt 600 (Hook-Warnung). `chmod 600` nicht ausgeführt.
+- **`~/.config/watch/.env`:** ERLEDIGT (03.10.), Entscheidung: Warnung wird ignoriert. Ursache ist kein Skill-Abgleich zwischen den Rechnern, sondern Windows: `chmod 600` hält dort nicht (an einer Kopie getestet, blieb 644), der Hook meldet bei jedem Sitzungsstart 644. Die Datei liegt nicht in Git und ist seit dem 08.06. unverändert.
 - **Anderer Rechner:** Nach `git pull` die globale Kopie `~/.claude/skills/watch-playlist/SKILL.md` aus `claude-skills/watch-playlist/SKILL.md` übernehmen.
 - **`notes-audit` und `research-verify`:** Projektkopien in `.claude/skills/` gegen die globalen Versionen nicht verglichen.
 - **Memory:** Es wurde nichts in die Memory geschrieben (Regel: nur nach Bestätigung). Kandidaten: (a) Prüf-Schleife mit max. 3 Durchläufen und Warnzeile; (b) Einzelvideo-PDFs nicht über `md_to_pdf.py`; (c) ⚠ wird im PDF nicht dargestellt.

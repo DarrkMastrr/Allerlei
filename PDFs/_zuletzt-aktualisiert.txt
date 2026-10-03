@@ -1,8 +1,9 @@
-PDF-Generierung: 2026-10-03 01:16
+PDF-Generierung: 2026-10-03 10:13
 
 Neu erzeugt (0):
   (keine)
 
-Aktualisiert (2):
-  - gpt-6-astra-ueberblick.md
-  - ki-modellvergleich-kosten.md
+Aktualisiert (3):
+  - ki-zukunftsprognosen.md
+  - openai-krise-ki-blase.md
+  - ki-sicherheitsvorfaelle-sandbox-escapes.md

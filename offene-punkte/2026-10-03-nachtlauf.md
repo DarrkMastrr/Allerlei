@@ -24,12 +24,7 @@ Entstanden beim Test der neuen Prüf-Schleife (Schritt 5b im Skill `watch-playli
 3. **ERLEDIGT (03.10.):** Das ⚠ in der Prüfstatus-Zeile ist im Skill und in den 4 Dateien durch "ACHTUNG:" ersetzt (PDF-Schrift hat das Zeichen nicht).
 3b. **ERLEDIGT (03.10.):** Für die 4 neuen Videos wurden Einzelvideo-PDFs erzeugt (`PDFs/video-summary-<ID>.pdf`), obwohl sie in keinen Themen-Artikel eingearbeitet sind. Weg: `convert()` aus `md_to_pdf.py` direkt aufgerufen, weil das Skript `video-summaries/` ausschließt. Noch offen: Soll das künftig für jede neue Zusammenfassung automatisch passieren?
 4. **ERLEDIGT (03.10.):** Die drei Videos sind als Nachtrag mit Warnvermerk eingearbeitet: `b8SU4cqAWTk` → `ki-zukunftsprognosen.md`; `gmZlkrHvkkk` und `nX5RFiNAj_s` → `openai-krise-ki-blase.md` und `ki-sicherheitsvorfaelle-sandbox-escapes.md`. PDFs dieser drei Artikel neu erzeugt. Offen: Eine eigene Übersicht zu UBI/Arbeitsmarkt gibt es weiter nicht.
-5. **Skill-Schwächen, die ich beobachtet habe (Wortlaut jeweils zur Bestätigung):**
-   - Der Schreib-Agent las nach einer Korrektur oft nicht die ganze Datei nach, dadurch blieben veraltete Reste stehen. Vorschlag: im Korrekturauftrag immer "komplett nachlesen" verlangen (hatte ich ab Durchlauf 2 mündlich so gemacht).
-   - Seitenabrufe liefern Tool-Zusammenfassungen, keinen Rohtext. Viele Belege sind daher nur "mittel". Mehrere Quellen (OpenAI-Original, CNBC, Axios, The Decoder, CNN) waren per 403/451 nicht lesbar.
-   - Die Meldung "no API key" vom `watch`-Skript war beim 70-Minuten-Video wieder irreführend (Key war vorhanden), ebenso brach der erste Lauf bei zwei Videos mit einem Token-Provider-Timeout ab, der Retry klappte.
-   - Im Test von `a_jihWpd8cc` habe ich das Arbeitsverzeichnis zu früh gelöscht (vor Ende der Schleife). Der Skill sagt es richtig, ich habe es nicht eingehalten. Der Prüfer musste die Untertitel neu holen, Frames fehlten.
-   - Ein Edit-Skript des Schreib-Agents hat ein Steuerzeichen in einen Dateinamen geschrieben (`download\x0bideo.info.json`). Behoben, andere Dateien sauber.
+5. **ERLEDIGT (03.10.), vom Nutzer bestätigt:** Fünf Ergänzungen im Skill `watch-playlist`: (1) Schreib-Agent liest nach einer Korrektur die ganze Datei nach und prüft auf Steuerzeichen; (2) einheitliche Beleg-Stufen Volltext / Tool-Zusammenfassung / Suchtreffer / nicht abrufbar, Prüfer nennt Revidierungen als REVIDIERT; (3) erster Lauf bei Token-Provider-Timeout einmal wiederholen; (4) Arbeitsverzeichnis-Pfad im Todo notieren und erst nach Ende der Schleife löschen; (5) Richtwert Kontingent (Batches von höchstens 3 Videos, bei über 50 Minuten rund 15 Minuten Whisper). Ob die Beleg-Stufen den Aufwand lohnen, zeigt der nächste Lauf.
 
 ## Inhaltlich offen (aus den Zusammenfassungen, "Zu prüfen")
 

@@ -49,7 +49,7 @@ Manche Playlist-Einträge sind nicht abrufbar (`title`/`duration` = `null` im fl
 
 ### Kontingent-Hinweis (Pro-Abo)
 
-Pro Video laufen ein Schreib-Agent und 1 bis 3 Prüf-Agents samt Korrekturrunden (Schritt 5b); der Kontingentbedarf ist damit etwa zwei- bis vierfach so hoch wie die Videozahl vermuten lässt — bei der Batch-Größe berücksichtigen.
+Pro Video laufen ein Schreib-Agent und 1 bis 3 Prüf-Agents samt Korrekturrunden (Schritt 5b); der Kontingentbedarf ist damit etwa zwei- bis vierfach so hoch wie die Videozahl vermuten lässt — bei der Batch-Größe berücksichtigen. Richtwert aus dem ersten Lauf: Bei Videos über 50 Minuten mit Whisper-Chunking allein rund 15 Minuten für die Transkription einplanen; Batches von höchstens 3 Videos pro Sitzung.
 
 Der Nutzer hat ein Claude-Pro-Abo mit begrenztem Nutzungsfenster — **nicht** automatisch versuchen, eine große Zahl neuer Videos (mehr als ~5-6) in einer einzigen Session komplett abzuarbeiten. Bei einem größeren Rückstand:
 
@@ -72,6 +72,7 @@ python "$env:USERPROFILE\.claude\skills\watch\scripts\watch.py" "{VIDEO_URL}"
 or Git Bash:
 python "$USERPROFILE/.claude/skills/watch/scripts/watch.py" "{VIDEO_URL}"
 This downloads the video, extracts frames, and gets a transcript (native captions first, Whisper/Replicate fallback if captions are missing/blocked).
+The first run often fails with a PO-token provider (bgutil) timeout or LOGIN_REQUIRED. That is not a hard failure: retry the same command once before changing the approach.
 
 **Known bug — the Whisper/Replicate backend does NOT auto-chunk long audio.** It fails on longer videos in one of two ways: a hard-coded ~6-minute Replicate poll timeout, or an outright HTTP 413 "payload too large" on the raw audio upload. For any video roughly **>15 minutes**, don't wait for the script to fail first — proactively chunk yourself:
 
@@ -91,6 +92,7 @@ Reader profile: the reader is interested in what's new but is NOT an expert. The
 
 ## Step 3 — Plausibility check (be honest, don't fabricate)
 Critically read the claims made. For strong/checkable factual claims, spot-check via WebSearch if something seems dubious or you're unsure, and note the outcome. Do NOT invent sources or verification you didn't actually do — if you didn't check something, say so plainly. If genuinely unsure and can't resolve something, say so explicitly in your final report rather than guessing. Treat sensational/clickbait titles with extra scrutiny — describe what's actually shown/claimed, not the hype framing.
+State for every web fact how well it is backed, using exactly these labels: `Volltext` (you read the page itself), `Tool-Zusammenfassung` (WebFetch returned only a summary), `Suchtreffer` (only a snippet), `nicht abrufbar` (403/451/timeout). Never write "bestätigt" or "gut belegt" without a label, and never `Volltext` for a WebFetch result.
 
 ## Step 4 — Cross-check against existing notes (do NOT edit other files)
 Grep this project's root *.md files and video-summaries/ for terms relevant to this video's themes to find contradictions or notable overlap with what's already documented. Do NOT edit any file other than the new one you're creating. Report contradictions/overlaps back to the orchestrator AND add a short cross-reference note inside your new file's "Zu prüfen" section.
@@ -134,9 +136,9 @@ Als **Fehler** zählen die Verdikte PARTIALLY CONFIRMED und NOT SUPPORTED. UNABL
 Der Prüf-Agent stuft jeden Fehler zusätzlich mit kurzer Begründung ein als **KERN** (eine inhaltliche Aussage, Zahl, Zuordnung „wer sagt was" einschließlich Zitaten, eine Verallgemeinerung oder Verfälschung in „Worum geht es?" oder „Kernbotschaft" oder eine zentrale Webbehauptung ist falsch) oder **DETAIL** (Formulierung, Zeitstempel, Quellen-Nuance, nicht markierte Eigendeutung, veralteter Beleg-Hinweis). Im Zweifel KERN. Der Orchestrator prüft die Einstufungen stichprobenartig und stuft bei erkennbar zu milder Einstufung hoch.
 
 Ablauf pro Video, mit Durchlaufzähler n = 1, 2, 3:
-1. Prüf-Agent n prüft die Datei **komplett** (nicht nur zuletzt korrigierte Stellen). Ab n = 2 ist es ein **neuer** Prüf-Agent (unvoreingenommen), der zusätzlich die Liste der bisherigen Funde und Korrekturen bekommt, um gezielt zu prüfen, ob diese sauber eingearbeitet wurden und ob die Korrektur neue Fehler erzeugt hat.
+1. Prüf-Agent n prüft die Datei **komplett** (nicht nur zuletzt korrigierte Stellen). Ab n = 2 ist es ein **neuer** Prüf-Agent (unvoreingenommen), der zusätzlich die Liste der bisherigen Funde und Korrekturen bekommt, um gezielt zu prüfen, ob diese sauber eingearbeitet wurden und ob die Korrektur neue Fehler erzeugt hat. Der Prüf-Agent verwendet dieselben Beleg-Stufen (Volltext / Tool-Zusammenfassung / Suchtreffer / nicht abrufbar). Revidiert ein Fund eine frühere Korrektur, nennt er das ausdrücklich als **REVIDIERT** mit Beleg.
 2. Findet der Prüf-Agent **keine Fehler**: Schleife endet, Video gilt als geprüft.
-3. Findet er Fehler: Der Orchestrator schickt sie per `SendMessage` an den Schreib-Agent (gleiche Agent-ID, kein Neustart). Der Schreib-Agent korrigiert nur die genannten Punkte in der eigenen Datei, erfindet nichts und meldet kurz, was er geändert hat. Der Prüf-Agent selbst korrigiert nie.
+3. Findet er Fehler: Der Orchestrator schickt sie per `SendMessage` an den Schreib-Agent (gleiche Agent-ID, kein Neustart). Der Schreib-Agent korrigiert nur die genannten Punkte in der eigenen Datei, erfindet nichts und meldet kurz, was er geändert hat. Danach liest er die Datei **komplett** (Zeile 1 bis Ende) nach, damit keine veralteten Aussagen an anderer Stelle stehen bleiben (z. B. zwischen Inhaltsteil, „Einordnung", „Kernbotschaft" und „Zu prüfen"), und prüft sie auf Steuerzeichen (entstehen z. B. durch Skript-Edits mit Escape-Sequenzen wie `\v`). Der Prüf-Agent selbst korrigiert nie.
 4. Nach der Korrektur beginnt Durchlauf n + 1 bei Punkt 1 — **außer** n war 3: Dann endet die Schleife, sobald die Korrektur des dritten Durchlaufs eingearbeitet ist. Es gibt keine vierte Prüfung.
 
 **Markierung bei Abbruch nach Durchlauf 3:** Direkt unter dem Metadatenblock (vor dem `---`) lässt der Orchestrator im Schreib-Agent eine Zeile ergänzen, je nach Stufe der Fehler des dritten Durchlaufs:
@@ -147,7 +149,7 @@ Ablauf pro Video, mit Durchlaufzähler n = 1, 2, 3:
 Die Zeile steht im Markdown-Quelltext und erscheint dadurch automatisch in jeder daraus erzeugten PDF (Einzelvideo-PDFs ebenso wie Themen-PDFs, die diese Datei einbinden). Wird für so ein Video eine PDF erzeugt, vorher prüfen, dass die Zeile dort sichtbar ist.
 
 Danach:
-- Erst nach dem Ende der Schleife wird das Arbeitsverzeichnis gelöscht und der Todo als erledigt abgehakt.
+- Der Pfad des Arbeitsverzeichnisses wird im Todo des Videos notiert. Vor dem Löschen prüft der Orchestrator, dass die Schleife für dieses Video beendet ist; erst dann wird es gelöscht und der Todo abgehakt.
 - Im Abschlussbericht (Schritt 7) kommt pro Video eine Zeile mit Zahl der Durchläufe und Ergebnis, Fehler und Korrekturen zuerst. Videos mit Abbruch nach Durchlauf 3 und KERN-Fehlern stehen **ganz oben im Bericht, deutlich als ⚠ markiert**, weil sie noch grob falsch sein können. Videos mit nur DETAIL-Fehlern stehen normal in der Liste, mit dem Hinweis „nur Detailfehler".
 
 ## Schritt 6 — Wellen fortsetzen

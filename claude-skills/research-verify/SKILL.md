@@ -7,6 +7,8 @@ user-invocable: true
 
 # /research-verify — Recherche mit unabhängiger Gegenprüfung
 
+> **Pflegehinweis:** Dieser Skill liegt doppelt vor: global (`~/.claude/skills/research-verify/`) und als Sync-Kopie für den anderen Rechner (`claude-skills/research-verify/`). Beide müssen byteidentisch bleiben. Wer eine Kopie ändert, zieht die andere sofort nach (Prüfsummen vergleichen) und committet `claude-skills/`.
+
 Für Fälle, in denen eine einzelne Websuche nicht reicht: mehrere offene oder widersprüchliche Behauptungen, die echte Primärquellen brauchen, plus eine zweite, unabhängige Instanz, die die Recherche nicht einfach glaubt, sondern selbst nachprüft. Dieses Muster hat sich zweimal bewährt (Wasserzeichen-Übersetzungs-Widerspruch zwischen zwei Video-Zusammenfassungen; drei offene Fragen aus `loop-engineering-ueberblick.md`) und wurde deshalb hier als eigener Skill festgehalten, statt es jedes Mal neu zu improvisieren.
 
 ## Wann passt das (und wann nicht)

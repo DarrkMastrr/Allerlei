@@ -10,6 +10,8 @@ Zweck: Auf diesem Rechner (Stand-PC / Sandbox-Laptop, je nachdem wo diese Datei 
 2. Die gespiegelten Skills aus `claude-skills/` nach `~/.claude/skills/` übernehmen, mindestens `notes-audit` (neues `scripts/md_to_pdf.py` mit Änderungsmarkierung, neuer Absatz in `SKILL.md`) und `watch-playlist` (neuer Hinweis zur generischen "no API key"-Meldung; neue Vorgaben für ausführlichere, erklärende Zusammenfassungen mit Einleitung und Glossar; neuer Schritt 5b mit unabhängiger Prüf-Schleife, max. 3 Durchläufe, Fehler werden als KERN oder DETAIL eingestuft; Warnzeile "Prüfstatus: ACHTUNG" nur bei KERN-Fehlern nach Durchlauf 3, bei nur Detailfehlern eine neutrale Zeile); Korrekturen werden komplett nachgelesen; einheitliche Beleg-Stufen (Volltext / Tool-Zusammenfassung / Suchtreffer / nicht abrufbar); Prüfer nennt Revidierungen früherer Korrekturen als REVIDIERT; Arbeitsverzeichnis erst nach Ende der Schleife löschen; erster Lauf bei Token-Provider-Timeout einmal wiederholen. Die alte Projektkopie `.claude/skills/watch-playlist/` wurde aus dem Repo entfernt, es gilt nur die globale Version. Keine festen Home-Pfade eintragen, sondern `~` bzw. `$USERPROFILE` verwenden.
 3. Einmalig prüfen: `pip install --user markdown xhtml2pdf` (für `md_to_pdf.py`).
 4. Die Schnappschüsse in `PDFs/.stand/` kommen mit dem Pull mit und dürfen nicht von Hand verändert werden.
+5. Projektkopien unter `.claude/skills/` (`notes-audit`, `research-verify`, `watch-playlist`) gibt es nicht mehr; die Löschung kommt mit dem Pull. Es gelten nur noch die globalen Kopien (`~/.claude/skills/`), gespiegelt in `claude-skills/`. Jede `SKILL.md` trägt einen Pflegehinweis: beide Kopien byteidentisch halten, Prüfsummen vergleichen. `md_to_pdf.py` wird jetzt über `~/.claude/skills/notes-audit/scripts/md_to_pdf.py` aufgerufen (PowerShell: `$env:USERPROFILE\.claude\skills
+otes-audit\scripts\md_to_pdf.py`).
 
 ## Memory-Eintrag 1: `feedback_pdf_new_text_color.md`
 
@@ -90,8 +92,14 @@ Für jede neu erzeugte Zusammenfassung unter video-summaries/ auch eine Einzelvi
 
 **Why:** Der Nutzer sagte am 2026-10-03 "Mach die PDFs auch wenn sie nirgends aktuell dazu passen" und bestätigte auf Nachfrage "ja immer". Die frühere Praxis (Einzel-PDFs nur auf Wunsch bei Videos ohne Themen-Cluster) gilt damit nicht mehr als Bremse. md_to_pdf.py schließt video-summaries/ selbst aus.
 
-**How to apply:** Nach Abschluss der Prüf-Schleife von watch-playlist `convert()` aus .claude/skills/notes-audit/scripts/md_to_pdf.py importieren und pro neuer Datei aufrufen. Die Namensregel in [[feedback-pdf-single-video-naming]] gilt nur für Themenartikel mit einer Quelle, nicht für diese Rohzusammenfassungs-PDFs.
+**How to apply:** Nach Abschluss der Prüf-Schleife von watch-playlist `convert()` aus ~/.claude/skills/notes-audit/scripts/md_to_pdf.py importieren und pro neuer Datei aufrufen. Die Namensregel in [[feedback-pdf-single-video-naming]] gilt nur für Themenartikel mit einer Quelle, nicht für diese Rohzusammenfassungs-PDFs.
 ```
+
+## Memory-Eintrag 6 (Änderung): `project_skill_sync_via_allerlei.md`
+
+Falls der Eintrag auf dem anderen Rechner existiert: am Ende von "How to apply" diesen Absatz anhängen (vorher dem Nutzer zeigen):
+
+> **Doppelte Ablage (Stand 2026-10-03):** `notes-audit`, `research-verify` und `watch-playlist` liegen doppelt vor — global (`~/.claude/skills/`) und als Sync-Kopie (`claude-skills/`) — und sind byteidentisch (`watch` ebenfalls, mit eigenem Git). Projektkopien unter `.claude/skills/` gibt es nicht mehr (am 2026-10-03 entfernt, der Pfad von `md_to_pdf.py` zeigt jetzt auf `~/.claude/skills/notes-audit/scripts/`). Wird eine Kopie geändert, muss die andere sofort nachgezogen werden (Prüfsummen vergleichen); sonst laufen sie auseinander, und der andere Rechner bekommt eine abweichende Version. Jede `SKILL.md` trägt dazu einen Pflegehinweis direkt unter der Überschrift.
 
 ## Zeilen für den Index `MEMORY.md`
 

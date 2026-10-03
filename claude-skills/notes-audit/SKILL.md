@@ -7,6 +7,8 @@ user-invocable: true
 
 # /notes-audit — Health-Check für die Notizen
 
+> **Pflegehinweis:** Dieser Skill liegt doppelt vor: global (`~/.claude/skills/notes-audit/`) und als Sync-Kopie für den anderen Rechner (`claude-skills/notes-audit/`). Beide müssen byteidentisch bleiben. Wer eine Kopie ändert, zieht die andere sofort nach (Prüfsummen vergleichen) und committet `claude-skills/`.
+
 Dieses Repo sammelt Notizen (Video-Zusammenfassungen unter `video-summaries/`, Themen-Artikel im Wurzelverzeichnis) nach dem Inbox→Wiki-Prinzip. Dieser Skill übernimmt den in der Zusammenfassung von `video-summaries/video-summary-meZirzrbqXM.md` beschriebenen **Health-Check-Schritt**: regelmäßig prüfen, ob sich Widersprüche eingeschlichen haben, ob Behauptungen unbelegt im Raum stehen, und ob ein Thema in mehreren Notizen auftaucht, ohne je einen eigenen Übersichtsartikel bekommen zu haben.
 
 ## Schritt 1 — Notizen einsammeln
@@ -63,13 +65,15 @@ Dieser Skill ist für regelmäßige, manuell oder per Cron ausgelöste Durchläu
 
 ## Hinweis zum PDF-Export der Themen-Artikel
 
-Die Root-Themen-Artikel dieses Repos (z.B. `ai-agent-workflow.md`, NICHT `video-summaries/*.md`) haben unter `PDFs/` jeweils eine lesbar formatierte PDF-Version, erzeugt über `.claude/skills/notes-audit/scripts/md_to_pdf.py` (benötigt einmalig `pip install --user markdown xhtml2pdf`, reportlab kommt als Abhängigkeit mit).
+Die Root-Themen-Artikel dieses Repos (z.B. `ai-agent-workflow.md`, NICHT `video-summaries/*.md`) haben unter `PDFs/` jeweils eine lesbar formatierte PDF-Version, erzeugt über `~/.claude/skills/notes-audit/scripts/md_to_pdf.py` (benötigt einmalig `pip install --user markdown xhtml2pdf`, reportlab kommt als Abhängigkeit mit).
 
 Wenn im Zuge dieses Skill-Durchlaufs eine Root-Themen-Artikel-Datei inhaltlich verändert wird (z.B. eine vom Nutzer genehmigte Korrektur eines gefundenen Widerspruchs) oder neu angelegt wird (z.B. ein neu entworfener Übersichtsartikel für ein wiederkehrendes Thema), am Ende **immer fragen**, ob die zugehörige PDF-Datei neu bzw. erstmals erzeugt werden soll — nicht automatisch regenerieren. Bei Zustimmung:
 
 ```bash
-python .claude/skills/notes-audit/scripts/md_to_pdf.py <geänderte-datei.md>
+python ~/.claude/skills/notes-audit/scripts/md_to_pdf.py <geänderte-datei.md>
 ```
+
+(PowerShell: `python "$env:USERPROFILE\.claude\skills\notes-audit\scripts\md_to_pdf.py" <datei>`; immer im Projektroot ausführen)
 
 Ohne Argumente regeneriert das Skript alle Root-`*.md`-Dateien auf einmal.
 

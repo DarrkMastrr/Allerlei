@@ -8,6 +8,8 @@ user-invocable: true
 
 # /watch-playlist — Playlist komplett abarbeiten
 
+> **Pflegehinweis:** Dieser Skill liegt doppelt vor: global (`~/.claude/skills/watch-playlist/`) und als Sync-Kopie für den anderen Rechner (`claude-skills/watch-playlist/`). Beide müssen byteidentisch bleiben. Wer eine Kopie ändert, zieht die andere sofort nach (Prüfsummen vergleichen) und committet `claude-skills/`.
+
 Dieser Skill ist global installiert (`~/.claude/skills/`), projekt- und themen-unabhängig. Er verwendet immer das aktuelle Arbeitsverzeichnis (`{REPO_ROOT}` in den Beispielen unten) als Projekt, in dem `video-summaries/` liegt bzw. angelegt wird — egal ob dort KI-News, Kleinkind-Psychologie, Kochrezepte oder etwas ganz anderes gesammelt wird.
 
 Kontext: Statt Video-URLs einzeln einzufügen, pflegt der Nutzer eine (meist unlisted) YouTube-Playlist als Inbox zu einem Thema. `video-summaries/video-summary-<VIDEO_ID>.md` ist die "gesehen"-Liste; die Playlist selbst muss nie geleert werden (kein Schreib-/Lösch-Zugriff auf YouTube-Playlists vorhanden, und unnötig — die Dedup-Prüfung in Schritt 2 macht bereits gesehene Videos automatisch harmlos).

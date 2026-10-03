@@ -139,7 +139,7 @@ Ablauf pro Video, mit Durchlaufzähler n = 1, 2, 3:
 4. Nach der Korrektur beginnt Durchlauf n + 1 bei Punkt 1 — **außer** n war 3: Dann endet die Schleife, sobald die Korrektur des dritten Durchlaufs eingearbeitet ist. Es gibt keine vierte Prüfung.
 
 **Markierung bei Abbruch nach Durchlauf 3:** Hat der dritte Prüf-Agent noch Fehler gefunden, ist die letzte Korrektur ungeprüft und die Datei kann weiterhin grob falsch sein. Der Orchestrator lässt dann im Schreib-Agent direkt unter dem Metadatenblock (vor dem `---`) die Zeile ergänzen:
-`**Prüfstatus:** ⚠ Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.`
+`**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.`
 Die Zeile steht im Markdown-Quelltext und erscheint dadurch automatisch in jeder daraus erzeugten PDF (Einzelvideo-PDFs ebenso wie Themen-PDFs, die diese Datei einbinden). Wird für so ein Video eine PDF erzeugt, vorher prüfen, dass die Zeile dort sichtbar ist.
 
 Danach:

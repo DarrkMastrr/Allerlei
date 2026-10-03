@@ -7,7 +7,7 @@ Zweck: Auf diesem Rechner (Stand-PC / Sandbox-Laptop, je nachdem wo diese Datei 
 ## Vorher auf dem anderen Rechner (Skill-Teil, kommt über Git)
 
 1. `git pull` im Repo `Allerlei`.
-2. Die gespiegelten Skills aus `claude-skills/` nach `~/.claude/skills/` übernehmen, mindestens `notes-audit` (neues `scripts/md_to_pdf.py` mit Änderungsmarkierung, neuer Absatz in `SKILL.md`) und `watch-playlist` (neuer Hinweis zur generischen "no API key"-Meldung; neue Vorgaben für ausführlichere, erklärende Zusammenfassungen mit Einleitung und Glossar). Keine festen Home-Pfade eintragen, sondern `~` bzw. `$USERPROFILE` verwenden.
+2. Die gespiegelten Skills aus `claude-skills/` nach `~/.claude/skills/` übernehmen, mindestens `notes-audit` (neues `scripts/md_to_pdf.py` mit Änderungsmarkierung, neuer Absatz in `SKILL.md`) und `watch-playlist` (neuer Hinweis zur generischen "no API key"-Meldung; neue Vorgaben für ausführlichere, erklärende Zusammenfassungen mit Einleitung und Glossar; neuer Schritt 5b mit unabhängiger Prüf-Schleife, max. 3 Durchläufe, Warnzeile "Prüfstatus: ACHTUNG" bei Abbruch nach Durchlauf 3). Die alte Projektkopie `.claude/skills/watch-playlist/` wurde aus dem Repo entfernt, es gilt nur die globale Version. Keine festen Home-Pfade eintragen, sondern `~` bzw. `$USERPROFILE` verwenden.
 3. Einmalig prüfen: `pip install --user markdown xhtml2pdf` (für `md_to_pdf.py`).
 4. Die Schnappschüsse in `PDFs/.stand/` kommen mit dem Pull mit und dürfen nicht von Hand verändert werden.
 
@@ -76,6 +76,23 @@ Neu:
 
 > 6. **Whisper/Replicate: not every failure means "no key".** HTTP 429 comes from Replicate's account-credit gate (see [[project_skill_sync_via_allerlei]]); the "no API key" message of `watch.py` is generic and appears on any Whisper failure, e.g. the 6-minute timeout on long audio (fix: own 5-minute chunking, worked 2026-09/10). Before giving up: check the key, retry once, chunk videos over ~15 min. Only then fall back to frames-only — and tell the user (frames-only summaries are error-prone, e.g. a wrong number was found that way).
 
+## Memory-Eintrag 5 (neu): `feedback_pdf_single_videos_always.md`
+
+```markdown
+---
+name: feedback-pdf-single-videos-always
+description: "Each new video summary gets its own single-video PDF even if no topic article fits; made via md_to_pdf.convert(), named video-summary-<ID>.pdf"
+metadata:
+  type: feedback
+---
+
+Für jede neu erzeugte Zusammenfassung unter video-summaries/ auch eine Einzelvideo-PDF unter PDFs/ erzeugen, selbst wenn sie (noch) in keinen Themen-Artikel passt. Dateiname `video-summary-<ID>.pdf`, wie die bestehenden. Gilt immer, nicht nur einmalig.
+
+**Why:** Der Nutzer sagte am 2026-10-03 "Mach die PDFs auch wenn sie nirgends aktuell dazu passen" und bestätigte auf Nachfrage "ja immer". Die frühere Praxis (Einzel-PDFs nur auf Wunsch bei Videos ohne Themen-Cluster) gilt damit nicht mehr als Bremse. md_to_pdf.py schließt video-summaries/ selbst aus.
+
+**How to apply:** Nach Abschluss der Prüf-Schleife von watch-playlist `convert()` aus .claude/skills/notes-audit/scripts/md_to_pdf.py importieren und pro neuer Datei aufrufen. Die Namensregel in [[feedback-pdf-single-video-naming]] gilt nur für Themenartikel mit einer Quelle, nicht für diese Rohzusammenfassungs-PDFs.
+```
+
 ## Zeilen für den Index `MEMORY.md`
 
 Bestehende Zeilen zu diesen Einträgen ersetzen bzw. neu anlegen:
@@ -84,6 +101,7 @@ Bestehende Zeilen zu diesen Einträgen ersetzen bzw. neu anlegen:
 - [PDF rewrite deletion workflow](feedback_pdf_deletion_workflow.md) — strike through removed text one version, delete it the version after; automated in md_to_pdf.py since 2026-10-02
 - [PDF new-text color](feedback_pdf_new_text_color.md) — new text blue, previous blue back to black; automated in md_to_pdf.py (snapshots in PDFs/.stand/)
 - [Summaries for non-experts](feedback_summaries_for_non_experts.md) — explanatory style, intro + glossary, ~50-80% longer; new videos only
+- [Single-video PDFs for every new summary](feedback_pdf_single_videos_always.md) — make video-summary-<ID>.pdf per new summary via md_to_pdf.convert()
 ```
 
 ## Hinweis

@@ -43,7 +43,7 @@ Zwei Videos zur Modellwelle vom September 2026. Opus 5.5 (Release 22.09.2026, pe
 
 ## Nachtrag DevDay 2026: Dots, Ultrafast und neue Preisstufen (Stand 2026-10-03)
 
-Quelle: [video-summary-a_jihWpd8cc.md](video-summaries/video-summary-a_jihWpd8cc.md) (Satire-Video, Zusammenfassung mit Warnvermerk "nicht abschließend geprüft"); Zahlen stammen aus dort geprüften Webquellen (dev.to, Latent Space als WebFetch-Zusammenfassungen; Futurism, Startup Fortune, pymnts als Volltext). Details und Vorbehalte: [gpt-6-astra-ueberblick.md](gpt-6-astra-ueberblick.md).
+Quelle: [video-summary-a_jihWpd8cc.md](video-summaries/video-summary-a_jihWpd8cc.md) (Satire-Video, Zusammenfassung mit Prüfvermerk "nur noch Detailfehler, letzte Korrektur nicht nachgeprüft"); Zahlen stammen aus dort geprüften Webquellen (dev.to, Latent Space als WebFetch-Zusammenfassungen; Futurism, Startup Fortune, pymnts als Volltext). Details und Vorbehalte: [gpt-6-astra-ueberblick.md](gpt-6-astra-ueberblick.md).
 
 - **Ultrafast = Preisstaffelung nach Tempo:** "bis zu 8x" schneller (Codex) bzw. 6x (API) bei 6-fachem Preis — Astra dann 60 $/300 $ statt 10 $/50 $ je 1 Mio. Token. Für die Kostenrechnung gilt dasselbe wie bei Effort-Stufen: Tempo nur dort bezahlen, wo es Wartezeit spart (interaktives Arbeiten), nicht bei Nachtläufen.
 - **Dots (OpenAI-Agenten):** laut Quellen in Pro/Business Premium/Enterprise enthalten, Tarifpreise in den Quellen widersprüchlich (u. a. 100 $/200 $/500 $-Stufen) — vor jeder Budgetplanung bei OpenAI direkt prüfen.

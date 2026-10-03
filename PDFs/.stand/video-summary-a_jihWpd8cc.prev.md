@@ -7,7 +7,7 @@
 
 *Hinweis zum Ablauf: Transkript aus den englischen YouTube-Auto-Captions (yt-dlp, komplettes Video abgedeckt, kein Whisper nötig). Die Captions sind lückenhaft ("Smokeo's over" = vermutlich "Smoko's over", unsicher, "Doie", "pseudo" = vermutlich "sudo", "Sam funny" = Kanalname-Wortspiel). 80 Frames wurden gesichtet (Stichproben im Detail): Sie zeigen Ausschnitte der echten OpenAI-DevDay-2026-Bühne (Einblendung "OpenAI DevDay [2026]", Sam Altman auf der Bühne, Live-Demo einer Browser-Oberfläche mit Fort-Mason-Szene), geschnitten mit Sprecherkommentar. Wichtig: Der Ton ist Satire. Der Sprecher spielt "den guten Zwilling Sam" und es gibt einen "bösen Zwilling"; das sind keine Originalzitate von OpenAI. Die im Video hörbaren "Dot"-Antworten (z. B. "Checking that now", "This might take a bit") stammen aus dem Bühnenmaterial bzw. sind nachgestellt; ob sie wörtlich echt sind, konnte ich nicht prüfen.*
 
-**Prüfstatus:** Nach 3 Prüfdurchläufen nur noch Detailfehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft.
+**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.
 
 ---
 

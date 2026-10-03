@@ -4,7 +4,7 @@
 **URL:** https://www.youtube.com/watch?v=b8SU4cqAWTk
 **Länge:** 69:33
 **Zusammenfassung erstellt:** 2026-10-03
-**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Kernfehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.
+**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.
 
 *Hinweis zum Ablauf: Die YouTube-Untertitel waren nicht abrufbar (HTTP 429). Das Transkript stammt daher aus Whisper (Replicate), in 5-Minuten-Stücken transkribiert und zusammengesetzt (933 Segmente, rund 12.000 Wörter, ganzes Video abgedeckt). Whisper schreibt Namen teils falsch ("Markus" statt Marcus, "ALXI" statt AIXI, "Pharma" statt Farmer, "Tobin-Tags" statt Tobin-Tax) und halluziniert an wenigen Stellen Wiederholungen oder Kauderwelsch (ca. 6:25, 12:44-12:49, 26:27-26:31, 38:25-38:55, 44:20-44:30, 57:57-58:00, 1:07:53); diese Stellen wurden nicht ausgewertet. Von 80 Frames habe ich 3 angesehen (Gesichtsbild von Hutter im Heimbüro, gestreiftes Hemd); es ist ein reines Gesprächsvideo ohne Folien. Rund 2 Minuten bei 20:00-21:40 und 44:30-45:25 sind Eigenwerbung des Kanals (Kursplattform, WhatsApp-Kanal) und wurden ignoriert.*
 

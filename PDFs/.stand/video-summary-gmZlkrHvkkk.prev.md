@@ -5,7 +5,7 @@
 **Länge:** 28:49
 **Zusammenfassung erstellt:** 2026-10-03
 
-**Prüfstatus:** Nach 3 Prüfdurchläufen nur noch Detailfehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft.
+**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.
 
 *Hinweis zum Ablauf: Transkript aus den englischen YouTube-Auto-Captions (yt-dlp, komplettes Video abgedeckt, kein Whisper nötig; Captions teils fehlerhaft, z. B. "perspectus" = Prospectus, "Daria Mday" = Dario Amodei). 80 Frames wurden extrahiert; nach eigener Angabe (ohne Gewähr) habe ich 6 davon gesichtet: Sprecherin vor Mikrofon, Kapitel-Einblendungen (Security, Liability, Golden Age) und Ausschnitte aus Nachrichtenartikeln (z. B. CNBC-Ausschnitt zur Anthropic-Bewertung). Laut Prüfer zeigen weitere Frames u. a. ein Diagramm "Trust is a time series" (Frame 0025), die OpenAI-Seite "Introducing dots" (Frame 0040, 29.09.2026) sowie Einblendungen "80 pages of risk factors" (Frame 0001) und "$518 billion" (Frame 0010); diese habe ich nicht selbst gesehen. Veröffentlichungsdatum 02.10.2026 (geprüft in download/video.info.json). Im Video ist ein Sponsorenblock (Sprach-App "Speak", ca. 14:40-15:58) enthalten, der hier ausgelassen wird.*
 

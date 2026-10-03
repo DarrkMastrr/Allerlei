@@ -131,6 +131,7 @@ Auftrag an den Prüf-Agent: aktiv nach Fehlern suchen, nichts erfinden, nichts r
 ### Prüf-Schleife (max. 3 Durchläufe)
 
 Als **Fehler** zählen die Verdikte PARTIALLY CONFIRMED und NOT SUPPORTED. UNABLE TO VERIFY ist kein Fehler; solche Punkte und strittige Quellenkonflikte landen im Abschnitt „Zu prüfen" der Datei.
+Der Prüf-Agent stuft jeden Fehler zusätzlich mit kurzer Begründung ein als **KERN** (eine inhaltliche Aussage, Zahl, Zuordnung „wer sagt was" einschließlich Zitaten, eine Verallgemeinerung oder Verfälschung in „Worum geht es?" oder „Kernbotschaft" oder eine zentrale Webbehauptung ist falsch) oder **DETAIL** (Formulierung, Zeitstempel, Quellen-Nuance, nicht markierte Eigendeutung, veralteter Beleg-Hinweis). Im Zweifel KERN. Der Orchestrator prüft die Einstufungen stichprobenartig und stuft bei erkennbar zu milder Einstufung hoch.
 
 Ablauf pro Video, mit Durchlaufzähler n = 1, 2, 3:
 1. Prüf-Agent n prüft die Datei **komplett** (nicht nur zuletzt korrigierte Stellen). Ab n = 2 ist es ein **neuer** Prüf-Agent (unvoreingenommen), der zusätzlich die Liste der bisherigen Funde und Korrekturen bekommt, um gezielt zu prüfen, ob diese sauber eingearbeitet wurden und ob die Korrektur neue Fehler erzeugt hat.
@@ -138,13 +139,16 @@ Ablauf pro Video, mit Durchlaufzähler n = 1, 2, 3:
 3. Findet er Fehler: Der Orchestrator schickt sie per `SendMessage` an den Schreib-Agent (gleiche Agent-ID, kein Neustart). Der Schreib-Agent korrigiert nur die genannten Punkte in der eigenen Datei, erfindet nichts und meldet kurz, was er geändert hat. Der Prüf-Agent selbst korrigiert nie.
 4. Nach der Korrektur beginnt Durchlauf n + 1 bei Punkt 1 — **außer** n war 3: Dann endet die Schleife, sobald die Korrektur des dritten Durchlaufs eingearbeitet ist. Es gibt keine vierte Prüfung.
 
-**Markierung bei Abbruch nach Durchlauf 3:** Hat der dritte Prüf-Agent noch Fehler gefunden, ist die letzte Korrektur ungeprüft und die Datei kann weiterhin grob falsch sein. Der Orchestrator lässt dann im Schreib-Agent direkt unter dem Metadatenblock (vor dem `---`) die Zeile ergänzen:
-`**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.`
+**Markierung bei Abbruch nach Durchlauf 3:** Direkt unter dem Metadatenblock (vor dem `---`) lässt der Orchestrator im Schreib-Agent eine Zeile ergänzen, je nach Stufe der Fehler des dritten Durchlaufs:
+- Mindestens ein **KERN**-Fehler: Die letzte Korrektur ist ungeprüft und die Datei kann weiterhin grob falsch sein:
+  `**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Kernfehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.`
+- Nur **DETAIL**-Fehler:
+  `**Prüfstatus:** Nach 3 Prüfdurchläufen nur noch Detailfehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft.`
 Die Zeile steht im Markdown-Quelltext und erscheint dadurch automatisch in jeder daraus erzeugten PDF (Einzelvideo-PDFs ebenso wie Themen-PDFs, die diese Datei einbinden). Wird für so ein Video eine PDF erzeugt, vorher prüfen, dass die Zeile dort sichtbar ist.
 
 Danach:
 - Erst nach dem Ende der Schleife wird das Arbeitsverzeichnis gelöscht und der Todo als erledigt abgehakt.
-- Im Abschlussbericht (Schritt 7) kommt pro Video eine Zeile mit Zahl der Durchläufe und Ergebnis, Fehler und Korrekturen zuerst. Videos mit Abbruch nach Durchlauf 3 stehen **ganz oben im Bericht, deutlich als ⚠ markiert**, weil sie noch grob falsch sein können.
+- Im Abschlussbericht (Schritt 7) kommt pro Video eine Zeile mit Zahl der Durchläufe und Ergebnis, Fehler und Korrekturen zuerst. Videos mit Abbruch nach Durchlauf 3 und KERN-Fehlern stehen **ganz oben im Bericht, deutlich als ⚠ markiert**, weil sie noch grob falsch sein können. Videos mit nur DETAIL-Fehlern stehen normal in der Liste, mit dem Hinweis „nur Detailfehler".
 
 ## Schritt 6 — Wellen fortsetzen
 

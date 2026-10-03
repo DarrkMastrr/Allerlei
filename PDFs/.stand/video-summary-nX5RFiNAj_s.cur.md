@@ -4,7 +4,7 @@
 **URL:** https://www.youtube.com/watch?v=nX5RFiNAj_s
 **Länge:** 15:33
 **Zusammenfassung erstellt:** 2026-10-03
-**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Fehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.
+**Prüfstatus:** ACHTUNG: Nach 3 Prüfdurchläufen wurden weiterhin Kernfehler gefunden; die letzte Korrektur wurde nicht mehr nachgeprüft. Inhalt kann noch grob falsch sein.
 
 *Hinweis zum Ablauf: Das Video ist deutschsprachig. Das Transkript stammt aus den englischen YouTube-Auto-Captions (yt-dlp, `en-orig`, komplettes Video abgedeckt, kein Whisper nötig); es ist vermutlich eine maschinelle Übersetzung der deutschen Tonspur, daher sind Eigennamen verstümmelt ("OpenCla" = vermutlich OpenClaw, "Muse" = Metas Modellreihe). Von 80 extrahierten Frames habe ich nur 6 Stichproben angesehen (Frames 5, 20, 35, 45, 55, 70): Es sind reine Illustrationen (Stapel Chips, Fabrikgebäude, Papier-Animation mit OpenAI-Logo und Überwachungskamera, WhatsApp-Symbol), keine Datenfolien oder Dokumente. Inhaltlich stützt sich diese Zusammenfassung daher ganz auf den gesprochenen Text. Das Video nennt keine Quellen im Bild, die ich hätte ablesen können.*
 

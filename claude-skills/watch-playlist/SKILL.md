@@ -25,6 +25,19 @@ Frage bei der Zielgruppe immer auch, ob die Leser Experten oder interessierte La
 
 Wenn im aktuellen Projekt bereits `video-summaries/*.md`-Dateien existieren, kurz eine Datei lesen, um Sprache/Struktur/Zielgruppe der bisherigen Zusammenfassungen zu übernehmen, statt erneut zu fragen.
 
+## Schritt 0b — Repo abgleichen (immer zuerst)
+
+Bevor die Playlist gelesen oder irgendetwas dedupliziert wird, den lokalen Stand mit dem Remote abgleichen, weil dasselbe Projekt auf mehreren Rechnern bearbeitet wird und `video-summaries/` die "gesehen"-Liste ist:
+
+```bash
+git fetch
+git status -sb          # zeigt "behind N", falls der Remote weiter ist
+git pull --ff-only      # nur wenn sauber fast-forward möglich
+```
+
+- Arbeitsverzeichnis nicht sauber oder `--ff-only` nicht möglich: nicht erzwingen, nicht stashen, nicht rebasen. Dem Nutzer den Stand melden und fragen.
+- Erst danach mit Schritt 1 und der Dedup-Prüfung in Schritt 2 weitermachen, sonst werden Videos doppelt bearbeitet (Erfahrung 2026-10-11: 7 Videos lagen schon vom anderen Rechner im Remote).
+
 ## Schritt 1 — Playlist lesen
 
 `WebFetch` funktioniert NICHT für Playlist-Seiten (Videoliste wird clientseitig per JS gerendert). Stattdessen:

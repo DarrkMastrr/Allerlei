@@ -1,4 +1,5 @@
 {
+  "enabledMcpjsonServers": ["local-ki"],
   "permissions": {
     "allow": [
       "WebSearch",

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "local-ki": {
+      "command": "python",
+      "args": ["c:\\git-practice\\Claude_code\\Allerlei\\Sub_Projekt_Auslagerung_zu_lokaler_KI\\mcp_server.py"]
+    }
+  }
+}

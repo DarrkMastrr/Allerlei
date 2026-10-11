@@ -1,0 +1,23 @@
+also fangen wir an mit den News der Woche, und da gibt es wirklich einiges zu berichten. Fangen wir mal an mit OpenAI, weil da ist diese Woche ziemlich viel passiert.
+
+OpenAI hat also jetzt offiziell bestätigt, dass GPT-5 in der Vollversion, also nicht das abgespeckte GPT-5-mini sondern das große Modell, ab sofort für alle ChatGPT-Plus-Nutzer verfügbar ist. Das war ja lange angekündigt worden. Und was interessant ist: OpenAI sagt, GPT-5 erreicht auf dem MMLU-Benchmark einen Score von 91,3 Prozent. Zum Vergleich, GPT-4o hatte da 88,7 Prozent. Also ein Fortschritt, aber jetzt kein riesiger Sprung.
+
+Was viel spannender ist, und das wird oft übersehen, ist dass das Kontextfenster massiv erweitert wurde. GPT-5 unterstützt jetzt einen Kontext von einer Million Token. Das ist dasselbe wie Gemini 1.5 Pro, also Google ist da nicht mehr alleine. Und für API-Nutzer kostet GPT-5 laut der aktuellen OpenAI-Preisliste 15 Dollar pro Million Input-Token und 60 Dollar pro Million Output-Token. Das ist natürlich deutlich teurer als GPT-4o mit 2,50 Dollar Input und 10 Dollar Output.
+
+Dann haben wir noch die Meldung dass Sam Altman in einem Interview mit dem Wall Street Journal gesagt hat, OpenAI plane bis Ende 2025 eine Bewertung von 300 Milliarden Dollar anzustreben, bei einer neuen Finanzierungsrunde. Das klingt utopisch, aber nach der letzten Runde im Oktober 2024 mit 157 Milliarden Dollar Bewertung ist das immerhin eine Verdoppelung in gut einem Jahr. Ob das realistisch ist, darüber kann man streiten.
+
+Okay kommen wir zu Google. Google hat letzte Woche auf der Google I/O, oder also auf dem Google Cloud Next, also ich muss kurz nachschauen, es war Google Cloud Next in Las Vegas, Gemini 2.0 Ultra vorgestellt. Und das ist wirklich beeindruckend. Gemini 2.0 Ultra schlägt laut Google auf dem MATH-Benchmark mit 73,6 Prozent alle bisherigen Modelle. GPT-4o kommt da auf 72,6 Prozent, also haarscharf dahinter. Auf dem HumanEval-Benchmark für Code erreicht Gemini 2.0 Ultra 90,2 Prozent.
+
+Was noch wichtig ist: Google hat angekündigt, dass Gemini 2.0 nativ multimodal ist, also nicht so wie frühere Versionen wo Bild- und Textverständnis quasi zusammengestückelt wurden, sondern wirklich von Grund auf mit Bild, Audio und Text trainiert. Das nennt Google "native multimodality". Und Gemini 2.0 Ultra läuft laut Google auf Googles eigenen TPU v5-Chips, von denen sie 50.000 Stück in einem einzigen Rechenzentrum in Mayes County in Oklahoma betreiben.
+
+So, dann gibt es noch die Anthropic-Meldung, die ich kurz erwähnen will. Anthropic hat Claude 3.5 Sonnet mit einem deutlich verbesserten Computer-Use-Feature aktualisiert. Die Erfolgsrate bei der OSWorld-Benchmark ist von 22 Prozent auf 38,1 Prozent gestiegen. Das klingt immer noch niedrig, aber zum Vergleich: Menschen erreichen da etwa 72 Prozent. Und Anthropic sagt, die Fehlerrate beim Ausfüllen von Webformularen ist um 40 Prozent gesunken gegenüber der vorherigen Version.
+
+Claude 3.5 Sonnet kostet in der API 3 Dollar pro Million Input-Token und 15 Dollar pro Million Output-Token. Das ist günstiger als GPT-5, aber natürlich teurer als kleinere Modelle.
+
+Auf der Hardware-Seite: NVIDIA hat diese Woche die Blackwell-Ultra-Architektur in einer neuen Variante angekündigt, die B300 GPU. Die soll 288 Gigabyte HBM3e-Speicher haben, das ist doppelt so viel wie die B200 mit 192 Gigabyte. Und die Trainingsleistung soll bei 40 Petaflops FP8 liegen. Die Markteinführung ist für das dritte Quartal 2025 geplant. Preis wurde noch nicht offiziell bestätigt, aber Analysten rechnen mit über 70.000 Dollar pro Karte.
+
+Dann noch kurz zu Meta. Meta hat LLaMA 4 in zwei Varianten veröffentlicht, einmal LLaMA 4 Scout mit 17 Milliarden aktiven Parametern aus einem Mixture-of-Experts-Modell mit insgesamt 109 Milliarden Parametern, und LLaMA 4 Maverick mit 17 Milliarden aktiven Parametern aus einem 400-Milliarden-Parameter-Modell. Scout läuft auf einer einzelnen H100 GPU, Maverick braucht laut Meta mindestens acht H100s. Beide Modelle sind unter der LLaMA-4-Lizenz verfügbar, die kommerzielle Nutzung erlaubt, aber ab 700 Millionen monatlich aktiven Nutzern eine separate Vereinbarung mit Meta erfordert.
+
+Scout erreicht auf dem MMLU-Benchmark 79,6 Prozent, Maverick kommt auf 85,5 Prozent. Beide sind Open-Weight-Modelle und können also lokal betrieben werden, was für Datenschutz und Kosten relevant ist.
+
+So, das wären die wichtigsten Meldungen der Woche. Nächste Woche schauen wir uns dann die Entwicklungen bei autonomen Agenten genauer an, da tut sich gerade sehr viel.

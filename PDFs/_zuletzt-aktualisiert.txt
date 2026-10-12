@@ -1,7 +1,21 @@
-PDF-Generierung: 2026-10-12 12:56
+PDF-Generierung: 2026-10-12 15:09
 
-Neu erzeugt (1):
-  - video-summaries\video-summary-YsuLq3H2xrw.md
+Neu erzeugt (0):
+  (keine)
+
+Aktualisiert (2):
+  - ki-sicherheitsvorfaelle-sandbox-escapes.md
+  - ki-risiko-warnungen.md
+
+---
+
+PDF-Generierung: 2026-10-12 15:06
+
+Neu erzeugt (4):
+  - video-summaries/video-summary-bco5zvN2vMY.md
+  - video-summaries/video-summary-rEtTG6l7ujE.md
+  - video-summaries/video-summary-nIgt0hzGsz4.md
+  - video-summaries/video-summary-mP-uf6vI4OI.md
 
 Aktualisiert (0):
   (keine)

@@ -1,18 +1,20 @@
-PDF-Generierung: 2026-10-12 10:06
-
-Neu erzeugt (2):
-  - video-summaries/video-summary-jvaVkBXbqiI.md
-  - video-summaries/video-summary-WZ92p0EvO28.md
-
-Aktualisiert (0):
-  (keine)
-
----
-
-PDF-Generierung: 2026-10-12 09:33
+PDF-Generierung: 2026-10-12 10:32
 
 Neu erzeugt (0):
   (keine)
 
 Aktualisiert (1):
-  - video-summaries/video-summary-jvaVkBXbqiI.md
+  - video-summaries/video-summary-tZfE4h2JDFI.md
+
+---
+
+PDF-Generierung: 2026-10-12 10:25
+
+Neu erzeugt (1):
+  - video-summaries/video-summary-tZfE4h2JDFI.md
+
+Aktualisiert (0):
+  (keine)
+
+Fehlgeschlagen (1):
+  - convert: Quelldatei fehlt

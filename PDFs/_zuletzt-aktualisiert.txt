@@ -1,21 +1,23 @@
-PDF-Generierung: 2026-10-12 15:09
+PDF-Generierung: 2026-10-12 23:48
 
 Neu erzeugt (0):
   (keine)
 
-Aktualisiert (2):
-  - ki-sicherheitsvorfaelle-sandbox-escapes.md
+Aktualisiert (4):
   - ki-risiko-warnungen.md
+  - humanoide-roboter-2026.md
+  - ki-zukunftsprognosen.md
+  - ki-modellvergleich-kosten.md
 
 ---
 
-PDF-Generierung: 2026-10-12 15:06
+PDF-Generierung: 2026-10-12 23:44
 
 Neu erzeugt (4):
-  - video-summaries/video-summary-bco5zvN2vMY.md
-  - video-summaries/video-summary-rEtTG6l7ujE.md
-  - video-summaries/video-summary-nIgt0hzGsz4.md
-  - video-summaries/video-summary-mP-uf6vI4OI.md
+  - video-summaries/video-summary-sXoCK4z60j8.md
+  - video-summaries/video-summary-1ID_VcwzIo8.md
+  - video-summaries/video-summary-05_3LMLSQb4.md
+  - video-summaries/video-summary-7uSH7R5bM9g.md
 
 Aktualisiert (0):
   (keine)

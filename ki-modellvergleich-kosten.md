@@ -1,6 +1,6 @@
 # KI-Modellvergleich & -kosten (2026)
 
-Quellen: [video-summary-G3Ed-J_DE5s.md](video-summaries/video-summary-G3Ed-J_DE5s.md) ("ChatGPT vs. Claude vs. Gemini - Welcher €20 Plan lohnt sich wirklich?"), [video-summary-OUIxlLG8yO0.md](video-summaries/video-summary-OUIxlLG8yO0.md) ("Was kostet KI im Büro wirklich?"), [video-summary-cse3QV90YpE.md](video-summaries/video-summary-cse3QV90YpE.md) ("Gemini 3.8, Fable 5.1, ChatGPT Astra Leak"), [video-summary-zNuynCOm5Mc.md](video-summaries/video-summary-zNuynCOm5Mc.md) ("Welche KI in 2026?")
+Quellen: [video-summary-G3Ed-J_DE5s.md](video-summaries/video-summary-G3Ed-J_DE5s.md) ("ChatGPT vs. Claude vs. Gemini - Welcher €20 Plan lohnt sich wirklich?"), [video-summary-OUIxlLG8yO0.md](video-summaries/video-summary-OUIxlLG8yO0.md) ("Was kostet KI im Büro wirklich?"), [video-summary-cse3QV90YpE.md](video-summaries/video-summary-cse3QV90YpE.md) ("Gemini 3.8, Fable 5.1, ChatGPT Astra Leak"), [video-summary-zNuynCOm5Mc.md](video-summaries/video-summary-zNuynCOm5Mc.md) ("Welche KI in 2026?"), [video-summary-1ID_VcwzIo8.md](video-summaries/video-summary-1ID_VcwzIo8.md) (OpenAI DevDay 2026, Nachtrag 2026-10-12)
 
 ## Kein Universalsieger bei den Consumer-Abos
 
@@ -60,6 +60,10 @@ Quelle: [video-summary-phcZVAmT8j8.md](video-summaries/video-summary-phcZVAmT8j8
 | Claude Fable 5.1 | ~5.200 $ (ca. ein Drittel von Astra; abgeleitet) |
 
 Verbesserungsrate laut Andon Labs: ~822 $/Monat (Top-Modelle), >1.000 $/Monat (chinesische Modelle); Prognose: chinesische Modelle ab Oktober 2027 führend. Konkrete Zahlen aus Video, nicht über öffentliche Primärquellen verifiziert (**Suchtreffer**). Für die Kostenrechnung gilt das Umgekehrte wie bei Token-Preisen: Das teuerste Modell (Astra: 10 $/50 $ je Mio. Token) liefert hier die höchste wirtschaftliche Leistung — ob das den Mehrpreis rechtfertigt, hängt vom konkreten Einsatzfall ab.
+
+## OpenAI DevDay 2026: GPT-6.1 Sol als günstigere Spitzenklasse (1ID_VcwzIo8, Nachtrag 2026-10-12)
+
+[1ID_VcwzIo8](video-summaries/video-summary-1ID_VcwzIo8.md) ("Das neue ChatGPT ist da: Alle 20+ Updates") bringt Preiszahlen aus dem OpenAI DevDay vom 29.09.2026: **GPT-6.1 Sol** kostet $2/$10 pro Million Token (Input/Output) — ein Fünftel des Preises von **GPT-6 Astra** ($10/$50). Damit bietet OpenAI erstmals ein qualitativ hochwertiges Modell deutlich unterhalb von Claude Sonnet 5.5 an, was laut Video zur direkten Wettbewerbsreaktion auf Meta Muse und Grok-Angebote entstand. Weitere kostensenkende Ankündigungen: "Ultra Fast"-Modus (doppelte Geschwindigkeit, gleicher Preis) und Computer-Use-Erweiterung auf 8–16 Stunden autonome Aufgaben (vorher max. 15 Minuten). Preisangaben durch externe Quellen bestätigt (**Suchtreffer**).
 
 ## Kernbotschaft
 

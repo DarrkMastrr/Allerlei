@@ -1,6 +1,6 @@
 # KI-Zukunftsprognosen im Vergleich: Robotik-Boom vs. physischer Flaschenhals
 
-Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation")
+Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation"), [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md) (Prof. Dr. Oliver Bendel, Maschinenethik/Grundeinkommen, Nachtrag 2026-10-12)
 
 Zwei rund einstündige Einzelinterviews desselben Kanals (Everlast AI, Host Leonard Schmedding) mit fachlich sehr unterschiedlich verankerten Gästen, die zu fast entgegengesetzten Zeithorizont-Einschätzungen kommen. Kein direkter Faktenwiderspruch — beide Prognosen sind in sich stimmig — aber ein aufschlussreicher Kontrast zwischen Investoren-/Trendforschungs-Optimismus und akademisch-ökonomischer Skepsis.
 
@@ -27,6 +27,14 @@ Everlast AI fasst 5 Szenarien der Studie "Future AI–AGI" (Millennium Project, 
 
 *Nachtrag Faktencheck (2026-09-29):* Studie existiert (169 S., 55 Interviews, 5 Szenarien); die Szenario-Inhalte des Videos sind nicht verifiziert. "UN-Berater" verkürzt Glenns Rolle (leitet das UN-High-Level-Expert-Panel on AGI). 68-%-Zahl bestätigt, aber von einem absichtlich auf Reward-Hacking trainierten Modell mit Root-Zugriff. Siehe [video-summary-fmMCg6dyWpQ.md](video-summaries/video-summary-fmMCg6dyWpQ.md).
 
+## Der Ethiker: Prof. Dr. Oliver Bendel (7uSH7R5bM9g, Nachtrag 2026-10-12)
+
+[7uSH7R5bM9g](video-summaries/video-summary-7uSH7R5bM9g.md) ("Künstliche Intelligenz, Jobverluste, Grundeinkommen, Zukunft, Roboter & AGI") bringt mit Prof. Dr. Oliver Bendel (FHNW Brugg-Windisch, Maschinenethik) eine Perspektive, die im bisherigen Cluster fehlt: einen Forscher, der KI-Systeme explizit als moralische Objekte analysiert — nicht nur als wirtschaftliche oder technische Faktoren.
+
+Bendels Prognose zu Jobverlusten ist deutlich moderater als Hutter und Jánszky: Er erwartet selektive Verluste in bestimmten Berufen (Übersetzer, Teile der Büroarbeit), aber keine vollständige Automatisierungswelle in absehbarer Zeit. Begründung: Regelungslücken, fehlende gesellschaftliche Akzeptanz und mangelnde Robustheit aktueller Systeme in unstrukturierten Umgebungen (er nennt das Beispiel Pflegeroboter: technisch bescheiden, gesellschaftlich umstritten). Sein Ein-Drittel-Modell lehnt sich an Frithjof Bergmanns "New Work" an: ein Drittel bezahlte Arbeit, ein Drittel gesellschaftlich sinnvolle Tätigkeit, ein Drittel autonome Freizeitgestaltung. Damit schließt er die im "Zu prüfen"-Vermerk dieses Artikels genannte Lücke: eine eigenständig entwickelte Grundeinkommens-/UBI-Perspektive aus dem Repo.
+
+Für Hardware-Teams relevant: Bendel beschreibt Akzeptanzdesign (ansprechende äußere Form steigert die Bereitschaft, mit einem Roboter zu arbeiten — bestätigt durch mehrere Studien aus seiner Gruppe) und benennt Maschinenethik als praxisrelevante Disziplin: Wer autonome Systeme baut, trifft schon beim Design ethische Entscheidungen über Priorisierungen und Gewichtungen. Details: [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md).
+
 ## Kernbotschaft
 
 Zwei fachlich unterschiedlich verankerte Stimmen liefern gegensätzliche Antworten auf dieselbe Frage: Jánszkys Trendforschungs-Methodik (Interviews mit Tech-Entscheidern) extrapoliert aus deren Investitionsverhalten eine baldige, mit Robotern und AGI durchsetzte Zukunft; Kördings akademisch verankerte Ökonomie/Neurowissenschaft zeigt strukturelle physische Grenzen auf, die diese Skalierung deutlich verlangsamen dürften. Für die eigene Planung ist Kördings Position die verlässlichere Kalibrierung (extern geprüfbare Methodik, unabhängig bestätigte Fachautorität), Jánszkys Szenarien sind eher als ein plausibles Zukunftsbild unter mehreren zu behandeln, nicht als belastbare Planungsgrundlage.
@@ -45,5 +53,5 @@ Sven Gábor Jánszky, 2b AHEAD ThinkTank, Konrad Körding, Intelligence Saturati
 ## Zu prüfen
 
 - Beide Quellenvideos sind ausführlicher gegen das übrige Repo-Material geprüft — Details (Richard Socher/Recursive, Hassabis-AGI-Zitat, McKinsey-57%-Zahl, Fliegenhirn-Uploading-Einordnung) stehen in den jeweiligen Video-Summary-Dateien.
-- Hutter (Nachtrag): Zeitplan und Arbeitslosigkeits-Zahl sind Meinungen; Buchinhalte (Berufsliste, 100-Dollar-Haus) nicht belegt; Grundeinkommen/UBI ist im Repo nur in Einzelzusammenfassungen behandelt ([video-summary-RWDsx8KxtX8.md](video-summaries/video-summary-RWDsx8KxtX8.md), [video-summary-XhvLvqSd8VE.md](video-summaries/video-summary-XhvLvqSd8VE.md)), eine eigene Übersicht fehlt noch.
+- Hutter (Nachtrag): Zeitplan und Arbeitslosigkeits-Zahl sind Meinungen; Buchinhalte (Berufsliste, 100-Dollar-Haus) nicht belegt. Grundeinkommen/UBI ist jetzt durch Bendels New-Work-Modell (7uSH7R5bM9g) auch im Themen-Artikel verankert.
 - Kein Faktenwiderspruch zwischen den beiden Gästen, aber ein methodischer Unterschied, der beim Lesen wichtig bleibt: Jánszkys proprietäre, nicht extern geprüfte Interviewmethodik vs. Kördings peer-review-fähiges akademisches Paper.

@@ -1,9 +1,7 @@
-PDF-Generierung: 2026-10-12 11:43
+PDF-Generierung: 2026-10-12 12:56
 
-Neu erzeugt (0):
+Neu erzeugt (1):
+  - video-summaries\video-summary-YsuLq3H2xrw.md
+
+Aktualisiert (0):
   (keine)
-
-Aktualisiert (3):
-  - gpt-6-astra-ueberblick.md
-  - ki-modellvergleich-kosten.md
-  - ki-produktivitaets-hacks.md

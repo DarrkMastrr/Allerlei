@@ -1,8 +1,8 @@
 # KI-Produktivitäts-Hacks im Alltag
 
-Quellen: [video-summary-GgYBe6I4aHQ.md](video-summaries/video-summary-GgYBe6I4aHQ.md) ("KI-AGENTEN richtig nutzen: BASICS"), [video-summary-TL8V41Ea6oM.md](video-summaries/video-summary-TL8V41Ea6oM.md) ("4 AI Agents To Automate 99% Of Your Life"), [video-summary-FPnFp8vFM9k.md](video-summaries/video-summary-FPnFp8vFM9k.md) ("5 AI Prompts To Fix Your Entire Life"), [video-summary-loujaeBy8p0.md](video-summaries/video-summary-loujaeBy8p0.md) ("5 Hacks To Use ChatGPT"), [video-summary-3k6fR5EdLAo.md](video-summaries/video-summary-3k6fR5EdLAo.md) ("How To Become Dangerously Self-Educated With AI"), [video-summary-yzO8q1b9Z7o.md](video-summaries/video-summary-yzO8q1b9Z7o.md) ("5 Tipps gegen AI Slop"), [video-summary-4m6qbh_aVY0.md](video-summaries/video-summary-4m6qbh_aVY0.md) ("Mein ARBEITSTAG mit KI 2026"), [video-summary-v23C9Z9nr8Y.md](video-summaries/video-summary-v23C9Z9nr8Y.md), [video-summary-0u7bWnBckHQ.md](video-summaries/video-summary-0u7bWnBckHQ.md) ("Superwhisper und Whisperflow")
+Quellen: [video-summary-GgYBe6I4aHQ.md](video-summaries/video-summary-GgYBe6I4aHQ.md) ("KI-AGENTEN richtig nutzen: BASICS"), [video-summary-TL8V41Ea6oM.md](video-summaries/video-summary-TL8V41Ea6oM.md) ("4 AI Agents To Automate 99% Of Your Life"), [video-summary-FPnFp8vFM9k.md](video-summaries/video-summary-FPnFp8vFM9k.md) ("5 AI Prompts To Fix Your Entire Life"), [video-summary-loujaeBy8p0.md](video-summaries/video-summary-loujaeBy8p0.md) ("5 Hacks To Use ChatGPT"), [video-summary-3k6fR5EdLAo.md](video-summaries/video-summary-3k6fR5EdLAo.md) ("How To Become Dangerously Self-Educated With AI"), [video-summary-yzO8q1b9Z7o.md](video-summaries/video-summary-yzO8q1b9Z7o.md) ("5 Tipps gegen AI Slop"), [video-summary-4m6qbh_aVY0.md](video-summaries/video-summary-4m6qbh_aVY0.md) ("Mein ARBEITSTAG mit KI 2026"), [video-summary-v23C9Z9nr8Y.md](video-summaries/video-summary-v23C9Z9nr8Y.md), [video-summary-0u7bWnBckHQ.md](video-summaries/video-summary-0u7bWnBckHQ.md) ("Superwhisper und Whisperflow"), [video-summary-WPTAr14wmco.md](video-summaries/video-summary-WPTAr14wmco.md) (Sandeep Swadia, "Die einfachsten Wege, mit KI Geld zu verdienen")
 
-Neun Videos, durchgängig mit reißerischen Titeln ("99% deines Lebens", "fix your life in 1 day", "almost unfair") — aber darunter überwiegend solide, wiederverwendbare Techniken. Hier ohne die Übertreibung zusammengefasst.
+Zehn Videos, durchgängig mit reißerischen Titeln ("99% deines Lebens", "fix your life in 1 day", "almost unfair") — aber darunter überwiegend solide, wiederverwendbare Techniken. Hier ohne die Übertreibung zusammengefasst.
 
 ## Agent-Harness-Grundlagen (GgYBe6I4aHQ)
 
@@ -42,9 +42,20 @@ Kanal Sandeep Swadia (Originaltitel "Everyone Can Spot AI Writing, Here's How To
 
 *Nachtrag Faktencheck (2026-09-29):* Cornell-Studie (arXiv 2409.11360, 118 Teilnehmende) bestätigt; Schwartz-Fall (Mata v. Avianca, 22.06.2023) und Kleber-auf-Pizza (Mai 2024) bestätigt; Herkunft des VOICE-Systems ohne Primärquelle, wohl Eigenerfindung des Kanals. Siehe [video-summary--wreCvpBdso.md](video-summaries/video-summary--wreCvpBdso.md).
 
+## Strategischer Kontext: KI senkt Hürden — für alle gleichzeitig (WPTAr14wmco)
+
+Quelle: [video-summary-WPTAr14wmco.md](video-summaries/video-summary-WPTAr14wmco.md) (Sandeep Swadia, 2026-10-12). Ein Korrektiv zu reinen Tool-Sammlungen: KI demokratisiert den Werkzeug-Zugang — aber weil alle dieselben Werkzeuge haben, ist "Ich benutze KI" kein Vorteil mehr. Swadias "gates of agreement" (Akronym DEAL, im Video selbst nicht ausgesprochen) sind vier aufeinander aufbauende Prüfstufen:
+
+1. **Demand** — Zahlt jemand dafür, ohne KI-Rabatt zu fordern?
+2. **Edge** — Was kann man besser als jeder andere mit demselben Modell? (Kontext-Vorteil: Kundenwissen, Branchenerfahrung, persönliches Netzwerk)
+3. **Access** — Gibt es einen Zugang zu Kunden, den andere nicht leicht kopieren können?
+4. **Loop** — Verbessert sich das Angebot mit jeder Nutzung automatisch (Datenschwungrad)?
+
+KI ist hier nur bei Gate 2 direkt relevant — als Hebel für vorhandenen Kontext-Vorteil, nicht als Vorteil selbst. Für die Tool-Empfehlungen dieser Sammlung bedeutet das: Productivity-Hacks liefern Tempo, kein Alleinstellungsmerkmal.
+
 ## Kernbotschaft
 
-Der praktische Kern hinter allen neun reißerischen Titeln ist bemerkenswert konsistent: KI-Produktivität entsteht nicht durch ein einzelnes "Wunder-Prompt", sondern durch (a) saubere Grundstruktur (Memory, Hooks, Guardrails), (b) wiederholbare Frameworks statt Einzelprompts, und (c) klare Grenzen dafür, was KI ersetzt und was beim Menschen bleibt (Urteil, Verantwortung, redaktionelle Prüfung).
+Der praktische Kern hinter allen zehn reißerischen Titeln ist bemerkenswert konsistent: KI-Produktivität entsteht nicht durch ein einzelnes "Wunder-Prompt", sondern durch (a) saubere Grundstruktur (Memory, Hooks, Guardrails), (b) wiederholbare Frameworks statt Einzelprompts, und (c) klare Grenzen dafür, was KI ersetzt und was beim Menschen bleibt (Urteil, Verantwortung, redaktionelle Prüfung).
 
 ## Zu prüfen
 - 0u7bWnBckHQ: Datenschutz-/AVV-Frage bei Business-Diktat in Cloud-Tools ist im Quellvideo nicht adressiert

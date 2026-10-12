@@ -1,6 +1,6 @@
 # GPT-6 Astra: Launch, Fähigkeiten und offene Fragen
 
-Quellen: [video-summary-AOgUqb62WUQ.md](video-summaries/video-summary-AOgUqb62WUQ.md) (Digitale Profis, ohne Video-Zugriff erstellt), [video-summary-zQcatAdqjko.md](video-summaries/video-summary-zQcatAdqjko.md) (Christoph Magnussen), [video-summary-WXqB5U2I_4g.md](video-summaries/video-summary-WXqB5U2I_4g.md) (Eike Diestelkamp), [video-summary-XCn05-EVZdI.md](video-summaries/video-summary-XCn05-EVZdI.md) (iKnowReview), [video-summary-aWvtHsx0u1Y.md](video-summaries/video-summary-aWvtHsx0u1Y.md) (Julian Ivanov, eigene One-Shot-Tests), [video-summary-fpYG6OBKEZw.md](video-summaries/video-summary-fpYG6OBKEZw.md) (Dr. Sebastian Raschka, Gegenstimme zur Reasoning-Trace-Einordnung), Vorgeschichte: [video-summary-9lyg9m8D3q0.md](video-summaries/video-summary-9lyg9m8D3q0.md) und [video-summary-t3Tb9HOiwSw.md](video-summaries/video-summary-t3Tb9HOiwSw.md)
+Quellen: [video-summary-AOgUqb62WUQ.md](video-summaries/video-summary-AOgUqb62WUQ.md) (Digitale Profis, ohne Video-Zugriff erstellt), [video-summary-zQcatAdqjko.md](video-summaries/video-summary-zQcatAdqjko.md) (Christoph Magnussen), [video-summary-WXqB5U2I_4g.md](video-summaries/video-summary-WXqB5U2I_4g.md) (Eike Diestelkamp), [video-summary-XCn05-EVZdI.md](video-summaries/video-summary-XCn05-EVZdI.md) (iKnowReview), [video-summary-aWvtHsx0u1Y.md](video-summaries/video-summary-aWvtHsx0u1Y.md) (Julian Ivanov, eigene One-Shot-Tests), [video-summary-fpYG6OBKEZw.md](video-summaries/video-summary-fpYG6OBKEZw.md) (Dr. Sebastian Raschka, Gegenstimme zur Reasoning-Trace-Einordnung), Vorgeschichte: [video-summary-9lyg9m8D3q0.md](video-summaries/video-summary-9lyg9m8D3q0.md) und [video-summary-t3Tb9HOiwSw.md](video-summaries/video-summary-t3Tb9HOiwSw.md), ergänzend (Vending-Bench-Performance): [video-summary-phcZVAmT8j8.md](video-summaries/video-summary-phcZVAmT8j8.md) (Everlast AI, Andon Market)
 
 Fünf unabhängige Videos befassen sich im Repo inzwischen mit demselben Launch (3./4. September 2026) — Anlass genug für einen eigenen Übersichtsartikel statt fünf isolierter Einzelnotizen. Zwischen den Kanälen bestätigen sich zentrale Fakten mehrfach unabhängig (Preise, Preparedness-Framework-Einstufung), an einer Stelle löst ein späteres Video sogar einen Zahlen-Widerspruch zwischen zwei früheren auf (siehe Benchmark-Tabelle unten).
 
@@ -20,6 +20,12 @@ Fünf unabhängige Videos befassen sich im Repo inzwischen mit demselben Launch 
 | AutomationBench | 41,4 % | 18,1 % | Bestätigt (WXqB5U2I_4g) |
 | Zielüberschreitungsrate ("Goal-Hijacking") | 0 % | 48,2 % (ohne Produktions-Guardrails) | OpenAIs eigener Text verknüpft diesen Wert explizit mit dem Hugging-Face-Vorfall (siehe [ki-sicherheitsvorfaelle-sandbox-escapes.md](ki-sicherheitsvorfaelle-sandbox-escapes.md)) |
 | Terminal-Bench Science 0.1 | 64,6–64,9 % | — (Claude Fable 5.1: 52,6–52,8 %, Claude Opus 5: 30,2 %) | Bestätigt (aWvtHsx0u1Y), in keinem anderen Repo-Video zu diesem Launch erwähnt |
+
+## Vending Bench — Geschäftssimulation (Andon Labs)
+
+Quelle: [video-summary-phcZVAmT8j8.md](video-summaries/video-summary-phcZVAmT8j8.md) (Everlast AI, 2026-10-12). Kein Standard-Harness-Test, sondern eine Jahreslang-Simulation: Ein Modell betreibt einen Getränkeautomaten — Waren einkaufen, Preise setzen, Lieferanten verhandeln. Bewertet wird ausschließlich das Endguthaben.
+
+Stand September 2026 laut Video: GPT-6 Astra hält den Spitzenplatz mit einem Durchschnittsergebnis von **15.515 $** — rund 4.300 $ mehr als der vorherige Rekordhalter Claude Opus 5, fast dreimal so viel wie Claude Fable 5.1. Die besten Modelle verbessern sich laut Andon Labs um ~822 $/Monat. Konkrete Dollar-Zahlen nicht über öffentliche Primärquellen verifiziert; die allgemeine Rangfolge deckt sich mit Sekundärquellen (Claude Opus 5 als früherer SOTA bestätigt: ShellyPalmer, Juli 2026). **Suchtreffer.**
 
 ## Sicherheitseinstufung: "Critical" Cyberfähigkeiten
 

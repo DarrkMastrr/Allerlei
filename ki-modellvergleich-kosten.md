@@ -49,6 +49,18 @@ Quelle: [video-summary-a_jihWpd8cc.md](video-summaries/video-summary-a_jihWpd8cc
 - **Dots (OpenAI-Agenten):** laut Quellen in Pro/Business Premium/Enterprise enthalten, Tarifpreise in den Quellen widersprüchlich (u. a. 100 $/200 $/500 $-Stufen) — vor jeder Budgetplanung bei OpenAI direkt prüfen.
 - **Sol:** Das Video nennt "GPT-6.1 Sol"; die oben genannten Sol-Preise (2 $/10 $) stammen von "GPT-6 Sol/Luna" — Zuordnung ungeklärt.
 
+## Vending Bench: Modellvergleich in der Geschäftssimulation
+
+Quelle: [video-summary-phcZVAmT8j8.md](video-summaries/video-summary-phcZVAmT8j8.md) (Everlast AI, 2026-10-12). Andon Labs' Vending Bench misst Modellleistung als Getränkeautomaten-Manager über ein simuliertes Jahr (Endguthaben als Score) — kein rein akademischer Harness, sondern wirtschaftliches Handeln unter echtem Druck (Lieferanten, Preisstrategien, Wettbewerb). Stand September 2026:
+
+| Modell | Vending-Bench-Ergebnis |
+|---|---|
+| GPT-6 Astra | 15.515 $ (Spitzenreiter) |
+| Claude Opus 5 | ~11.200 $ (vorheriger Rekord; abgeleitet: Astra +4.300 $) |
+| Claude Fable 5.1 | ~5.200 $ (ca. ein Drittel von Astra; abgeleitet) |
+
+Verbesserungsrate laut Andon Labs: ~822 $/Monat (Top-Modelle), >1.000 $/Monat (chinesische Modelle); Prognose: chinesische Modelle ab Oktober 2027 führend. Konkrete Zahlen aus Video, nicht über öffentliche Primärquellen verifiziert (**Suchtreffer**). Für die Kostenrechnung gilt das Umgekehrte wie bei Token-Preisen: Das teuerste Modell (Astra: 10 $/50 $ je Mio. Token) liefert hier die höchste wirtschaftliche Leistung — ob das den Mehrpreis rechtfertigt, hängt vom konkreten Einsatzfall ab.
+
 ## Kernbotschaft
 
 Modellvergleiche und Preisangaben sind in diesem Themenfeld die am schnellsten veraltenden Inhalte im ganzen Repo — mehrere Quellen selbst weisen darauf hin, dass Einzelzahlen zum Lesezeitpunkt bereits überholt sein können. Die strukturellen Entscheidungsregeln (nach Nutzungsprofil wählen, Doppellizenzen vermeiden, ein Harness-Tool wirklich lernen) sind dagegen stabil und der eigentliche Mehrwert dieser Artikel-Zusammenfassung.

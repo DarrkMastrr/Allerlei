@@ -37,6 +37,11 @@ Zentraler Wandel gegenüber einem Vorgängervideo (1,5 Jahre zuvor): der Sprung 
 
 Die reine Tatsache "KI-generiert" ist für Qualität zweitrangig — entscheidend sind eigene Daten, klare Position, konkrete Beispiele, redaktionelle Prüfung. Mehrere zitierte Studien stützen: Publikum und Plattformen reagieren zunehmend sensibel auf erkennbare KI-Massenware, während menschlich geprägte, faktenbasierte Inhalte an Wert gewinnen.
 
+## Schreiben mit KI: das VOICE-System (-wreCvpBdso)
+Kanal Sandeep Swadia (Originaltitel "Everyone Can Spot AI Writing, Here's How To Fix It"): VOICE = Verified, Owned, Insightful, Clear, Engaging gegen generischen KI-Text. Für Team-Leads nutzbar: der Verified-Prompt (Behauptungen als verified/unverified/disputed mit Primärquelle), Cross-Verify, Interview-Prompt, "KI als skeptischer Gegner". Cornell-Studie (CHI 2025) per WebSearch bestätigt; Wirksamkeit der Prompts wird nur vorgestellt, nicht gezeigt; Sponsor-Passage ist Eigeninteresse. Passt zu yzO8q1b9Z7o (AI Slop) und FPnFp8vFM9k (Interview-Prompts).
+
+*Nachtrag Faktencheck (2026-09-29):* Cornell-Studie (arXiv 2409.11360, 118 Teilnehmende) bestätigt; Schwartz-Fall (Mata v. Avianca, 22.06.2023) und Kleber-auf-Pizza (Mai 2024) bestätigt; Herkunft des VOICE-Systems ohne Primärquelle, wohl Eigenerfindung des Kanals. Siehe [video-summary--wreCvpBdso.md](video-summaries/video-summary--wreCvpBdso.md).
+
 ## Kernbotschaft
 
 Der praktische Kern hinter allen neun reißerischen Titeln ist bemerkenswert konsistent: KI-Produktivität entsteht nicht durch ein einzelnes "Wunder-Prompt", sondern durch (a) saubere Grundstruktur (Memory, Hooks, Guardrails), (b) wiederholbare Frameworks statt Einzelprompts, und (c) klare Grenzen dafür, was KI ersetzt und was beim Menschen bleibt (Urteil, Verantwortung, redaktionelle Prüfung).

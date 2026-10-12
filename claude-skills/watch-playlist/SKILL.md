@@ -69,7 +69,7 @@ Pro Video laufen ein Schreib-Agent und 1 bis 3 Prüf-Agents samt Korrekturrunden
 Der Nutzer hat ein Claude-Pro-Abo mit begrenztem Nutzungsfenster — **nicht** automatisch versuchen, eine große Zahl neuer Videos (mehr als ~5-6) in einer einzigen Session komplett abzuarbeiten. Bei einem größeren Rückstand:
 
 - Kurz die Gesamtzahl neuer (abrufbarer) Videos nennen und den Nutzer fragen, wie groß die Batch-Größe für diese Session sein soll (z.B. per `AskUserQuestion`), statt stillschweigend alles zu starten.
-- Nach der vereinbarten Batch-Größe anhalten, Abschlussbericht liefern (Schritt 7) und explizit erwähnen, wie viele Videos noch offen sind — der Skill lässt sich beim nächsten Mal einfach erneut aufrufen (Schritt 2 filtert automatisch nur die noch fehlenden heraus, siehe „Hinweis zur Wiederholung" unten).
+- Nach der vereinbarten Batch-Größe anhalten, Abschlussbericht liefern (Schritt 8) und explizit erwähnen, wie viele Videos noch offen sind — der Skill lässt sich beim nächsten Mal einfach erneut aufrufen (Schritt 2 filtert automatisch nur die noch fehlenden heraus, siehe „Hinweis zur Wiederholung" unten).
 - Kein Grund zur Sorge bei kleinen Nachträgen (1-4 neue Videos) — die können normal in einer Welle durchlaufen.
 
 ## Schritt 4 — Subagents in Wellen zu je ~3 dispatchen
@@ -165,13 +165,42 @@ Die Zeile steht im Markdown-Quelltext und erscheint dadurch automatisch in jeder
 
 Danach:
 - Der Pfad des Arbeitsverzeichnisses wird im Todo des Videos notiert. Vor dem Löschen prüft der Orchestrator, dass die Schleife für dieses Video beendet ist; erst dann wird es gelöscht und der Todo abgehakt.
-- Im Abschlussbericht (Schritt 7) kommt pro Video eine Zeile mit Zahl der Durchläufe und Ergebnis, Fehler und Korrekturen zuerst. Videos mit Abbruch nach Durchlauf 3 und KERN-Fehlern stehen **ganz oben im Bericht, deutlich als ⚠ markiert**, weil sie noch grob falsch sein können. Videos mit nur DETAIL-Fehlern stehen normal in der Liste, mit dem Hinweis „nur Detailfehler".
+- Im Abschlussbericht (Schritt 8) kommt pro Video eine Zeile mit Zahl der Durchläufe und Ergebnis, Fehler und Korrekturen zuerst. Videos mit Abbruch nach Durchlauf 3 und KERN-Fehlern stehen **ganz oben im Bericht, deutlich als ⚠ markiert**, weil sie noch grob falsch sein können. Videos mit nur DETAIL-Fehlern stehen normal in der Liste, mit dem Hinweis „nur Detailfehler".
 
 ## Schritt 6 — Wellen fortsetzen
 
 Sobald ein Slot frei wird (Video verifiziert und geprüft fertig), das nächste Video aus der Warteschlange starten — Konkurrenz bei ~3 halten, bis die Liste abgearbeitet ist.
 
-## Schritt 7 — Abschlussbericht im Chat
+## Schritt 7 — Themen-Artikel aktualisieren und Sammel-PDFs erzeugen
+
+Sobald alle Videos des Batches abgeschlossen sind, die zugehörigen Root-Themen-Artikel aktualisieren.
+
+**1. Tags und passende Artikel ermitteln**
+- Alle neuen `video-summaries/video-summary-{ID}.md` lesen, `## Themen-Tags`-Zeilen einsammeln.
+- Alle `*.md`-Dateien im Repo-Root globen (README, CLAUDE.md etc. ignorieren — nur inhaltliche Artikel).
+- Für jeden Root-Artikel: Titel + ersten Abschnitt lesen, prüfen ob Tags oder Thema überlappen.
+- Gibt es keine passenden Root-Artikel (z.B. Projekt noch neu): Schritt überspringen.
+- Videos ohne Treffer bleiben als Einzel-PDFs bestehen; im Abschlussbericht (Schritt 8) anbieten, einen neuen Artikel anzulegen, wenn ein Thema in mehreren solchen Videos auftaucht.
+
+**2. Artikel aktualisieren**
+- Neue Erkenntnisse aus den Video-Zusammenfassungen in passende Artikel einarbeiten — als neue Abschnitte, ergänzte Bullet-Points oder Korrekturen bestehender Aussagen.
+- Überholte Informationen (durch neue Videos widerlegt oder ersetzt) aus dem Artikel entfernen oder ersetzen. `md_to_pdf.py` zeigt entfernte Stellen automatisch als durchgestrichenen Text in dieser PDF-Version und löscht sie erst beim nächsten Lauf.
+- Nur belegbare Inhalte aus den Video-Zusammenfassungen einarbeiten, nichts erfinden.
+
+**3. PDFs regenerieren**
+Alle geänderten Root-Artikel in einem Aufruf:
+```bash
+python "claude-skills/notes-audit/scripts/md_to_pdf.py" "artikel1.md" "artikel2.md" ...
+```
+Das Change-Tracking läuft automatisch über die `.stand/`-Snapshots:
+- Neu hinzugefügter Text → blau
+- Entfernter Text → durchgestrichen (in dieser Version), in der nächsten gelöscht
+- Vormals blauer Text → wieder schwarz
+
+**4. Committen**
+Geänderte Root-Artikel, zugehörige PDFs und `.stand/`-Snapshots gemeinsam committen.
+
+## Schritt 8 — Abschlussbericht im Chat
 
 Kein Roh-Dump aller Einzelberichte. Stattdessen kompakt zusammenfassen:
 1. **Echte Widersprüche zu bestehenden Notizen zuerst**, falls welche gefunden wurden — klar benennen, aber NICHT selbst löschen/überschreiben ohne Zustimmung des Nutzers (nur meist veraltete Angaben markieren/korrigieren, bestehende Inhalte nicht kommentarlos entfernen).

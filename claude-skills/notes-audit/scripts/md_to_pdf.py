@@ -208,9 +208,19 @@ def default_files():
 
 
 def write_changelog(created, updated, failed):
-    """Overwrite PDFs/_zuletzt-aktualisiert.txt with this run's result, so the
-    user can see at a glance which PDFs are new/changed without opening each
-    one or checking git dates."""
+    """Write PDFs/_zuletzt-aktualisiert.txt with this run's result plus the
+    previous run, so the user can see the last two changes at a glance."""
+    # Read previous entry (everything before the separator, if any)
+    prev_entry = ""
+    if CHANGELOG.exists():
+        existing = CHANGELOG.read_text(encoding="utf-8")
+        # Keep only the first (most recent) run block as "previous"
+        separator = "\n\n---\n\n"
+        if separator in existing:
+            prev_entry = existing.split(separator)[0]
+        else:
+            prev_entry = existing.rstrip()
+
     lines = [f"PDF-Generierung: {datetime.now().strftime('%Y-%m-%d %H:%M')}", ""]
     lines.append(f"Neu erzeugt ({len(created)}):")
     lines += [f"  - {name}" for name in created] if created else ["  (keine)"]
@@ -221,7 +231,13 @@ def write_changelog(created, updated, failed):
         lines.append("")
         lines.append(f"Fehlgeschlagen ({len(failed)}):")
         lines += [f"  - {name}: {reason}" for name, reason in failed]
-    CHANGELOG.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    new_entry = "\n".join(lines)
+    if prev_entry:
+        content = new_entry + "\n\n---\n\n" + prev_entry + "\n"
+    else:
+        content = new_entry + "\n"
+    CHANGELOG.write_text(content, encoding="utf-8")
 
 
 if __name__ == "__main__":

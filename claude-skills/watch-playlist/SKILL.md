@@ -64,17 +64,16 @@ Manche Playlist-Einträge sind nicht abrufbar (`title`/`duration` = `null` im fl
 
 ### Kontingent-Hinweis (Pro-Abo)
 
-Pro Video laufen ein Schreib-Agent und 1 bis 3 Prüf-Agents samt Korrekturrunden (Schritt 5b); der Kontingentbedarf ist damit etwa zwei- bis vierfach so hoch wie die Videozahl vermuten lässt — bei der Batch-Größe berücksichtigen. Richtwert aus dem ersten Lauf: Bei Videos über 50 Minuten mit Whisper-Chunking allein rund 15 Minuten für die Transkription einplanen; Batches von höchstens 3 Videos pro Sitzung.
+Pro Video laufen ein Schreib-Agent und 1 bis 3 Prüf-Agents samt Korrekturrunden (Schritt 5b). Richtwerte für den Token-Verbrauch pro Video: kurze Videos (<20 Min) ≈ 300k Tokens, mittlere (20–50 Min) ≈ 450k, lange (>50 Min) ≈ 600k+.
 
-Der Nutzer hat ein Claude-Pro-Abo mit begrenztem Nutzungsfenster — **nicht** automatisch versuchen, eine große Zahl neuer Videos (mehr als ~5-6) in einer einzigen Session komplett abzuarbeiten. Bei einem größeren Rückstand:
+Nach Schritt 3 (Reihenfolge und Längen bekannt) eine **Aufwandsschätzung** ausgeben: Summe der geschätzten Token-Verbräuche aller offenen Videos ausrechnen, mit dem aktuell verfügbaren Kontingent des Nutzers abgleichen (sichtbar im `<total_tokens>`-Systemkontext) und kurz berichten: „X offene Videos, geschätzter Verbrauch ~Y M Tokens — bei Z M verfügbar reicht das für N Videos." Dann den Nutzer entscheiden lassen, wie viele in dieser Session bearbeitet werden sollen.
 
-- Kurz die Gesamtzahl neuer (abrufbarer) Videos nennen und den Nutzer fragen, wie groß die Batch-Größe für diese Session sein soll (z.B. per `AskUserQuestion`), statt stillschweigend alles zu starten.
-- Nach der vereinbarten Batch-Größe anhalten, Abschlussbericht liefern (Schritt 8) und explizit erwähnen, wie viele Videos noch offen sind — der Skill lässt sich beim nächsten Mal einfach erneut aufrufen (Schritt 2 filtert automatisch nur die noch fehlenden heraus, siehe „Hinweis zur Wiederholung" unten).
-- Kein Grund zur Sorge bei kleinen Nachträgen (1-4 neue Videos) — die können normal in einer Welle durchlaufen.
+- Nach der vereinbarten Anzahl anhalten, Abschlussbericht liefern (Schritt 8) und erwähnen, wie viele Videos noch offen sind.
+- Kein Grund zur Sorge bei kleinen Nachträgen (1–4 neue Videos) — die können ohne Schätzung vorab normal durchlaufen.
 
-## Schritt 4 — Subagents in Wellen zu je ~3 dispatchen
+## Schritt 4 — Einen Subagent pro Video starten
 
-Nicht alle Videos auf einmal starten — 3 parallele Hintergrund-Agents (`Agent`-Tool, `subagent_type: general-purpose`, `run_in_background: true`) sind ein guter Kompromiss zwischen Tempo und Belastung des lokalen Whisper/Replicate-Kontingents. Jeder Agent bekommt ein Video und folgenden Prompt (Platzhalter `{REPO_ROOT}`, `{VIDEO_ID}`, `{VIDEO_URL}`, `{PLAYLIST_TITLE}`, `{DURATION}`, `{THEMENKONTEXT}`, `{ZIELGRUPPE}`, `{SPRACHE}` mit den in Schritt 0 geklärten Werten ersetzen):
+Immer nur einen Schreib-Agent gleichzeitig starten (`Agent`-Tool, `subagent_type: general-purpose`, `run_in_background: true`). Jeder Agent bekommt ein Video und folgenden Prompt (Platzhalter `{REPO_ROOT}`, `{VIDEO_ID}`, `{VIDEO_URL}`, `{PLAYLIST_TITLE}`, `{DURATION}`, `{THEMENKONTEXT}`, `{ZIELGRUPPE}`, `{SPRACHE}` mit den in Schritt 0 geklärten Werten ersetzen):
 
 ```
 Repo: {REPO_ROOT} (aktuelles Projektverzeichnis, hier die tatsächliche absolute Pfadangabe einsetzen — niemals eine feste Beispielangabe verwenden). Thema dieses Projekts: {THEMENKONTEXT}. Zielgruppe/Blickwinkel der Zusammenfassungen: {ZIELGRUPPE}. Your job: watch ONE YouTube video with the project's `watch` skill and write a summary file matching this project's established conventions.
@@ -167,13 +166,20 @@ Danach:
 - Der Pfad des Arbeitsverzeichnisses wird im Todo des Videos notiert. Vor dem Löschen prüft der Orchestrator, dass die Schleife für dieses Video beendet ist; erst dann wird es gelöscht und der Todo abgehakt.
 - Im Abschlussbericht (Schritt 8) kommt pro Video eine Zeile mit Zahl der Durchläufe und Ergebnis, Fehler und Korrekturen zuerst. Videos mit Abbruch nach Durchlauf 3 und KERN-Fehlern stehen **ganz oben im Bericht, deutlich als ⚠ markiert**, weil sie noch grob falsch sein können. Videos mit nur DETAIL-Fehlern stehen normal in der Liste, mit dem Hinweis „nur Detailfehler".
 
-## Schritt 6 — Wellen fortsetzen
+## Schritt 6 — Nächstes Video starten
 
-Sobald ein Slot frei wird (Video verifiziert und geprüft fertig), das nächste Video aus der Warteschlange starten — Konkurrenz bei ~3 halten, bis die Liste abgearbeitet ist.
+Sobald ein Video vollständig abgeschlossen ist (Schreib-Agent + Prüf-Schleife), das nächste aus der Warteschlange nehmen und mit Schritt 4 fortfahren — bis alle Videos der vereinbarten Anzahl bearbeitet sind.
 
 ## Schritt 7 — Themen-Artikel aktualisieren und Sammel-PDFs erzeugen
 
-Sobald alle Videos des Batches abgeschlossen sind, die zugehörigen Root-Themen-Artikel aktualisieren.
+Sobald alle Videos des Batches abgeschlossen sind, zuerst Einzelvideo-PDFs erzeugen, dann die zugehörigen Root-Themen-Artikel aktualisieren.
+
+**0. Einzelvideo-PDFs erzeugen**
+Alle neuen Zusammenfassungen in einem Aufruf:
+```bash
+python "claude-skills/notes-audit/scripts/md_to_pdf.py" "video-summaries/video-summary-ID1.md" "video-summaries/video-summary-ID2.md" ...
+```
+Erzeugt alle `PDFs/video-summary-{ID}.pdf` auf einmal und aktualisiert `PDFs/_zuletzt-aktualisiert.txt`.
 
 **1. Tags und passende Artikel ermitteln**
 - Alle neuen `video-summaries/video-summary-{ID}.md` lesen, `## Themen-Tags`-Zeilen einsammeln.

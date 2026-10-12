@@ -84,9 +84,9 @@ Im zweiten Quartal 2026 stiegen die Umsätze um 28 Prozent auf 60,8 Milliarden D
 
 Die Aktie fiel nach Veröffentlichung der Zahlen um rund 10 Prozent im nachbörslichen Handel (so das Video; externe Quellen messen je nach Zeitpunkt 7,5–11 %). Investoren fragten nach Rendite in den nächsten 12 bis 24 Monaten. Zuckerberg wich aus: "Das ist zu technisch." Für das Video ist das die Quintessenz: "Ein CEO, der auf Zeit spielt, obwohl er nicht mehr viel davon hat."
 
-Dazu entwickelt Meta einen eigenen KI-Chip namens **Iris** (produziert ab September 2026), um unabhängiger von Nvidia-GPUs zu werden und die Betriebskosten zu senken. Hintergrund: 14 Gigawatt Rechenkapazität sind für 2027 geplant.
+Dazu entwickelt Meta einen eigenen KI-Chip namens **Iris** (produziert ab September 2026), um unabhängiger von Nvidia-GPUs zu werden und die Betriebskosten zu senken. Hintergrund: Laut externen Berichten plant Meta 14 Gigawatt Rechenkapazität bis 2027 (nicht im Video selbst genannt).
 
-Bank of America schätzt, die bisher durchgeführten 8.000 Entlassungen (plus 1 Milliarde Dollar Abfindungskosten) könnten sieben bis acht Milliarden Dollar pro Jahr einsparen — das entspricht ungefähr drei Wochen des 137,5-Milliarden-Dollar-Budgets. Drei Wochen.
+Bank of America schätzt, die bisher durchgeführten 8.000 Entlassungen (plus über 1 Milliarde Dollar Abfindungskosten) könnten sieben bis acht Milliarden Dollar pro Jahr einsparen — das entspricht ungefähr drei Wochen des 137,5-Milliarden-Dollar-Budgets. Drei Wochen.
 
 Im August 2026 veröffentlichte Zuckerberg einen Essay, in dem er argumentierte, KI werde mehr Arbeitsplätze schaffen als vernichten. Im selben Jahr strich er 8.000 Jobs und 6.000 offene Stellen — alles innerhalb von 90 Tagen.
 

@@ -1,6 +1,6 @@
 # China als KI-Macht — Strategie statt Zufall
 
-Quellen: [video-summary-6dW8uIbxHJI.md](video-summaries/video-summary-6dW8uIbxHJI.md) ("China sprengt das KI-Monopol"), [video-summary-C_N-MopUigk.md](video-summaries/video-summary-C_N-MopUigk.md) ("China hat soeben etwas gebaut, das alle für unmöglich gehalten haben"), [video-summary-U7mAEi2JkI0.md](video-summaries/video-summary-U7mAEi2JkI0.md) ("KI macht Schule: Was wir von China lernen können"), Kontext auch in [video-summary-JH_NRbnbC1s.md](video-summaries/video-summary-JH_NRbnbC1s.md) und [video-summary-kMuT8Uc7q6U.md](video-summaries/video-summary-kMuT8Uc7q6U.md) (siehe [humanoide-roboter-2026.md](humanoide-roboter-2026.md))
+Quellen: [video-summary-6dW8uIbxHJI.md](video-summaries/video-summary-6dW8uIbxHJI.md) ("China sprengt das KI-Monopol"), [video-summary-C_N-MopUigk.md](video-summaries/video-summary-C_N-MopUigk.md) ("China hat soeben etwas gebaut, das alle für unmöglich gehalten haben"), [video-summary-U7mAEi2JkI0.md](video-summaries/video-summary-U7mAEi2JkI0.md) ("KI macht Schule: Was wir von China lernen können"), Kontext auch in [video-summary-JH_NRbnbC1s.md](video-summaries/video-summary-JH_NRbnbC1s.md) und [video-summary-kMuT8Uc7q6U.md](video-summaries/video-summary-kMuT8Uc7q6U.md) (siehe [humanoide-roboter-2026.md](humanoide-roboter-2026.md)), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, Ulanqab/FNTF)
 
 Drei Videos zeichnen unabhängig voneinander ein differenzierteres Bild von Chinas KI-Aufholjagd, als reißerische Titel suggerieren: keine plötzliche Überholung, sondern eine über Jahre verfolgte, strategisch konsistente Linie.
 
@@ -22,6 +22,23 @@ U7mAEi2JkI0 relativiert die Erzählung noch einmal: China ist bei KI in der Bild
 
 Die eigentliche Übertragbarkeits-These aller drei Quellen läuft auf dasselbe hinaus: Nicht Chinas konkrete Technologie ist die Lehre für Deutschland/Europa, sondern die Klarheit der strategischen Vision — bei Modellen (Ökosystem-Aufbau statt Einzelverkauf), bei Chips (Systemebene statt Einzelkomponente umgehen) und bei Bildung (Rollenverschiebung statt Technik-Fixierung). Mehrere Quellen warnen explizit vor dem "Risiko des vollständigen Verpassens", sollte Europa keine eigene digital souveräne Position zwischen chinesischer und amerikanischer KI entwickeln — ein Thema, das sich mit [lokale-ki.md](lokale-ki.md) und [fable-5-modell-sperre.md](fable-5-modell-sperre.md) überschneidet (Unabhängigkeit von einzelnen Anbietern/Jurisdiktionen als roter Faden).
 
+## Nachtrag 2026-10-13: Ulanqab als Blaupause — China baut das „Weltgehirn"
+
+Quelle: [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Vorsprung-Podcast, Everlast AI, Oktober 2026). **Prüfstatus:** Teilbestätigt — FNTF und DeepSeek-1-GW-Cluster per WebSearch (Volltext) bestätigt; die „8×"-Behauptung bezieht sich auf geplante, nicht auf aktuell installierte Kapazitäten.
+
+Der Ort **Ulanqab** in der Inneren Mongolei wird im Podcast als Blaupause für chinesische KI-Infrastruktur beschrieben. Kernzahlen:
+
+- **Geplante Gesamtkapazität:** 12,5 GW — im Vergleich etwa achtmal so groß wie **Colossus 2** (xAI/Elon Musk, bislang weltgrößtes Datenzentrum) — dies sind Planungszahlen, keine installierte Kapazität.
+- **NV-Vision-Campus:** 2 GW, ausgelegt für 1 Million GPUs.
+- **Strompreis in Ulanqab:** 0,358 Yuan/kWh — weniger als halb so viel wie in Peking. Die Innere Mongolei verfügt über eine lokale Windkraftkapazität von ~117 GW (deutlich über dem Eigenbedarf), was billige Energie-Überschüsse erzeugt.
+
+Parallel dazu wird das **FNTF-Netzwerk** (Future Network Test Facility) mit 1.000+ Knoten in 40 Städten aufgebaut — ein verteiltes Netz, das Rechenkapazitäten verknüpft. Per WebSearch bestätigt.
+
+Robert Langes Einordnung (Sakana AI, Podcast-Gast): China habe zwar weniger absolute Rechenkapazität als die USA, aber die gezielte Nutzung billiger Erneuerbarer-Energie-Überschüsse ist ein echter strategischer Vorteil. **Die entscheidende Ressource für das KI-Rennen ist Energie** — und wer keine hat (Deutschland hat Kernkraft abgeschaltet), hat einen strukturellen Nachteil.
+
+Dieser Befund bestätigt und konkretisiert die Sanktions-These des bestehenden Artikels: Eigene Infrastruktur + billiger Strom + staatlich koordinierte Investitionen kompensieren den Chip-Rückstand auf Systemebene — auch wenn Huawei auf Chip-Ebene noch zurückliegt (C_N-MopUigk, bereits oben).
+
 ## Zu prüfen
 - Genaue Marktanteils-/Preiszahlen zu Kimi K3 sind Momentaufnahmen
 - Chinas Zensur-Praxis in KI-Tools ist im Quellenvideo (U7mAEi2JkI0) an konkreten Beispielen (Tibet, Uiguren) belegt, aber nicht systematisch/vollständig erfasst
+- Ulanqab 12,5-GW-Zahl: Planungskapazität, noch nicht installiert; „8×"-Vergleich mit Colossus 2 aus Podcast, nicht separat verifiziert

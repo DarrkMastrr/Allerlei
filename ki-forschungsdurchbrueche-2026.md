@@ -1,6 +1,6 @@
 # KI-Forschungsdurchbrüche 2026
 
-Quellen: [video-summary-6YFN2GiGyHg.md](video-summaries/video-summary-6YFN2GiGyHg.md) ("Forscher knacken verschlüsselte KI-Gedanken"), [video-summary-C1WdSpe39js.md](video-summaries/video-summary-C1WdSpe39js.md) ("Grok AI Finally Decoded Whale Language"), [video-summary-ibsND8yGerY.md](video-summaries/video-summary-ibsND8yGerY.md) ("AI Reaches the Next Level"), [video-summary-n_lYxc5WUlQ.md](video-summaries/video-summary-n_lYxc5WUlQ.md) ("KI verbessert sich SELBST", Sakana AI), [video-summary-qCoByvOYe0o.md](video-summaries/video-summary-qCoByvOYe0o.md) ("Der beste Raketeningenieur der Welt ist kein Mensch"), [video-summary-pb5cMmdQVJo.md](video-summaries/video-summary-pb5cMmdQVJo.md) (Prof. Dr. Christian Bauckhage, Fraunhofer IAIS), [video-summary-nV55rZLPPjc.md](video-summaries/video-summary-nV55rZLPPjc.md) ("KI löst ein Millennium-Problem")
+Quellen: [video-summary-6YFN2GiGyHg.md](video-summaries/video-summary-6YFN2GiGyHg.md) ("Forscher knacken verschlüsselte KI-Gedanken"), [video-summary-C1WdSpe39js.md](video-summaries/video-summary-C1WdSpe39js.md) ("Grok AI Finally Decoded Whale Language"), [video-summary-ibsND8yGerY.md](video-summaries/video-summary-ibsND8yGerY.md) ("AI Reaches the Next Level"), [video-summary-n_lYxc5WUlQ.md](video-summaries/video-summary-n_lYxc5WUlQ.md) ("KI verbessert sich SELBST", Sakana AI), [video-summary-qCoByvOYe0o.md](video-summaries/video-summary-qCoByvOYe0o.md) ("Der beste Raketeningenieur der Welt ist kein Mensch"), [video-summary-pb5cMmdQVJo.md](video-summaries/video-summary-pb5cMmdQVJo.md) (Prof. Dr. Christian Bauckhage, Fraunhofer IAIS), [video-summary-nV55rZLPPjc.md](video-summaries/video-summary-nV55rZLPPjc.md) ("KI löst ein Millennium-Problem"), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, OpenAI Mathe-Modell)
 
 Sechs Videos zu sehr unterschiedlichen Forschungsthemen — thematisch loser verbunden als die anderen Cluster, aber alle mit derselben Grundfrage: was kann KI heute nachweislich Neues. Eine Warnung vorweg: Dieses Cluster enthält auch den klarsten Clickbait-Fehlgriff im ganzen Batch.
 
@@ -34,6 +34,24 @@ qCoByvOYe0o verbindet drei Entwicklungen — industriell ausgereiften 3D-Druck, 
 ## Der Warnfall: Clickbait ohne jeden Inhaltsbezug
 
 C1WdSpe39js behauptet im Titel eine "Grok AI"-Entschlüsselung der Walsprache — **Grok/xAI wird im gesamten Video kein einziges Mal erwähnt**. Inhaltlich eine im Kern korrekt wiedergegebene, aber dramatisierte Erzählung über echte Forschung von Project CETI zu Pottwal-Kommunikation (156 statt 21 Kodas, vokalartige Lautstrukturen). Als Negativbeispiel hier aufgenommen: ein Beleg dafür, dass reißerische Titel in diesem Themenfeld gelegentlich mit dem Inhalt gar nichts mehr zu tun haben.
+
+## Nachtrag 2026-10-13: OpenAI veröffentlicht 722 Mathe-Manuskripte in einer Nacht
+
+Quelle: [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Vorsprung-Podcast, Everlast AI, Oktober 2026). **Prüfstatus:** Vollständig bestätigt (Volltext) — 722 Manuskripte in 372 Familien, 6. Oktober 2026, drei Manuskripte wegen Vorzeichenfehler zurückgezogen.
+
+Am 6. Oktober 2026 veröffentlichte OpenAI über Nacht ein GitHub-Repository mit **722 mathematischen Manuskripten** aus **17 Fachbereichen** — erzeugt von einem nicht namentlich genannten Modell (Modellname und Prompts bleiben geheim). Das Modell hatte zuvor mehr als **4.000 offene Mathematikprobleme** berechnet, mit durchschnittlich drei Stunden Rechenzeit pro Ergebnis. Formal in **Lean** (einem Theorembeweissystem) verifiziert wurden lediglich **162 der Arbeiten**; für den Rest schreibt OpenAI selbst, die Ergebnisse könnten Fehler enthalten.
+
+Abgrenzung zum bereits dokumentierten Navier-Stokes-Fall (nV55rZLPPjc): Das ist ein **separates Ereignis** — nicht der Navier-Stokes-Blowup (88 Stunden, ~10.000 Agenten, kein Lean-Beweis), sondern eine breitere, schnellere Veröffentlichungsaktion über 17 Fachbereiche.
+
+**Riemann-Hypothese — kein vollständiger Beweis:** Das Modell lieferte ein Teilergebnis zur Riemann-Hypothese (eines der sieben Millennium-Probleme, Preisgeld 1 Mio. US-Dollar): eine **nullstellenfreie Region** (keine Nullstellen oberhalb von 7/8 der kritischen Linie). Das ist kein vollständiger Beweis und wurde vom Clay-Institut nicht als Lösung anerkannt. OpenAI beansprucht das Preisgeld nicht.
+
+**Reaktion der Mathematik-Community:**
+- Terence Tao (Fields-Medaillist, einer der bekanntesten lebenden Mathematiker): Mathematiker hätten um diese Arbeit nicht gebeten.
+- Mehr als 25 Fields-Medaillisten warnen vor dem Wettbewerb zwischen KI-Labors.
+- Andrew Sutherland (MIT): Erst die Beweise sehen, bevor man von einem Durchbruch spricht.
+- Robert Lange (Sakana AI): Viele Doktoranden haben jahrelang an genau diesen Problemen gearbeitet und stehen jetzt vor der Frage, ob ihre Arbeit obsolet geworden ist.
+
+Einordnung zum Artikel: Die Navier-Stokes-Arbeit (nV55rZLPPjc) und dieses Oktober-Event zeigen dasselbe Muster: real erbrachte mathematische Leistung + ungenaue öffentliche Rahmung. Der Unterschied: In diesem Fall schrieb OpenAI selbst die Einschränkungen (nur 162 Lean-verifiziert, mögliche Fehler), was den Clickbait-Faktor im Vergleich zu nV55rZLPPjc deutlich geringer hält. Bauckhages Hinweis auf "jüngste Widerlegung einer 80 Jahre offenen Erdős-Vermutung durch OpenAI" (pb5cMmdQVJo) könnte aus derselben Veröffentlichungsserie stammen — nicht explizit bestätigt, aber zeitlich plausibel.
 
 ## Kernbotschaft
 

@@ -66,6 +66,11 @@ Ergänzt die obige Kaufberatung um konkrete Alltags-Anwendungsfälle, in denen l
 - **Dokumentenanalyse und Vertragsprüfung** — Aufgaben, bei denen Datenschutz wichtiger ist als Spitzenleistung
 - Bestätigt denselben Effizienz-Trend wie oben (Quantisierung, MoE) sowie zusätzlich Apple Unified Memory als Hardware-Faktor
 
+## Kleine Spezialmodelle: Jev als "System-1"-Modell (CenkPFVn-vo)
+Jev (TypeSafe AI, Launch 15.09.2026, Gründer Diogo Almeida) liefert statt Text kalibrierte Wahrscheinlichkeiten für Auswahl, Score und Ja/Nein — Schwellwert-Logik mit Übergabe an Menschen. Herstellerangaben: 20–200x schneller, 40–400x billiger (Medien: "bis zu 100x"); unabhängige Benchmarks nicht geprüft, Host hat als KI-Automatisierer Eigeninteresse. Direkter Nutzen für das Hardware-Team gering; interessant ist die Konfidenz-Idee für Triage von Logs/Berichten. Datenschutz: US-Anbieter, lokale Alternative ("Lar") im Video unklar.
+
+*Nachtrag Faktencheck (2026-09-29):* Jev ist ein reales Produkt (Latent Space; Almeida Mitautor von InstructGPT). Geschwindigkeits-/Preisangaben (bis 193,6x / 444,6x) sind reine Herstellerangaben, TypeSafe veröffentlicht keine öffentlichen Benchmarks; ein unabhängiger Test zeigt gute Kalibrierung auf öffentlichen Benchmarks, aber ECE 0,107 auf einer synthetischen Aufgabe. Launch-Datum ungeklärt (15.09. vs. 28.09.), "Lar" vermutlich verhörtes "Laya". Siehe [video-summary-CenkPFVn-vo.md](video-summaries/video-summary-CenkPFVn-vo.md).
+
 ## Offene Fragen (nicht gegengecheckt)
 - Konkrete Preisangaben (GLM 5.2, DeepSeek V4 pro Mio. Token) — Momentaufnahme, ändert sich häufig
 - Die Behauptung zu Sam Altmans Aussage über Unrentabilität des 200-$-Abos

@@ -1,8 +1,12 @@
-PDF-Generierung: 2026-10-13 22:52
+PDF-Generierung: 2026-10-13 23:53
 
 Neu erzeugt (0):
   (keine)
 
-Aktualisiert (2):
-  - ki-risiko-warnungen.md
-  - openai-krise-ki-blase.md
+Aktualisiert (6):
+  - lokale-ki.md
+  - ki-sicherheitsvorfaelle-sandbox-escapes.md
+  - china-ki-macht.md
+  - humanoide-roboter-2026.md
+  - ki-zukunftsprognosen.md
+  - ki-forschungsdurchbrueche-2026.md

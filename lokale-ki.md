@@ -1,6 +1,6 @@
 # Lokale KI — warum sie 2026 relevant wird und wie man einsteigt
 
-Quellen: [video-summary-5Tj88qDPrFw.md](video-summary-5Tj88qDPrFw.md) ("Lokale KI ist endlich brauchbar, so geht's (Odysseus)"), [video-summary-Mg6NOwHqflw.md](video-summaries/video-summary-Mg6NOwHqflw.md) ("Gewinnt China den KI Krieg?"), [video-summary-DJhiTpQshX4.md](video-summaries/video-summary-DJhiTpQshX4.md) ("Lokale KI: Kauf nicht die falsche Hardware"), [video-summary-qZRftXozT3M.md](video-summaries/video-summary-qZRftXozT3M.md) ("Lokale KI wird MASSIV unterschätzt")
+Quellen: [video-summary-5Tj88qDPrFw.md](video-summary-5Tj88qDPrFw.md) ("Lokale KI ist endlich brauchbar, so geht's (Odysseus)"), [video-summary-Mg6NOwHqflw.md](video-summaries/video-summary-Mg6NOwHqflw.md) ("Gewinnt China den KI Krieg?"), [video-summary-DJhiTpQshX4.md](video-summaries/video-summary-DJhiTpQshX4.md) ("Lokale KI: Kauf nicht die falsche Hardware"), [video-summary-qZRftXozT3M.md](video-summaries/video-summary-qZRftXozT3M.md) ("Lokale KI wird MASSIV unterschätzt"), [video-summary-SOcdaG5KZbs.md](video-summaries/video-summary-SOcdaG5KZbs.md) (Nachtrag 2026-10-13, Kolibri)
 
 ## Warum jetzt
 
@@ -70,6 +70,29 @@ Ergänzt die obige Kaufberatung um konkrete Alltags-Anwendungsfälle, in denen l
 Jev (TypeSafe AI, Launch 15.09.2026, Gründer Diogo Almeida) liefert statt Text kalibrierte Wahrscheinlichkeiten für Auswahl, Score und Ja/Nein — Schwellwert-Logik mit Übergabe an Menschen. Herstellerangaben: 20–200x schneller, 40–400x billiger (Medien: "bis zu 100x"); unabhängige Benchmarks nicht geprüft, Host hat als KI-Automatisierer Eigeninteresse. Direkter Nutzen für das Hardware-Team gering; interessant ist die Konfidenz-Idee für Triage von Logs/Berichten. Datenschutz: US-Anbieter, lokale Alternative ("Lar") im Video unklar.
 
 *Nachtrag Faktencheck (2026-09-29):* Jev ist ein reales Produkt (Latent Space; Almeida Mitautor von InstructGPT). Geschwindigkeits-/Preisangaben (bis 193,6x / 444,6x) sind reine Herstellerangaben, TypeSafe veröffentlicht keine öffentlichen Benchmarks; ein unabhängiger Test zeigt gute Kalibrierung auf öffentlichen Benchmarks, aber ECE 0,107 auf einer synthetischen Aufgabe. Launch-Datum ungeklärt (15.09. vs. 28.09.), "Lar" vermutlich verhörtes "Laya". Siehe [video-summary-CenkPFVn-vo.md](video-summaries/video-summary-CenkPFVn-vo.md).
+
+## Nachtrag 2026-10-13: Kolibri von Aleph Alpha — erstes deutsches Open-Weight-Modell
+
+Quelle: [video-summary-SOcdaG5KZbs.md](video-summaries/video-summary-SOcdaG5KZbs.md)
+
+Am 3. Oktober 2026 veröffentlichte das Heidelberger Unternehmen **Aleph Alpha** das Modell **Kolibri** als Open-Weight-Modell auf Hugging Face unter Apache-2.0-Lizenz — das erste deutsche Großmodell mit öffentlichen Gewichten. Für den lokalen Betrieb ist es weniger als fertiges Consumer-Produkt konzipiert, sondern als Baustein für **Sovereign-AI-Deployments** in regulierten Sektoren (Behörden, Gesundheitswesen, Verteidigung).
+
+**Technische Eckdaten (per WebSearch bestätigt):**
+- Architektur: Mixture-of-Experts (MoE), ~78–80 Milliarden Gesamtparameter, ~3,46 Milliarden aktive Parameter pro Token
+- Kontextfenster: 262.000 Token nativ, validiert bis 1 Million Token
+- Trainingsdaten: ~20 Billionen Token; ~62,5 % Englisch, ~23,9 % Deutsch, ~13,6 % Code
+- Training auf 768 NVIDIA-B200-GPUs (europäische Hardware)
+- Lizenz: Apache 2.0 (kommerzielle Nutzung erlaubt)
+
+**Hardware-Hürde für lokalen Betrieb:** Um Kolibri in voller Qualität zu betreiben, wird mindestens eine NVIDIA H100 oder B200 (ca. 30.000–40.000 €) benötigt — die vollständigen FP8-Gewichte belegen ~78 GB GPU-Speicher. Das ist Unternehmens-, keine Privatnutzer-Hardware. Eine quantisierte GGUF-Version ist auf Hugging Face verfügbar, jedoch zu groß für normale Laptops (32 GB RAM reichen nicht aus; MacBook Pro mit 128 GB oder Mac Studio wäre erforderlich).
+
+**Einordnung für die Kaufmatrix oben:** Kolibri ergänzt die bestehende Tabelle nicht als neue Zeile — die Hardware-Anforderungen liegen deutlich über dem Rahmen der bisherigen Empfehlungen (RTX 3090 mit 24 GB VRAM reicht für Kolibri nicht aus). Es ist ein Modell für denjenigen, der Sovereign-AI-Betrieb ernsthaft plant, nicht für Einzel-Workstations.
+
+**Zum Deutschen-Anteil:** ~23,9 % Deutsch in den Trainingsdaten macht Kolibri besonders für deutschsprachige Fachdomänen (Recht, Medizin, Verwaltung) attraktiv — Modelle mit niedrigem Deutsch-Anteil führen interne Reasoning-Ketten häufig auf Englisch, was bei spezialisierten deutschsprachigen Aufgaben zu Qualitätsverlusten führen kann.
+
+**Kontext Aleph Alpha:** Das Unternehmen hat die Strategie von "globalem Frontier-Modell" (gegen OpenAI/Anthropic antreten) zu "Sovereign AI" gewechselt (seit ca. 2024/2025). Zeitgleich wurde im September 2026 ein Fusionsvertrag mit dem kanadischen Unternehmen **Cohere** unterzeichnet (Leitinvestor: Schwarz Group/Lidl/Kaufland, 600 Mio. US-Dollar); regulatorische Genehmigung steht noch aus. Das gemeinsame Unternehmen soll Hauptsitze in Toronto und Berlin haben.
+
+**Magnussens Fazit** (Christoph Magnussen, Tech-CEO): "Nicht der Wettbewerb um Frontier-Modelle zählt für Europa, sondern die Kompetenz beim Betrieb lokaler Modelle in sicherheitskritischen Bereichen."
 
 ## Offene Fragen (nicht gegengecheckt)
 - Konkrete Preisangaben (GLM 5.2, DeepSeek V4 pro Mio. Token) — Momentaufnahme, ändert sich häufig

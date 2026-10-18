@@ -1,12 +1,24 @@
-PDF-Generierung: 2026-10-13 23:53
+PDF-Generierung: 2026-10-18 10:45
 
 Neu erzeugt (0):
   (keine)
 
-Aktualisiert (6):
-  - lokale-ki.md
+Aktualisiert (4):
   - ki-sicherheitsvorfaelle-sandbox-escapes.md
-  - china-ki-macht.md
   - humanoide-roboter-2026.md
+  - ki-modellvergleich-kosten.md
   - ki-zukunftsprognosen.md
-  - ki-forschungsdurchbrueche-2026.md
+
+---
+
+PDF-Generierung: 2026-10-17 22:04
+
+Neu erzeugt (5):
+  - video-summaries/video-summary-o4QbZf_2DK4.md
+  - video-summaries/video-summary-eDCd4UJParE.md
+  - video-summaries/video-summary-8rLrQFRkrgE.md
+  - video-summaries/video-summary-0tbDxmVy1m8.md
+  - video-summaries/video-summary-qf4AGtdqons.md
+
+Aktualisiert (0):
+  (keine)

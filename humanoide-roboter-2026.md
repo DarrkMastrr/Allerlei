@@ -1,6 +1,6 @@
 # Humanoide Roboter 2026 — Hype vs. Realität
 
-Quellen: [video-summary-8cMP_A6Tkus.md](video-summaries/video-summary-8cMP_A6Tkus.md) ("Humanoide Roboter 2026: Wer wirklich vorne liegt"), [video-summary-AktS_a6Ru7E.md](video-summaries/video-summary-AktS_a6Ru7E.md) ("Optimus wird KRACHEND scheitern"), [video-summary-CU-JH9kzd8Y.md](video-summaries/video-summary-CU-JH9kzd8Y.md) ("Dieser Roboter ist ZU MENSCHLICH"), [video-summary-KyQK1CEzbu8.md](video-summaries/video-summary-KyQK1CEzbu8.md) ("Humanoide Roboter in Polizei & Militär: Hype vs. Realität?"), [video-summary-QYApnVSDJs0.md](video-summaries/video-summary-QYApnVSDJs0.md) ("Vergiss ChatGPT, DAS ist die wahre Revolution"), [video-summary-RWDsx8KxtX8.md](video-summaries/video-summary-RWDsx8KxtX8.md) ("Humanoide Roboter LIVE in China"), [video-summary-mtFsQeyeADc.md](video-summaries/video-summary-mtFsQeyeADc.md) ("Everyone is looking at the robots. I'm looking at something else"), [video-summary-JH_NRbnbC1s.md](video-summaries/video-summary-JH_NRbnbC1s.md) ("Neue Kampf-Roboter"), [video-summary-kMuT8Uc7q6U.md](video-summaries/video-summary-kMuT8Uc7q6U.md) ("Chinas Roboter drehen frei"), [video-summary-05_3LMLSQb4.md](video-summaries/video-summary-05_3LMLSQb4.md) (Nachtrag 2026-10-12, Dr. Drescher FLAIR), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, Ukraine/Roboterarmee)
+Quellen: [video-summary-8cMP_A6Tkus.md](video-summaries/video-summary-8cMP_A6Tkus.md) ("Humanoide Roboter 2026: Wer wirklich vorne liegt"), [video-summary-AktS_a6Ru7E.md](video-summaries/video-summary-AktS_a6Ru7E.md) ("Optimus wird KRACHEND scheitern"), [video-summary-CU-JH9kzd8Y.md](video-summaries/video-summary-CU-JH9kzd8Y.md) ("Dieser Roboter ist ZU MENSCHLICH"), [video-summary-KyQK1CEzbu8.md](video-summaries/video-summary-KyQK1CEzbu8.md) ("Humanoide Roboter in Polizei & Militär: Hype vs. Realität?"), [video-summary-QYApnVSDJs0.md](video-summaries/video-summary-QYApnVSDJs0.md) ("Vergiss ChatGPT, DAS ist die wahre Revolution"), [video-summary-RWDsx8KxtX8.md](video-summaries/video-summary-RWDsx8KxtX8.md) ("Humanoide Roboter LIVE in China"), [video-summary-mtFsQeyeADc.md](video-summaries/video-summary-mtFsQeyeADc.md) ("Everyone is looking at the robots. I'm looking at something else"), [video-summary-JH_NRbnbC1s.md](video-summaries/video-summary-JH_NRbnbC1s.md) ("Neue Kampf-Roboter"), [video-summary-kMuT8Uc7q6U.md](video-summaries/video-summary-kMuT8Uc7q6U.md) ("Chinas Roboter drehen frei"), [video-summary-05_3LMLSQb4.md](video-summaries/video-summary-05_3LMLSQb4.md) (Nachtrag 2026-10-12, Dr. Drescher FLAIR), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, Ukraine/Roboterarmee), [video-summary-0tbDxmVy1m8.md](video-summaries/video-summary-0tbDxmVy1m8.md) (Nachtrag 2026-10-17, REK Roboter-Kampfsport San Francisco)
 
 Neun Videos aus unterschiedlichsten Quellen (Fachwissenschaftler, Industrie-Praktiker, News-Kanäle) zeichnen ein auffällig konsistentes Bild, sobald man die reißerischen Titel beiseiteräumt: viel echte Bewegung, aber noch kein Durchbruch bei Autonomie.
 
@@ -70,6 +70,24 @@ Der ukrainische Digitalisierungsminister **Mykhailo Fedorov**, der die ukrainisc
 **US-Militär:** Das US-Verteidigungsministerium richtet eine eigenständige **Vier-Sterne-Kommandoeinheit für autonome Kriegsführung** ein.
 
 Einordnung zu bisherigen Quellen des Artikels: JH_NRbnbC1s.md (Neue Kampf-Roboter) und KyQK1CEzbu8.md beschreiben hauptsächlich Show-Ligen (URKL) und ferngesteuerte Demos ohne Feldtauglichkeit. Die Ukraine-Meldungen beschreiben bereits erprobte Taktiken mit bodengebundenen Räderrobotern (kein Humanoid), die bei Operation Waldi real eingesetzt wurden — das deckt sich mit dem bisherigen Befund dieses Artikels (Räder-mit-Armen sinnvoller als Zweibein-Humanoide im militärischen Kontext). Pero Mićić (Podcast) bremst beim Zeithorizont: Die sechsmonatige Timeline für Humanoid-Kampferfolg ist ambitioniert, Humanoid-Roboter eignen sich technisch für andere Aufgaben als bodengebundene Kampfroboter.
+
+## Nachtrag 2026-10-17: REK — Kampfrobotik als neue Anwendungskategorie für Humanoide
+
+Quelle: [video-summary-0tbDxmVy1m8.md](video-summaries/video-summary-0tbDxmVy1m8.md) (Everlast AI, Leonard Schmedding, 17. Oktober 2026). **Prüfstatus:** Veranstaltung am 9. Oktober 2026 durch SF Standard (11.10.2026) und weitere Quellen (Dexerto, RuntimeWire) bestätigt; Kampfausgang und -verlauf nicht unabhängig bestätigt.
+
+Am 9. Oktober 2026 veranstaltete das US-amerikanische Start-up **REK** (*Robot Entertainment Combat*) in San Francisco die nach eigener Aussage weltweit ersten öffentlichen Kämpfe zwischen humanoiden Robotern. Schmedding war als Zuschauer vor Ort. Die Kämpfe fanden in drei Runden statt:
+
+- **Runde 1:** Zwei modifizierte Unitree G1-Roboter (chinesisch, 1,32 m, 35 kg) mit Klingenaufsätzen
+- **Runde 2:** Engine AI T800-Roboter (ebenfalls chinesisch)
+- **Hauptkampf:** Ein von REK modifizierter Unitree-Roboter namens *Recktile* (1,88 m, 82 kg, fast 2 m Armspannweite) gegen einen zum *T-Rex* umgebauten T800 — ausgerüstet mit sogenannten *Claw Blades* (Klingengreifer)
+
+Der **Kampfausgang ist nicht öffentlich bestätigt** — keine Nachberichterstattung zum Ergebnis abrufbar.
+
+**Rechtliche Grauzone:** Die *California State Athletic Commission* schickte REK für frühere Mensch-Roboter-Kämpfe (September 2026) ein Cease-and-Desist. REK wich auf reine Roboter-vs.-Roboter-Kämpfe aus. Das Grundproblem: Das Gesetz definiert einen Kampf als Duell *zwischen zwei Personen* — Roboter sind keine Personen, es gibt keine Lizenz für solche Veranstaltungen. REK bewegt sich damit weiter in einem rechtlichen Graubereich; laut Gründer wird man irgendwann aus Kalifornien "rausfliegen".
+
+**Einordnung zu bisherigen Quellen:** [JH_NRbnbC1s](video-summaries/video-summary-JH_NRbnbC1s.md) dokumentiert die chinesische URKL-Kampfroboter-Liga (Engine AI T800, Shenzhen, Juli 2026) als ferngesteuerte Show-Liga ohne Feldtauglichkeit. REK ist das US-amerikanische Pendant: dieselbe Hardware (Unitree G1, Engine AI T800), aber in San Francisco und mit einem anderen Geschäftsmodell — Entertainment-Liga statt Industrie-Demo. Schmeddings Business-These: Entertainment könnte das erste große Geschäftsmodell für humanoide Roboter sein, noch vor Industrie oder Haushalt.
+
+**Kurz erwähnt:** Engine AI T800 taucht in diesem Kontext als neue Konkurrenz zu Unitree auf und ist damit auf dem US-Markt angekommen — bisher vor allem aus China bekannt.
 
 ## Kernbotschaft
 

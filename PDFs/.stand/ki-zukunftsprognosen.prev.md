@@ -1,6 +1,6 @@
 # KI-Zukunftsprognosen im Vergleich: Robotik-Boom vs. physischer Flaschenhals
 
-Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation"), [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md) (Prof. Dr. Oliver Bendel, Maschinenethik/Grundeinkommen, Nachtrag 2026-10-12)
+Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation"), [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md) (Prof. Dr. Oliver Bendel, Maschinenethik/Grundeinkommen, Nachtrag 2026-10-12), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, RSI/Schmidhuber/BMW)
 
 Zwei rund einstündige Einzelinterviews desselben Kanals (Everlast AI, Host Leonard Schmedding) mit fachlich sehr unterschiedlich verankerten Gästen, die zu fast entgegengesetzten Zeithorizont-Einschätzungen kommen. Kein direkter Faktenwiderspruch — beide Prognosen sind in sich stimmig — aber ein aufschlussreicher Kontrast zwischen Investoren-/Trendforschungs-Optimismus und akademisch-ökonomischer Skepsis.
 
@@ -34,6 +34,28 @@ Everlast AI fasst 5 Szenarien der Studie "Future AI–AGI" (Millennium Project, 
 Bendels Prognose zu Jobverlusten ist deutlich moderater als Hutter und Jánszky: Er erwartet selektive Verluste in bestimmten Berufen (Übersetzer, Teile der Büroarbeit), aber keine vollständige Automatisierungswelle in absehbarer Zeit. Begründung: Regelungslücken, fehlende gesellschaftliche Akzeptanz und mangelnde Robustheit aktueller Systeme in unstrukturierten Umgebungen (er nennt das Beispiel Pflegeroboter: technisch bescheiden, gesellschaftlich umstritten). Sein Ein-Drittel-Modell lehnt sich an Frithjof Bergmanns "New Work" an: ein Drittel bezahlte Arbeit, ein Drittel gesellschaftlich sinnvolle Tätigkeit, ein Drittel autonome Freizeitgestaltung. Damit schließt er die im "Zu prüfen"-Vermerk dieses Artikels genannte Lücke: eine eigenständig entwickelte Grundeinkommens-/UBI-Perspektive aus dem Repo.
 
 Für Hardware-Teams relevant: Bendel beschreibt Akzeptanzdesign (ansprechende äußere Form steigert die Bereitschaft, mit einem Roboter zu arbeiten — bestätigt durch mehrere Studien aus seiner Gruppe) und benennt Maschinenethik als praxisrelevante Disziplin: Wer autonome Systeme baut, trifft schon beim Design ethische Entscheidungen über Priorisierungen und Gewichtungen. Details: [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md).
+
+## Nachtrag 2026-10-13: RSI in der Produktion, Schmidhuber bei Sakana, BMW/VW als Realprobe
+
+Quelle: [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Vorsprung-Podcast, Everlast AI, Oktober 2026). **Prüfstatus:** Teilbestätigt — BMW-Zahlen vollständig belegt (Volltext); RSI-Demo teilbestätigt (Suchtreffer); Schmidhuber/Sakana-AI-Angabe nicht unabhängig verifiziert.
+
+### RSI in der Produktion — keine Theorie mehr
+
+OpenAI demonstrierte auf einem internen Event eine frühe Form von **Recursive Self-Improvement (RSI)** in der Praxis: Ein Modell optimiert in einer Schleife seine eigene Computer-Use-Steuerung, generiert dabei Trainingsdaten, und das nachfolgende Modell — trainiert auf diesen selbsterzeugten Daten — läuft **mehr als doppelt so schnell**. Es wurde nach eigener Aussage bereits an alle Nutzer ausgerollt. Das ist kein Laborexperiment, sondern produktiver Betrieb.
+
+Zeitgleich misst eine xAI-Forschungsstudie die Fähigkeit von Modellen, selbständig Forschungsexperimente sinnvoll zu planen und zu bewerten (sog. **„Research Taste"**): Dieser Wert **verdoppelt sich seit Dezember 2025 alle drei Monate** (Pero Mićić im Podcast, bezieht sich auf die xAI-Studie; genaue 3-Monats-Zahl nicht unabhängig verifiziert).
+
+Zum RSI-Thema: **Jürgen Schmidhuber**, einer der Gründungsväter der Idee einer Intelligenz-Explosion durch rekursive Selbstverbesserung, wurde als **Chief Scientific Advisor** für ein neues RSI-Labor bei **Sakana AI** (Tokio) gewonnen. Sakana AI ist dasselbe Labor, das im Repo durch [video-summary-n_lYxc5WUlQ.md](video-summaries/video-summary-n_lYxc5WUlQ.md) bereits vertreten ist (Harness-Selbstverbesserung, +30 Pp. auf SWE-bench).
+
+Geoffrey Hinton: „Die Idee einer Intelligenz-Explosion gibt es schon lange, aber jetzt glauben viele führende Forscher, dass sie bald eintreten könnte." Robert Lange (Sakana AI) bremst: Physikalische Grenzen (GPU-Kapazität, Energie, Infrastruktur) werden die Kurve natürlich dämpfen — aber die Steigung hat deutlich zugenommen.
+
+Einordnung zum bestehenden Artikel: Hutters Zweistufenplan (Büroarbeit in 2–5 Jahren, körperliche Arbeit in 5–10 weiteren Jahren) und Jánszkys AGI-bis-2035-Szenario werden durch diese RSI-Produktionsmeldungen inhaltlich nicht widerlegt, aber gestützt — während Kördings physikalische Flaschenhals-These auf der Energie-/Infrastruktur-Ebene weiterhin Bestand hat.
+
+### BMW und VW: der erste Massentest bei White-Collar-Jobs
+
+Am 30. September 2026 kündigte BMW auf seinem Capital Markets Day an, bis Mitte 2027 jede fünfte Führungsrolle zu streichen: 65 Bereichsleiter direkt unter dem Vorstand, rund 400 weitere Manager, insgesamt **8.000 Stellen**, mehr als die Hälfte davon in Deutschland. Gleichzeitig investiert BMW 200 Millionen Euro in KI-Agenten, die einen Mehrwert von 1,2 Milliarden Euro erzeugen sollen — bei einer Automobilmarge von 2,3 %. VW folgt dem Beispiel. BMW-CFO Walter Mertl nennt KI-Agenten explizit als Begründung. (Per WebSearch/Volltext vollständig bestätigt.)
+
+Was wegfällt: vor allem Koordinationsrollen — Informationsflüsse von unten nach oben, Milestones überwachen, KPIs messen, Reports weiterleiten. Das deckt sich exakt mit Hutters These (Büroarbeit zuerst) und Jánszkys Prognose (Führung als Trust-Building). Die strukturelle Frage, die im Podcast offen bleibt: Wer bildet die nächste Generation aus, wenn Einstiegsstellen wegfallen? Ohne Berufserfahrung fehlt später die Grundlage, um KI selbst sinnvoll einzusetzen.
 
 ## Kernbotschaft
 

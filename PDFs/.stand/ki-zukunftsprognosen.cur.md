@@ -1,6 +1,6 @@
 # KI-Zukunftsprognosen im Vergleich: Robotik-Boom vs. physischer Flaschenhals
 
-Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation"), [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md) (Prof. Dr. Oliver Bendel, Maschinenethik/Grundeinkommen, Nachtrag 2026-10-12), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, RSI/Schmidhuber/BMW)
+Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation"), [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md) (Prof. Dr. Oliver Bendel, Maschinenethik/Grundeinkommen, Nachtrag 2026-10-12), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, RSI/Schmidhuber/BMW), [video-summary-qf4AGtdqons.md](video-summaries/video-summary-qf4AGtdqons.md) (Nachtrag 2026-10-17, Anthropic-Szenarien/Amazon Mechanical Turk/Jobverlust-Belege)
 
 Zwei rund einstündige Einzelinterviews desselben Kanals (Everlast AI, Host Leonard Schmedding) mit fachlich sehr unterschiedlich verankerten Gästen, die zu fast entgegengesetzten Zeithorizont-Einschätzungen kommen. Kein direkter Faktenwiderspruch — beide Prognosen sind in sich stimmig — aber ein aufschlussreicher Kontrast zwischen Investoren-/Trendforschungs-Optimismus und akademisch-ökonomischer Skepsis.
 
@@ -56,6 +56,32 @@ Einordnung zum bestehenden Artikel: Hutters Zweistufenplan (Büroarbeit in 2–5
 Am 30. September 2026 kündigte BMW auf seinem Capital Markets Day an, bis Mitte 2027 jede fünfte Führungsrolle zu streichen: 65 Bereichsleiter direkt unter dem Vorstand, rund 400 weitere Manager, insgesamt **8.000 Stellen**, mehr als die Hälfte davon in Deutschland. Gleichzeitig investiert BMW 200 Millionen Euro in KI-Agenten, die einen Mehrwert von 1,2 Milliarden Euro erzeugen sollen — bei einer Automobilmarge von 2,3 %. VW folgt dem Beispiel. BMW-CFO Walter Mertl nennt KI-Agenten explizit als Begründung. (Per WebSearch/Volltext vollständig bestätigt.)
 
 Was wegfällt: vor allem Koordinationsrollen — Informationsflüsse von unten nach oben, Milestones überwachen, KPIs messen, Reports weiterleiten. Das deckt sich exakt mit Hutters These (Büroarbeit zuerst) und Jánszkys Prognose (Führung als Trust-Building). Die strukturelle Frage, die im Podcast offen bleibt: Wer bildet die nächste Generation aus, wenn Einstiegsstellen wegfallen? Ohne Berufserfahrung fehlt später die Grundlage, um KI selbst sinnvoll einzusetzen.
+
+## Nachtrag 2026-10-17: Anthropic-Szenarien-Paper, Amazon Mechanical Turk und aktuelle Jobverlust-Belege (qf4AGtdqons)
+
+Quelle: [video-summary-qf4AGtdqons.md](video-summaries/video-summary-qf4AGtdqons.md) (Everlast AI, Interview mit Leonard Martin Schmedding, 17. Oktober 2026). **Prüfstatus:** Anthropic-Paper bestätigt (Suchtreffer); Amazon-Mechanical-Turk-Datum bestätigt (Suchtreffer); Fiverr-Zahlen leicht korrigiert gegenüber Video (tatsächlich 74,7→63,1 Mio., nicht 75→65 Mio.).
+
+### Anthropic-Szenarien-Paper (September 2026)
+
+Anthropic veröffentlichte im September 2026 ein Policy-Paper ("Economic Scenarios for Transformative AI", Korinek et al.) mit drei explizit als *Szenarien* (nicht Prognosen) bezeichneten Zukunftsbildern:
+
+| Szenario | Jobverlust kognitive Beschäftigte | Beschreibung |
+|---|---|---|
+| Complementarity | ~0,5 % | KI ergänzt Menschen — produktiver, aber keine Massenentlassung |
+| Partial Automation | ~3,9 % | Hälfte der Arbeitnehmer muss sich umschulen |
+| Full Cognitive Automation | ~17,9 % | Dauerhafte Jobverluste bei kognitiven Berufen |
+
+**Wichtige Einschränkung:** Schmedding präsentiert im Video nur das Extremszenario (17,9 %) als "Prognose von Anthropic". Das Paper selbst bezeichnet alle drei ausdrücklich als *Szenarien* — explizit keine Prognosen. Die anderen beiden Szenarien (0,5 % und 3,9 %) werden im Video nicht erwähnt. Die Zahl ist also real, aber aus dem Kontext gerissen.
+
+Einordnung zu bestehenden Quellen dieses Artikels: Marcus Hutter ([b8SU4cqAWTk](video-summaries/video-summary-b8SU4cqAWTk.md)) geht von viel weitgehenderen Auswirkungen aus (massive Arbeitslosigkeit innerhalb von 10–20 Jahren). Das Anthropic-Extremszenario liegt strukturell näher an Hutters These, das mittlere Szenario an Kördings vorsichtigerem Ausblick. Kein direkter Widerspruch zwischen diesen Quellen, aber unterschiedliche Zeithorizonte.
+
+### Amazon Mechanical Turk: Ende der menschlichen Mikro-Tasks (30. September 2026)
+
+Amazon stellte seinen 2005 gegründeten Dienst *Amazon Mechanical Turk* (MTurk) am 30. September 2026 nach 21 Jahren ein. MTurk war eine Plattform, auf der Millionen Menschen weltweit kleine, repetitive kognitive Aufgaben gegen Kleinstbeträge erledigten — Bildbeschriftungen, Textbewertungen, Datenkategorisierungen. Diese Aufgaben werden heute überwiegend von KI-Systemen erledigt oder sind als eigenständiger Markt schlicht nicht mehr gefragt.
+
+Der Zeitpunkt gilt als symbolischer Wendepunkt: Die Arbeit, für die MTurk gebaut wurde, existiert als Massenmarkt für Menschen in dieser Form nicht mehr. Ähnliches zeigt sich auf anderen Plattformen: Fiverr verlor im selben Quartal erheblich an Umsatz (Marketplace Revenue Q2 2026: ~63 Mio. USD, nach ~75 Mio. in der Hochphase); CEO Micha Kaufman erkannte KI explizit als Hauptursache an.
+
+Diese Daten ergänzen die bestehenden Prognosen des Artikels um *tatsächlich eingetretene* Marktveränderungen — kein Szenario, sondern Gegenwart.
 
 ## Kernbotschaft
 

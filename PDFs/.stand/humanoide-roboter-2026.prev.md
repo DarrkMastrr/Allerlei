@@ -1,6 +1,6 @@
 # Humanoide Roboter 2026 — Hype vs. Realität
 
-Quellen: [video-summary-8cMP_A6Tkus.md](video-summaries/video-summary-8cMP_A6Tkus.md) ("Humanoide Roboter 2026: Wer wirklich vorne liegt"), [video-summary-AktS_a6Ru7E.md](video-summaries/video-summary-AktS_a6Ru7E.md) ("Optimus wird KRACHEND scheitern"), [video-summary-CU-JH9kzd8Y.md](video-summaries/video-summary-CU-JH9kzd8Y.md) ("Dieser Roboter ist ZU MENSCHLICH"), [video-summary-KyQK1CEzbu8.md](video-summaries/video-summary-KyQK1CEzbu8.md) ("Humanoide Roboter in Polizei & Militär: Hype vs. Realität?"), [video-summary-QYApnVSDJs0.md](video-summaries/video-summary-QYApnVSDJs0.md) ("Vergiss ChatGPT, DAS ist die wahre Revolution"), [video-summary-RWDsx8KxtX8.md](video-summaries/video-summary-RWDsx8KxtX8.md) ("Humanoide Roboter LIVE in China"), [video-summary-mtFsQeyeADc.md](video-summaries/video-summary-mtFsQeyeADc.md) ("Everyone is looking at the robots. I'm looking at something else"), [video-summary-JH_NRbnbC1s.md](video-summaries/video-summary-JH_NRbnbC1s.md) ("Neue Kampf-Roboter"), [video-summary-kMuT8Uc7q6U.md](video-summaries/video-summary-kMuT8Uc7q6U.md) ("Chinas Roboter drehen frei"), [video-summary-05_3LMLSQb4.md](video-summaries/video-summary-05_3LMLSQb4.md) (Nachtrag 2026-10-12, Dr. Drescher FLAIR)
+Quellen: [video-summary-8cMP_A6Tkus.md](video-summaries/video-summary-8cMP_A6Tkus.md) ("Humanoide Roboter 2026: Wer wirklich vorne liegt"), [video-summary-AktS_a6Ru7E.md](video-summaries/video-summary-AktS_a6Ru7E.md) ("Optimus wird KRACHEND scheitern"), [video-summary-CU-JH9kzd8Y.md](video-summaries/video-summary-CU-JH9kzd8Y.md) ("Dieser Roboter ist ZU MENSCHLICH"), [video-summary-KyQK1CEzbu8.md](video-summaries/video-summary-KyQK1CEzbu8.md) ("Humanoide Roboter in Polizei & Militär: Hype vs. Realität?"), [video-summary-QYApnVSDJs0.md](video-summaries/video-summary-QYApnVSDJs0.md) ("Vergiss ChatGPT, DAS ist die wahre Revolution"), [video-summary-RWDsx8KxtX8.md](video-summaries/video-summary-RWDsx8KxtX8.md) ("Humanoide Roboter LIVE in China"), [video-summary-mtFsQeyeADc.md](video-summaries/video-summary-mtFsQeyeADc.md) ("Everyone is looking at the robots. I'm looking at something else"), [video-summary-JH_NRbnbC1s.md](video-summaries/video-summary-JH_NRbnbC1s.md) ("Neue Kampf-Roboter"), [video-summary-kMuT8Uc7q6U.md](video-summaries/video-summary-kMuT8Uc7q6U.md) ("Chinas Roboter drehen frei"), [video-summary-05_3LMLSQb4.md](video-summaries/video-summary-05_3LMLSQb4.md) (Nachtrag 2026-10-12, Dr. Drescher FLAIR), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, Ukraine/Roboterarmee)
 
 Neun Videos aus unterschiedlichsten Quellen (Fachwissenschaftler, Industrie-Praktiker, News-Kanäle) zeichnen ein auffällig konsistentes Bild, sobald man die reißerischen Titel beiseiteräumt: viel echte Bewegung, aber noch kein Durchbruch bei Autonomie.
 
@@ -53,6 +53,23 @@ CU-JH9kzd8Y beschreibt mit Robonovas Eva.i ein real per Kickstarter finanziertes
 **Assembly Sequence Planning als KI-Anwendung:** FLAIRs aktuelles Hauptprojekt liest CAD-Dateien und leitet daraus Montagereihenfolge, Kollisionspfade und optimale Greifsequenzen ab — ein Bereich, der in den anderen Quellen dieses Artikels nicht vorkommt.
 
 **Fünf chinesische Hersteller, nicht drei:** Das Video nennt Unitree (Bewegung), UBTECH (Industrie), AGIBOT (Logistik), Spirit AI (KI-Modell-Fokus, Unitree-Konkurrent) und Paxini (taktile Roboterhände) — ein detaillierteres Bild als die häufig auf "Unitree vs. Figure" verkürzte Berichterstattung. Der ungelöste Flaschenhals bleibt auch hier die Feinmotorik: Drescher sieht Montage als noch offene Forschungsfrage ohne Zeitrahmen.
+
+## Nachtrag 2026-10-13: Ukraine „Roboterarmee" und US-Militär — KI-Kriegsführung beschleunigt sich
+
+Quelle: [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Vorsprung-Podcast, Everlast AI, Oktober 2026). **Prüfstatus:** Teils unabhängig verifiziert (BMW-Daten; Fedorovs Drohnen-Zahlen plausibel); Zeitrahmen für Roboter-Kampferfolge sind politische Ankündigungen, keine verifizierten Fakten.
+
+Der ukrainische Digitalisierungsminister **Mykhailo Fedorov**, der die ukrainische Drohnenarmee aufgebaut hat (über 700 Hersteller, mehr als 95 % aller Treffer durch Drohnen), kündigt das **„Army of Robots"-Programm** an:
+
+- In **sechs Monaten**: erster bestätigter Kampferfolg eines Humanoid-Roboters erwartet
+- In **zwölf Monaten**: erste vollständig ohne Infanterie gestürmte Stellung erwartet
+- Erster Investor: Palantir-Chef **Alex Karp**
+- Fedorovs Antwort auf ethische Bedenken: „Ein Land im Kampf ums Überleben hat dafür keine Zeit."
+
+**Bereits umgesetzt — Operation „Waldi":** Ukrainische Kampfroboter (Räderplattformen mit Maschinengewehren) wurden mit Drohnendeckung kombiniert, um russische Stellungen von zwei Seiten gleichzeitig unter Feuer zu nehmen. Das ist keine Ankündigung, sondern ein dokumentierter Einsatz.
+
+**US-Militär:** Das US-Verteidigungsministerium richtet eine eigenständige **Vier-Sterne-Kommandoeinheit für autonome Kriegsführung** ein.
+
+Einordnung zu bisherigen Quellen des Artikels: JH_NRbnbC1s.md (Neue Kampf-Roboter) und KyQK1CEzbu8.md beschreiben hauptsächlich Show-Ligen (URKL) und ferngesteuerte Demos ohne Feldtauglichkeit. Die Ukraine-Meldungen beschreiben bereits erprobte Taktiken mit bodengebundenen Räderrobotern (kein Humanoid), die bei Operation Waldi real eingesetzt wurden — das deckt sich mit dem bisherigen Befund dieses Artikels (Räder-mit-Armen sinnvoller als Zweibein-Humanoide im militärischen Kontext). Pero Mićić (Podcast) bremst beim Zeithorizont: Die sechsmonatige Timeline für Humanoid-Kampferfolg ist ambitioniert, Humanoid-Roboter eignen sich technisch für andere Aufgaben als bodengebundene Kampfroboter.
 
 ## Kernbotschaft
 

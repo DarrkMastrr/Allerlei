@@ -1,3 +1,21 @@
+PDF-Generierung: 2026-10-24 00:20
+
+Neu erzeugt (9):
+  - video-summaries/video-summary-14A-Q0wKdv0.md
+  - video-summaries/video-summary-tGRB8ECyEJ0.md
+  - video-summaries/video-summary-5pc-GWI9k1Q.md
+  - video-summaries/video-summary-IDMoKG6D_S4.md
+  - video-summaries/video-summary-rOo0wUpbVAY.md
+  - video-summaries/video-summary-AdQQXU3E_mA.md
+  - video-summaries/video-summary-v_USOf1fSYM.md
+  - video-summaries/video-summary-iVxubkOM4gA.md
+  - video-summaries/video-summary-eUr9ZgrYhts.md
+
+Aktualisiert (0):
+  (keine)
+
+---
+
 PDF-Generierung: 2026-10-18 10:45
 
 Neu erzeugt (0):
@@ -8,17 +26,3 @@ Aktualisiert (4):
   - humanoide-roboter-2026.md
   - ki-modellvergleich-kosten.md
   - ki-zukunftsprognosen.md
-
----
-
-PDF-Generierung: 2026-10-17 22:04
-
-Neu erzeugt (5):
-  - video-summaries/video-summary-o4QbZf_2DK4.md
-  - video-summaries/video-summary-eDCd4UJParE.md
-  - video-summaries/video-summary-8rLrQFRkrgE.md
-  - video-summaries/video-summary-0tbDxmVy1m8.md
-  - video-summaries/video-summary-qf4AGtdqons.md
-
-Aktualisiert (0):
-  (keine)

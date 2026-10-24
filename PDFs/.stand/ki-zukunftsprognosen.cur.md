@@ -1,6 +1,6 @@
 # KI-Zukunftsprognosen im Vergleich: Robotik-Boom vs. physischer Flaschenhals
 
-Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation"), [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md) (Prof. Dr. Oliver Bendel, Maschinenethik/Grundeinkommen, Nachtrag 2026-10-12), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, RSI/Schmidhuber/BMW), [video-summary-qf4AGtdqons.md](video-summaries/video-summary-qf4AGtdqons.md) (Nachtrag 2026-10-17, Anthropic-Szenarien/Amazon Mechanical Turk/Jobverlust-Belege)
+Quellen: [video-summary-b8SU4cqAWTk.md](video-summaries/video-summary-b8SU4cqAWTk.md) (Marcus Hutter, "Job-Less Utopia", Nachtrag 2026-10-03), [video-summary-JtcLy_YRFs0.md](video-summaries/video-summary-JtcLy_YRFs0.md) (Zukunftsforscher Sven Gábor Jánszky, "2035: Die Zukunft beginnt heute"), [video-summary-lqwJza-EBiY.md](video-summaries/video-summary-lqwJza-EBiY.md) (Neurowissenschaftler Konrad Körding, "Intelligence Saturation"), [video-summary-7uSH7R5bM9g.md](video-summaries/video-summary-7uSH7R5bM9g.md) (Prof. Dr. Oliver Bendel, Maschinenethik/Grundeinkommen, Nachtrag 2026-10-12), [video-summary-U7OUacSjohw.md](video-summaries/video-summary-U7OUacSjohw.md) (Nachtrag 2026-10-13, RSI/Schmidhuber/BMW), [video-summary-qf4AGtdqons.md](video-summaries/video-summary-qf4AGtdqons.md) (Nachtrag 2026-10-17, Anthropic-Szenarien/Amazon Mechanical Turk/Jobverlust-Belege), [video-summary-14A-Q0wKdv0.md](video-summaries/video-summary-14A-Q0wKdv0.md) (Nachtrag 2026-10-24, MITRE/OSWorld/Indeed)
 
 Zwei rund einstündige Einzelinterviews desselben Kanals (Everlast AI, Host Leonard Schmedding) mit fachlich sehr unterschiedlich verankerten Gästen, die zu fast entgegengesetzten Zeithorizont-Einschätzungen kommen. Kein direkter Faktenwiderspruch — beide Prognosen sind in sich stimmig — aber ein aufschlussreicher Kontrast zwischen Investoren-/Trendforschungs-Optimismus und akademisch-ökonomischer Skepsis.
 
@@ -82,6 +82,30 @@ Amazon stellte seinen 2005 gegründeten Dienst *Amazon Mechanical Turk* (MTurk) 
 Der Zeitpunkt gilt als symbolischer Wendepunkt: Die Arbeit, für die MTurk gebaut wurde, existiert als Massenmarkt für Menschen in dieser Form nicht mehr. Ähnliches zeigt sich auf anderen Plattformen: Fiverr verlor im selben Quartal erheblich an Umsatz (Marketplace Revenue Q2 2026: ~63 Mio. USD, nach ~75 Mio. in der Hochphase); CEO Micha Kaufman erkannte KI explizit als Hauptursache an.
 
 Diese Daten ergänzen die bestehenden Prognosen des Artikels um *tatsächlich eingetretene* Marktveränderungen — kein Szenario, sondern Gegenwart.
+
+## Nachtrag 2026-10-24: Messdaten 2026 — MITRE, OSWorld, Indeed und Machtkonzentration (14A-Q0wKdv0)
+
+Quelle: [video-summary-14A-Q0wKdv0.md](video-summaries/video-summary-14A-Q0wKdv0.md) ("Was bis 2030 passiert, wenn KI so weitermacht", Tiefblick, 10 Min). **Prüfstatus:** MITRE-, OSWorld- und Indeed-Zahlen per WebSearch teilbestätigt; Stanford-19-%-Zahl aus Stanford HAI-Bericht (Suchtreffer); Waymo-Zahl bestätigt.
+
+Dieses kurze Video liefert den bisher dichtesten Satz aktueller Messdaten im Repo-Corpus — keine Szenarien, sondern konkrete Benchmarks und Marktdaten aus dem Jahr 2026:
+
+**Autonomes Arbeiten — MITRE (Juni 2026):** KI-Agenten lösten eine anspruchsvolle Aufgabe **11 Stunden lang vollständig autonom**. MITRE ist eine gemeinnützige US-Forschungsorganisation, die unter anderem für das Pentagon und Geheimdienste arbeitet; ihre Benchmarks gelten als besonders praxisrelevant.
+
+**Computersteuerung — OSWorld (2026):** KI-Agenten führten Computeraufgaben in echten Betriebssystemumgebungen mit einer Erfolgsrate von **über 85 %** durch. OSWorld ist ein Benchmark für realistische Desktop-Aufgaben (kein Laborsetting). Noch 2024 lagen die besten Modelle bei unter 20 %.
+
+**Jobmarkt — Indeed-Daten (Deutschland):** Stellenanzeigen für Einsteigerpositionen lagen 2026 rund **46 % unter dem Niveau von 2019**. Indeed ist die größte Jobsuchmaschine weltweit; das ist kein Modell, sondern Marktdaten. Einordnung: Dies ist kein allgemeiner Abschwung — reguläre Stellen sind nicht so stark eingebrochen.
+
+**Beschäftigungslücke — Stanford HAI 2026:** 19 % der Beschäftigten in stark exponierten Berufen berichten, tatsächlich weniger zu arbeiten — aber (noch) nicht entlassen zu sein. Beschäftigungslücke vor Entlassungswelle.
+
+**Automobil und Logistik — Übergangspunkte:**
+- Figure/BMW: KI-gesteuerte Roboter produzierten bereits **90.000 Teile** pro Jahr für BMW.
+- Waymo: **500.000 vollständig autonome Fahrten pro Woche** (Oktober 2026).
+- Autonome Lkw: Marktdurchbruch laut Prognose im Video für **2027**.
+- **97 % aller humanoiden Roboter weltweit** werden in China produziert.
+
+**Machtkonzentrations-These:** Das Video stellt eine Frage, die in den bisherigen Prognose-Quellen dieses Artikels fehlt: "Wie viele Menschen müssen noch Ja sagen?" Mit anderen Worten — je mehr Entscheidungen an KI-Agenten delegiert werden, desto mehr Macht konzentriert sich bei denen, die diese Agenten kontrollieren. Kein Faktenwiderspruch zu Jánszky, Körding oder Hutter — aber eine neue Analysedimension: nicht nur *wie schnell*, sondern *wer dann entscheidet*.
+
+Einordnung: Die MITRE-11h- und OSWorld-85-%-Zahlen liegen deutlich über dem, was in früheren Quellen (z. B. die Anthropic-Szenarien-Paper) noch als Grenzwert für praktisch relevante Autonomie galt. Kördings physischer Flaschenhals (Hardware skaliert langsam) bleibt gültig — aber der Software-Anteil der Autonomielücke ist offenbar schneller geschlossen worden als erwartet.
 
 ## Kernbotschaft
 

@@ -1,6 +1,6 @@
 # KI-Modellvergleich & -kosten (2026)
 
-Quellen: [video-summary-G3Ed-J_DE5s.md](video-summaries/video-summary-G3Ed-J_DE5s.md) ("ChatGPT vs. Claude vs. Gemini - Welcher €20 Plan lohnt sich wirklich?"), [video-summary-OUIxlLG8yO0.md](video-summaries/video-summary-OUIxlLG8yO0.md) ("Was kostet KI im Büro wirklich?"), [video-summary-cse3QV90YpE.md](video-summaries/video-summary-cse3QV90YpE.md) ("Gemini 3.8, Fable 5.1, ChatGPT Astra Leak"), [video-summary-zNuynCOm5Mc.md](video-summaries/video-summary-zNuynCOm5Mc.md) ("Welche KI in 2026?"), [video-summary-1ID_VcwzIo8.md](video-summaries/video-summary-1ID_VcwzIo8.md) (OpenAI DevDay 2026, Nachtrag 2026-10-12)
+Quellen: [video-summary-G3Ed-J_DE5s.md](video-summaries/video-summary-G3Ed-J_DE5s.md) ("ChatGPT vs. Claude vs. Gemini - Welcher €20 Plan lohnt sich wirklich?"), [video-summary-OUIxlLG8yO0.md](video-summaries/video-summary-OUIxlLG8yO0.md) ("Was kostet KI im Büro wirklich?"), [video-summary-cse3QV90YpE.md](video-summaries/video-summary-cse3QV90YpE.md) ("Gemini 3.8, Fable 5.1, ChatGPT Astra Leak"), [video-summary-zNuynCOm5Mc.md](video-summaries/video-summary-zNuynCOm5Mc.md) ("Welche KI in 2026?"), [video-summary-1ID_VcwzIo8.md](video-summaries/video-summary-1ID_VcwzIo8.md) (OpenAI DevDay 2026, Nachtrag 2026-10-12), [video-summary-eDCd4UJParE.md](video-summaries/video-summary-eDCd4UJParE.md) (Meta Muse Wonder Full/Standard, Nachtrag 2026-10-17)
 
 ## Kein Universalsieger bei den Consumer-Abos
 
@@ -64,6 +64,26 @@ Verbesserungsrate laut Andon Labs: ~822 $/Monat (Top-Modelle), >1.000 $/Monat (c
 ## OpenAI DevDay 2026: GPT-6.1 Sol als günstigere Spitzenklasse (1ID_VcwzIo8, Nachtrag 2026-10-12)
 
 [1ID_VcwzIo8](video-summaries/video-summary-1ID_VcwzIo8.md) ("Das neue ChatGPT ist da: Alle 20+ Updates") bringt Preiszahlen aus dem OpenAI DevDay vom 29.09.2026: **GPT-6.1 Sol** kostet $2/$10 pro Million Token (Input/Output) — ein Fünftel des Preises von **GPT-6 Astra** ($10/$50). Damit bietet OpenAI erstmals ein qualitativ hochwertiges Modell deutlich unterhalb von Claude Sonnet 5.5 an, was laut Video zur direkten Wettbewerbsreaktion auf Meta Muse und Grok-Angebote entstand. Weitere kostensenkende Ankündigungen: "Ultra Fast"-Modus (doppelte Geschwindigkeit, gleicher Preis) und Computer-Use-Erweiterung auf 8–16 Stunden autonome Aufgaben (vorher max. 15 Minuten). Preisangaben durch externe Quellen bestätigt (**Suchtreffer**).
+
+## Nachtrag 2026-10-17: Meta Muse Wonder Full/Standard als neue Frontier-Konkurrenz (eDCd4UJParE)
+
+Quelle: [video-summary-eDCd4UJParE.md](video-summaries/video-summary-eDCd4UJParE.md) (Everlast AI, 12. Oktober 2026). **Prüfstatus:** Benchmarkzahlen durch mehrere Sekundärquellen bestätigt (Suchtreffer); SWE-Marathon-Werte aus Metas eigenem Bericht, nicht unabhängig verifiziert.
+
+Meta veröffentlichte am 12. Oktober 2026 zwei Modelle unter dem Namen **Muse Wonder**:
+
+- **Muse Wonder Full** (kein API-Zugang): 56 Punkte auf dem *Artificial Analysis Intelligence Index* — gleichauf mit Claude Sonnet 5.5, knapp unter Claude Opus 5.5 (58). API-Preis entspricht dem von Opus 5.5 ($4/$20 pro Mio. Token Input/Output).
+- **Muse Wonder Standard**: 52 Punkte — gleichauf mit GPT-6.1. API-Preis: ebenfalls $4/$20 pro Mio. Token.
+
+| Benchmark | Wonder Full | Wonder Standard | Claude Opus 5.5 | GPT-6 Astra |
+|---|---|---|---|---|
+| Artificial Analysis Index | 56 | 52 | 58 | ~53 |
+| SWE-Marathon (lang. Coding) | 42,5 % | – | ~3 % | ~5 % |
+| DeepSWE (113 Tasks) | 79 % | 78,8 % | ~74 % | ~74 % |
+| Halluzination (unsichere Fragen) | 23 % | – | 59 % | 51 % |
+
+**Preisstrategie:** Standard Wonder kostet denselben API-Preis wie Opus 5.5 ($4/$20), liefert aber in manchen Benchmarks (besonders langer Code, Recht, Finanzen) vergleichbare oder bessere Ergebnisse. Praxistest: Muse Code (Standard Wonder) brauchte 3:42 min für ein programmierprojekt; Claude Code (Opus 5.5) 11:40 min.
+
+**Einordnung:** Wonder Full ist nicht per API verfügbar und hat kein öffentliches Datum. Wonder Standard ist der direkte GPT-6.1-Sol-Konkurrent. Beide Modelle stammen aus dem Muse-Team unter Alexander Wang (ehemals Scale AI, seit Juni 2025 Metas Chief AI Officer), das mit 14,3 Mrd. USD aufgebaut wurde.
 
 ## Kernbotschaft
 

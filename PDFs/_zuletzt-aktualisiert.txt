@@ -1,3 +1,18 @@
+PDF-Generierung: 2026-10-24 09:36
+
+Neu erzeugt (0):
+  (keine)
+
+Aktualisiert (6):
+  - china-ki-macht.md
+  - openai-krise-ki-blase.md
+  - claude-oekosystem-ueberblick.md
+  - ki-modellvergleich-kosten.md
+  - ki-zukunftsprognosen.md
+  - humanoide-roboter-2026.md
+
+---
+
 PDF-Generierung: 2026-10-24 00:20
 
 Neu erzeugt (9):
@@ -13,16 +28,3 @@ Neu erzeugt (9):
 
 Aktualisiert (0):
   (keine)
-
----
-
-PDF-Generierung: 2026-10-18 10:45
-
-Neu erzeugt (0):
-  (keine)
-
-Aktualisiert (4):
-  - ki-sicherheitsvorfaelle-sandbox-escapes.md
-  - humanoide-roboter-2026.md
-  - ki-modellvergleich-kosten.md
-  - ki-zukunftsprognosen.md
